@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEM &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TWP" href="twp.html" />
+    <link rel="prev" title="MAS" href="mas.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mas.html">MAS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GEM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.gem.nodes">Node-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMMinibatchTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMMinibatchTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMMinibatchTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMMinibatchTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMMinibatchTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCClassILGEMTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCDomainILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">NCDomainILGEMTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">NCTaskILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCTaskILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">NCTaskILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.inference"><code class="docutils literal notranslate"><span class="pre">NCTaskILGEMTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCTaskILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCTaskILGEMTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.nodes.NCTimeILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">NCTimeILGEMTrainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.gem.links">Link-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.links.LCClassILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">LCClassILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">LCClassILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">LCClassILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LCClassILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LCClassILGEMTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.inference"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.prepareLoader"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer.prepareLoader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LCTaskILGEMTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer.processBeforeTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.processEvalIteration"><code class="docutils literal notranslate"><span class="pre">LCTimeILGEMTrainer.processEvalIteration()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.links.LPDomainILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">LPDomainILGEMTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">LPTimeILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LPTimeILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LPTimeILGEMTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">LPTimeILGEMTrainer.processBeforeTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processTrainIteration"><code class="docutils literal notranslate"><span class="pre">LPTimeILGEMTrainer.processTrainIteration()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.gem.graphs">Graph-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">GCClassILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">GCClassILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">GCClassILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">GCClassILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">GCClassILGEMTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">GCClassILGEMTrainer.processBeforeTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCDomainILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">GCDomainILGEMTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.inference"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">GCTaskILGEMTrainer.processBeforeTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.gem.graphs.GCTimeILGEMTrainer"><code class="docutils literal notranslate"><span class="pre">GCTimeILGEMTrainer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GEM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/050/gem.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gem">
+<h1>GEM<a class="headerlink" href="#gem" title="Permalink to this heading"></a></h1>
+<p>Gradient Episodic Memory (GEM) is a replay-based continual learning method which stores data from previous tasks and prevents the increase of losses on them while learning a new task.
+For the details, see the <a class="reference external" href="https://arxiv.org/pdf/1706.08840.pdf">original paper</a>.</p>
+<section id="module-begin.algorithms.gem.nodes">
+<span id="node-level-problems"></span><h2>Node-level Problems<a class="headerlink" href="#module-begin.algorithms.gem.nodes" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILGEMMinibatchTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMMinibatchTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMMinibatchTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMMinibatchTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMMinibatchTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMMinibatchTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.beforeInference" title="begin.algorithms.gem.nodes.NCClassILGEMMinibatchTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCClassILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCClassILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.nodes.NCClassILGEMTrainer.beforeInference" title="begin.algorithms.gem.nodes.NCClassILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCDomainILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCDomainILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCDomainILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCDomainILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCClassILGEMTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTaskILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTaskILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTaskILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTaskILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTaskILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTaskILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTaskILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTaskILGEMTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTaskILGEMTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTaskILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTaskILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTaskILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTaskILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.nodes.NCTaskILGEMTrainer.beforeInference" title="begin.algorithms.gem.nodes.NCTaskILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.nodes.NCTimeILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTimeILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/nodes.html#NCTimeILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.nodes.NCTimeILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCClassILGEMTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="module-begin.algorithms.gem.links">
+<span id="link-level-problems"></span><h2>Link-level Problems<a class="headerlink" href="#module-begin.algorithms.gem.links" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCClassILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCClassILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCClassILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCClassILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCClassILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCClassILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCClassILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCClassILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>”
+The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCClassILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCClassILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCClassILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCClassILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.links.LCClassILGEMTrainer.beforeInference" title="begin.algorithms.gem.links.LCClassILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCTaskILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer.prepareLoader">
+<span class="sig-name descname"><span class="pre">prepareLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer.prepareLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.prepareLoader" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to generate dataloaders from the given dataset for the current task.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing three dataloaders.
+The trainer considers the first dataloader, second dataloader, and third dataloader
+as dataloaders for training, validation, and test, respectively.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTaskILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTaskILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.links.LCTaskILGEMTrainer.beforeInference" title="begin.algorithms.gem.links.LCTaskILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCTimeILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.beforeInference" title="begin.algorithms.gem.links.LCTimeILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>We need to extend the base function since the output format is slightly different from the base trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LCTimeILGEMTrainer.processEvalIteration">
+<span class="sig-name descname"><span class="pre">processEvalIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LCTimeILGEMTrainer.processEvalIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LCTimeILGEMTrainer.processEvalIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every evaluation iteration.</p>
+<p>We need to extend the function since the output format is slightly different from the base trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the evaluation iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LPDomainILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LPDomainILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LPDomainILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LPDomainILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>LPTimeILGEMTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LPTimeILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LPTimeILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LPTimeILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LPTimeILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LPTimeILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LPTimeILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LPTimeILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code> (or <a class="reference internal" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processTrainIteration" title="begin.algorithms.gem.links.LPTimeILGEMTrainer.processTrainIteration"><code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code></a>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LPTimeILGEMTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LPTimeILGEMTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>GEM performs initialization (for every task) to manage the memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.links.LPTimeILGEMTrainer.processTrainIteration">
+<span class="sig-name descname"><span class="pre">processTrainIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/links.html#LPTimeILGEMTrainer.processTrainIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.links.LPTimeILGEMTrainer.processTrainIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every training iteration.</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.
+Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the training iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-begin.algorithms.gem.graphs">
+<span id="graph-level-problems"></span><h2>Graph-level Problems<a class="headerlink" href="#module-begin.algorithms.gem.graphs" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCClassILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCClassILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCClassILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCClassILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCClassILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCClassILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCClassILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCClassILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCClassILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCClassILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCClassILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.beforeInference" title="begin.algorithms.gem.graphs.GCClassILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCClassILGEMTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCClassILGEMTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCClassILGEMTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>GEM performs initialization (for every task) to manage the memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCDomainILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCDomainILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCDomainILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCDomainILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>GCClassILGEMTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCTaskILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>Using the computed gradients from the samples, GEM controls the gradients for the current task with quadratic programming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>GEM computes the gradients for the previous tasks using the sampled data stored in the memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>GEM samples the instances in the training dataset for computing gradients in <a class="reference internal" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.beforeInference" title="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.beforeInference"><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code></a> (or <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>) for the future tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTaskILGEMTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTaskILGEMTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTaskILGEMTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>GEM performs initialization (for every task) to manage the memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.gem.graphs.GCTimeILGEMTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCTimeILGEMTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/gem/graphs.html#GCTimeILGEMTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.gem.graphs.GCTimeILGEMTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>GCClassILGEMTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mas.html" class="btn btn-neutral float-left" title="MAS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="twp.html" class="btn btn-neutral float-right" title="TWP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

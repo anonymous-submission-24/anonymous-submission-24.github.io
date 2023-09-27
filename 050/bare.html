@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bare Model &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LwF" href="lwf.html" />
+    <link rel="prev" title="Graph-level problems" href="../040/graph.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bare Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.bare.nodes">Node-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.nodes.NCClassILBareMinibatchTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILBareMinibatchTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.nodes.NCClassILBareTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.nodes.NCDomainILBareTrainer"><code class="docutils literal notranslate"><span class="pre">NCDomainILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.nodes.NCTaskILBareTrainer"><code class="docutils literal notranslate"><span class="pre">NCTaskILBareTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.bare.nodes.NCTaskILBareTrainer.inference"><code class="docutils literal notranslate"><span class="pre">NCTaskILBareTrainer.inference()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.nodes.NCTimeILBareTrainer"><code class="docutils literal notranslate"><span class="pre">NCTimeILBareTrainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.bare.links">Link-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.links.LCClassILBareTrainer"><code class="docutils literal notranslate"><span class="pre">LCClassILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.links.LCTaskILBareTrainer"><code class="docutils literal notranslate"><span class="pre">LCTaskILBareTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.bare.links.LCTaskILBareTrainer.inference"><code class="docutils literal notranslate"><span class="pre">LCTaskILBareTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.bare.links.LCTaskILBareTrainer.prepareLoader"><code class="docutils literal notranslate"><span class="pre">LCTaskILBareTrainer.prepareLoader()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.links.LCTimeILBareTrainer"><code class="docutils literal notranslate"><span class="pre">LCTimeILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.links.LPDomainILBareTrainer"><code class="docutils literal notranslate"><span class="pre">LPDomainILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.links.LPTimeILBareTrainer"><code class="docutils literal notranslate"><span class="pre">LPTimeILBareTrainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.bare.graphs">Graph-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.graphs.GCClassILBareTrainer"><code class="docutils literal notranslate"><span class="pre">GCClassILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.graphs.GCDomainILBareTrainer"><code class="docutils literal notranslate"><span class="pre">GCDomainILBareTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.graphs.GCTaskILBareTrainer"><code class="docutils literal notranslate"><span class="pre">GCTaskILBareTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.bare.graphs.GCTaskILBareTrainer.inference"><code class="docutils literal notranslate"><span class="pre">GCTaskILBareTrainer.inference()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.bare.graphs.GCTimeILBareTrainer"><code class="docutils literal notranslate"><span class="pre">GCTimeILBareTrainer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bare Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/050/bare.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bare-model">
+<h1>Bare Model<a class="headerlink" href="#bare-model" title="Permalink to this heading"></a></h1>
+<p>The Bare model follows the incremental learning schemes, but no CL technique is applied to the model.</p>
+<section id="module-begin.algorithms.bare.nodes">
+<span id="node-level-problems"></span><h2>Node-level Problems<a class="headerlink" href="#module-begin.algorithms.bare.nodes" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.nodes.NCClassILBareMinibatchTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILBareMinibatchTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/nodes.html#NCClassILBareMinibatchTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.nodes.NCClassILBareMinibatchTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCMinibatchTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.nodes.NCClassILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/nodes.html#NCClassILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.nodes.NCClassILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.nodes.NCDomainILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCDomainILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/nodes.html#NCDomainILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.nodes.NCDomainILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.nodes.NCTaskILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTaskILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/nodes.html#NCTaskILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.nodes.NCTaskILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.bare.nodes.NCTaskILBareTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/nodes.html#NCTaskILBareTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.nodes.NCTaskILBareTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.
+For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.nodes.NCTimeILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTimeILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/nodes.html#NCTimeILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.nodes.NCTimeILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="module-begin.algorithms.bare.links">
+<span id="link-level-problems"></span><h2>Link-level Problems<a class="headerlink" href="#module-begin.algorithms.bare.links" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LCClassILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCClassILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LCClassILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LCClassILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LCTaskILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCTaskILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LCTaskILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LCTaskILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LCTaskILBareTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LCTaskILBareTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LCTaskILBareTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.
+For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LCTaskILBareTrainer.prepareLoader">
+<span class="sig-name descname"><span class="pre">prepareLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LCTaskILBareTrainer.prepareLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LCTaskILBareTrainer.prepareLoader" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to generate dataloaders from the given dataset for the current task.
+For task-IL, we need to additionally consider task information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing three dataloaders.
+The trainer considers the first dataloader, second dataloader, and third dataloader
+as dataloaders for training, validation, and test, respectively.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LCTimeILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCTimeILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LCTimeILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LCTimeILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>LCTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LPDomainILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LPDomainILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LPDomainILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LPDomainILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>LPTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.links.LPTimeILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LPTimeILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/links.html#LPTimeILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.links.LPTimeILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>LPTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="module-begin.algorithms.bare.graphs">
+<span id="graph-level-problems"></span><h2>Graph-level Problems<a class="headerlink" href="#module-begin.algorithms.bare.graphs" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.graphs.GCClassILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCClassILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/graphs.html#GCClassILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.graphs.GCClassILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.graphs.GCDomainILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCDomainILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/graphs.html#GCDomainILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.graphs.GCDomainILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>GCClassILBareTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.graphs.GCTaskILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCTaskILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/graphs.html#GCTaskILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.graphs.GCTaskILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.bare.graphs.GCTaskILBareTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/graphs.html#GCTaskILBareTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.graphs.GCTaskILBareTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.
+For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.bare.graphs.GCTimeILBareTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCTimeILBareTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/bare/graphs.html#GCTimeILBareTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.bare.graphs.GCTimeILBareTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>GCClassILBareTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../040/graph.html" class="btn btn-neutral float-left" title="Graph-level problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lwf.html" class="btn btn-neutral float-right" title="LwF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

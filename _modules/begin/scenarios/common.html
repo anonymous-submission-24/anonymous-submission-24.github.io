@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.scenarios.common &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.scenarios.common</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.scenarios.common</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+
+<div class="viewcode-block" id="BaseScenarioLoader"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader">[docs]</a><span class="k">class</span> <span class="nc">BaseScenarioLoader</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Base framework for implementing scenario module.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        dataset_name (str): The name of the dataset.</span>
+<span class="sd">        save_path (str): The path where the dataset file is saved.</span>
+<span class="sd">        num_tasks (int): The number of tasks in graph continual learning.</span>
+<span class="sd">        incr_type (str): The incremental setting of graph continual learning (spec. task, class, domain, and time).</span>
+<span class="sd">        metric (str): Basic metric to measure performance (spec., accuracy, AUCROC, and HITS@K).</span>
+<span class="sd">        kwargs: (dict, optional): Keyword arguments to be passed to the scenario module (e.g., task_shuffle (bool): If true, fixed order, else random order)</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">num_tasks</span><span class="p">,</span> <span class="n">incr_type</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_load_func</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dataset_load_func&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_path</span> <span class="o">=</span> <span class="n">save_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_feats</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">=</span> <span class="n">num_tasks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">=</span> <span class="n">incr_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target_dataset</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_test_result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">export_mode</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">_init_continual_scenario</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_target_dataset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_accumulated_dataset</span><span class="p">()</span>
+        
+<div class="viewcode-block" id="BaseScenarioLoader._init_continual_scenario"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader._init_continual_scenario">[docs]</a>    <span class="k">def</span> <span class="nf">_init_continual_scenario</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Load the entire dataset and initialize the setting of graph continual learning according the incremental setting.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseScenarioLoader._update_target_dataset"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader._update_target_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">_update_target_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Update the graph dataset the implemented model uses in the current task.</span>
+<span class="sd">            According to the ``incr_type``, the information updated is different.</span>
+
+<span class="sd">            Note:</span>
+<span class="sd">                The implemented model can only process the training data in the current task.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseScenarioLoader._update_accumulated_dataset"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader._update_accumulated_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">_update_accumulated_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Update the graph dataset the joint model uses. </span>
+<span class="sd">            According to the ``incr_type``, the information updated is different.</span>
+
+<span class="sd">            Note:</span>
+<span class="sd">                The joint model can process all of training data in previous tasks including the current task.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The number of tasks in this scenario</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span>
+    
+<div class="viewcode-block" id="BaseScenarioLoader.next_task"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader.next_task">[docs]</a>    <span class="k">def</span> <span class="nf">next_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Update graph datasets used in graph continual learning. </span>
+<span class="sd">            Specifically, the ``target`` denotes a dataset the implemented model uses and the ``accumulated`` denotes a dataset the joint model uses.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                preds (torch.Tensor): Predicted output of the models</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_target_dataset</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_accumulated_dataset</span><span class="p">()</span></div>
+            
+<div class="viewcode-block" id="BaseScenarioLoader.get_current_dataset"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader.get_current_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">get_current_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The graph dataset the implemented model uses in the current task</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_dataset</span></div>
+    
+<div class="viewcode-block" id="BaseScenarioLoader.get_accumulated_dataset"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader.get_accumulated_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">get_accumulated_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The graph dataset the joint model uses in the current task</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accumulated_dataset</span></div>
+    
+    <span class="k">def</span> <span class="nf">get_current_dataset_for_export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_global</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+<div class="viewcode-block" id="BaseScenarioLoader.export_dataset"><a class="viewcode-back" href="../../../030/common.html#begin.scenarios.common.BaseScenarioLoader.export_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">export_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Export the continual learning scenarios.</span>
+<span class="sd">            We provide this functionality for flexibility, by providing the datasets separately.</span>
+<span class="sd">            Depending on the target problem, the output format varies. Detailed format information is as follows:</span>
+<span class="sd">            </span>
+<span class="sd">            (1) For NC, the global information contains number of classes (``num_classes``), node features (``ndata_feat``), task id for each node (``task``), edges of the whole graph (``edges``), mask for data splits (``train_mask``, ``val_mask``, and ``test_mask``), and ground-truth labels (``label``).</span>
+<span class="sd">            For each task, the task-specific information contains edges of the graph observed at the current task (``edges``), mask for train/validation splits (``train_mask``, ``val_mask``), and the ground-truth labels observed at the current task (``label``).</span>
+<span class="sd">            </span>
+<span class="sd">            (2) For LC, the global information contains number of classes (``num_classes``), node features (``ndata_feat``), task id for each edge (``task``), edges of the whole graph (``edges``), mask for data splits (``train_mask``, ``val_mask``, and ``test_mask``), and ground-truth labels (``label``).</span>
+<span class="sd">            For each task, the task-specific information contains edges of the graph observed at the current task (``edges``), mask for train/validation splits (``train_mask``, ``val_mask``), and the ground-truth labels observed at the current task (``label``).</span>
+<span class="sd">            </span>
+<span class="sd">            (3) For LP, the global information contains node features (``ndata_feat``), task id for each edge (``task``), edges of the whole graph (``edges``), negative edges for evaluation (``neg_edges``), edges containing test edges and negative edges for evaluation (``test_edges``), and their corresponding labels (``test_label``). The test label is ``l`` is 0 if it is negative edge, otherwise it is ground-truth edge for task ``l``.</span>
+<span class="sd">            For each task, the task-specific information contains base edges observed at the current task (``edges``), edges for training prediction problem and their corresponding labels (``val_edges``, ``val_label``), and edges for validation and their corresponding labels  (``test_edges``, ``test_label``).</span>
+<span class="sd">            </span>
+<span class="sd">            (4) For GC, the global information contains number of classes (``num_classes``), node features (``ndata_feat``), task id for each graph (``task``), graphs of the whole dataset (``graphs``), mask for data splits (``train_mask``, ``val_mask``, and ``test_mask``), indices of test graphs (``test_indices``) and ground-truth labels (``label``).</span>
+<span class="sd">            For each task, the task-specific information contains indices of training graphs (``train_indices``) and indices of validation graphs (``val_indices``).</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                full (boolean, Optional): if ``full=True``, the returned exported dataset contains both global information (``output[&#39;global&#39;]``) and task-specific information (``output[&#39;tasks&#39;]``).</span>
+<span class="sd">                Otherwise, the returned exported dataset contains only global infomation. </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The exported scenario (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">exported_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;global&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_dataset_for_export</span><span class="p">(</span><span class="n">_global</span><span class="o">=</span><span class="kc">True</span><span class="p">)}</span>
+        <span class="k">if</span> <span class="n">full</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">export_mode</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[ERROR] you can call this function iff current task is the first task!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+            <span class="n">exported_data</span><span class="p">[</span><span class="s1">&#39;tasks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">trange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">):</span>
+                <span class="n">exported_data</span><span class="p">[</span><span class="s1">&#39;tasks&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_current_dataset_for_export</span><span class="p">(</span><span class="n">_global</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">next_task</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                
+        <span class="k">return</span> <span class="n">exported_data</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

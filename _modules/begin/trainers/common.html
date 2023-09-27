@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.trainers.common &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.trainers.common</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.trainers.common</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">dgl</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<div class="viewcode-block" id="BaseTrainer"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer">[docs]</a><span class="k">class</span> <span class="nc">BaseTrainer</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot; Base framework for implementing trainer module.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        model (torch.nn.Module): Pytorch model for graph continual learning.</span>
+<span class="sd">        scenario (ScenarioLoader): The scenario module.</span>
+<span class="sd">        optimizer_fn (lambda x: torch.optim.Optimizer): A generator function for optimizer.</span>
+<span class="sd">        loss_fn : A loss function.</span>
+<span class="sd">        device (str): target GPU device.</span>
+<span class="sd">        kwargs (dict, optional): Keyword arguments to be passed to the trainer module. </span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        For instance, by kwargs, users can pass hyperparameters the implemented method needs or a scheduler function (torch.nn) for tranining.</span>
+<span class="sd">        In addition, BaseTrainer supports `benchmark = True` and `seed` (int) to fix the random seed, and `full_mode = True` to additionally evaluate the joint (accum) model. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># set random seed</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;benchmark&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">fixed_seed</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;seed&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">fixed_seed</span><span class="p">)</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">fixed_seed</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">fixed_seed</span><span class="p">)</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">deterministic</span> <span class="o">=</span> <span class="kc">True</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span> <span class="o">=</span> <span class="n">scenario</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__timestamp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__optimizer</span> <span class="o">=</span> <span class="n">optimizer_fn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer_fn</span> <span class="o">=</span> <span class="n">optimizer_fn</span>
+        
+        <span class="c1"># set path for storing initial parameters of model and optimizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tmp_path</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tmp_save_path&#39;</span><span class="p">,</span> <span class="s1">&#39;tmp&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_path</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tmp_save_path&#39;</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp_path</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result_path</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">__model_weight_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp_path</span><span class="si">}</span><span class="s1">/init_model_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__timestamp</span><span class="si">}</span><span class="s1">.pkt&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__optim_weight_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp_path</span><span class="si">}</span><span class="s1">/init_optimizer_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__timestamp</span><span class="si">}</span><span class="s1">.pkt&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;result_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__timestamp</span><span class="si">}</span><span class="s1">&#39;</span>
+        
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__model_weight_path</span><span class="p">)</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__optimizer</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">__optim_weight_path</span><span class="p">)</span>
+        
+        <span class="c1"># initial settings for base model and joint model (they are used only when full_mode is enabled)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__base_optimizer</span> <span class="o">=</span> <span class="n">optimizer_fn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__base_optimizer</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__accum_model</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__accum_optimizer</span> <span class="o">=</span> <span class="n">optimizer_fn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accum_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accum_model</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accum_optimizer</span><span class="p">)</span>
+        
+        <span class="c1"># other initialization settings </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">loss_fn</span> <span class="k">if</span> <span class="n">loss_fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># loss function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span> <span class="c1"># gpu device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">num_tasks</span> <span class="c1"># number of tasks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">scenario</span><span class="o">.</span><span class="n">get_simple_eval_result</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># evaluation function for minibatches</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;full_mode&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># joint model is used when full_mode=True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;verbose&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">incr_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The incremental setting (e.g., task, class, domain, or time).</span>
+<span class="sd">                The trainer retrieves the value from the given scenario loader.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">incr_type</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">curr_task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Returns: </span>
+<span class="sd">                The index of a current task (from :math:`0` to :math:`T-1`)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">_curr_task</span>
+    
+<div class="viewcode-block" id="BaseTrainer._reset_model"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer._reset_model">[docs]</a>    <span class="k">def</span> <span class="nf">_reset_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_model</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Reinitialize a model.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                target_model (torch.nn.Module): a model needed to re-initialize</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">target_model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__model_weight_path</span><span class="p">))</span></div>
+        
+<div class="viewcode-block" id="BaseTrainer._reset_optimizer"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer._reset_optimizer">[docs]</a>    <span class="k">def</span> <span class="nf">_reset_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_optimizer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Reinitialize an optimizer.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                target_model (torch.optim.Optimizer): an optimizer needed to re-initialize</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">target_optimizer</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__optim_weight_path</span><span class="p">))</span></div>
+        
+<div class="viewcode-block" id="BaseTrainer.run"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch_per_task</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Run the overall process of graph continual learning optimization.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                epoch_per_task (int): maximum number of training epochs for each task</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The base trainer returns the dictionary containing the evaluation results on validation and test dataset.</span>
+<span class="sd">                And each trainer for specific problem processes the results and outputs the matrix-shaped results for performances </span>
+<span class="sd">                and the final evaluation metrics, such as AP, AF, INT, and FWT.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_num_epochs</span> <span class="o">=</span> <span class="n">epoch_per_task</span>
+        <span class="c1"># dictionary to store evaluation results</span>
+        <span class="n">base_eval_results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="p">[]},</span> <span class="s1">&#39;accum&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="p">[]},</span> <span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="p">[]}}</span>
+        <span class="c1"># variable for initialized training state</span>
+        <span class="n">initial_training_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__optimizer</span><span class="p">)</span>
+        <span class="c1"># dictionary to store training states of the models</span>
+        <span class="n">training_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">initial_training_state</span><span class="p">),</span> <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="c1"># dictionary to store initial performances</span>
+        <span class="n">initial_results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># load dataset for the current task and the accumulated dataset until the current task</span>
+            <span class="n">curr_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_current_dataset</span><span class="p">()</span>
+            <span class="n">accumulated_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_accumulated_dataset</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="n">curr_dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># overall training is done!</span>
+                <span class="k">break</span>
+            
+            <span class="c1"># re-initialize base model and joint model (at the every beginning of training)</span>
+            <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">initial_training_state</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__base_optimizer</span><span class="p">)</span>
+            <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">initial_training_state</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accum_model</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reset_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__accum_optimizer</span><span class="p">)</span>
+            
+            <span class="c1"># dictionaries to store current models and optimizers</span>
+            <span class="n">models</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__model</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accum_model</span><span class="p">}</span>
+            <span class="n">optims</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__optimizer</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__base_optimizer</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__accum_optimizer</span><span class="p">}</span>
+            
+            <span class="c1"># dictionary to store whether we need to stop training or not </span>
+            <span class="n">stop_training</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+            
+            <span class="c1"># dictionary to store dataloader for each model</span>
+            <span class="c1"># after preparing dataloader, it calls &#39;processBeforeTraining&#39; event function </span>
+            <span class="n">dataloaders</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">exp_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">]:</span>
+                <span class="n">dataloaders</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">training_states</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]))}</span>
+                <span class="k">if</span> <span class="n">exp_name</span> <span class="o">==</span> <span class="s1">&#39;exp&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">processBeforeTraining</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">optims</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="n">exp_name</span><span class="p">])</span>
+            <span class="n">dataloaders</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">accumulated_dataset</span><span class="p">,</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">]))}</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">processBeforeTraining</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">,</span> <span class="n">accumulated_dataset</span><span class="p">,</span> <span class="n">models</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">],</span> <span class="n">optims</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">])</span>    
+            
+            <span class="c1"># compute initial performance</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+                    <span class="n">curr_observed_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">observed</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+                    <span class="c1"># to enable to predict all classes</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">observed</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">]:</span>
+                        <span class="n">initial_stats</span> <span class="o">=</span> <span class="p">{}</span>
+                        <span class="n">initial_test_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+                        <span class="c1"># collect predicted results on current val/test data</span>
+                        <span class="k">for</span> <span class="n">curr_batch</span> <span class="ow">in</span> <span class="n">dataloaders</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">][</span><span class="n">split</span><span class="p">]:</span>
+                            <span class="n">initial_test_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_evalWrapper</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">],</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">initial_stats</span><span class="p">))</span>
+                        <span class="c1"># compute the initial performances</span>
+                        <span class="n">initial_results</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_eval_result</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">initial_test_predictions</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">target_split</span><span class="o">=</span><span class="n">split</span><span class="p">)</span>
+                    
+                    <span class="c1"># revert the &#39;observed&#39; variable</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__base_model</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">observed</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="n">curr_observed_mask</span><span class="p">)</span>
+                    
+                    <span class="c1"># we need to send initial result on the test dataset to compute FWT in the scenario loader</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">initial_test_result</span> <span class="o">=</span> <span class="n">initial_results</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">]</span>
+                    
+            <span class="c1"># training loop for the current task</span>
+            <span class="k">for</span> <span class="n">epoch_cnt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epoch_per_task</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">exp_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">,</span> <span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">stop_training</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]:</span> <span class="k">continue</span>
+                    <span class="n">train_stats</span> <span class="o">=</span> <span class="p">{}</span>
+                    
+                    <span class="c1"># training phase of the current epoch</span>
+                    <span class="c1"># users do not need to consider collecting and reducing the training stats in the current epoch. Instead, ``BeGin`` automatically collects and reduces them and compute the final training stats for the current epoch.</span>
+                    <span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">curr_batch</span> <span class="ow">in</span> <span class="n">dataloaders</span><span class="p">[</span><span class="n">exp_name</span><span class="p">][</span><span class="s1">&#39;train&#39;</span><span class="p">]:</span>
+                        <span class="c1"># handle each minibatch</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_trainWrapper</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">optims</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">train_stats</span><span class="p">)</span>
+                    <span class="c1"># reduce the training stats. The default behavior is averaging the values.</span>
+                    <span class="n">reduced_train_stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduceTrainingStats</span><span class="p">(</span><span class="n">train_stats</span><span class="p">)</span>
+                    
+                    <span class="c1"># evaluation phase of the current epoch</span>
+                    <span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+                    <span class="n">val_stats</span><span class="p">,</span> <span class="n">val_predictions</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">curr_batch</span> <span class="ow">in</span> <span class="n">dataloaders</span><span class="p">[</span><span class="n">exp_name</span><span class="p">][</span><span class="s1">&#39;val&#39;</span><span class="p">]:</span>
+                        <span class="c1"># handle each minibatch</span>
+                        <span class="n">val_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_evalWrapper</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">val_stats</span><span class="p">))</span>
+                    <span class="c1"># reduce the validation stats. The default behavior is averaging the values.</span>
+                    <span class="n">reduced_val_stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduceEvalStats</span><span class="p">(</span><span class="n">val_stats</span><span class="p">)</span>
+                    
+                    <span class="c1"># compute the current performance on validation set</span>
+                    <span class="k">if</span> <span class="n">exp_name</span> <span class="o">==</span> <span class="s1">&#39;accum&#39;</span><span class="p">:</span>
+                        <span class="n">val_metric_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_accum_eval_result</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">val_predictions</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">target_split</span><span class="o">=</span><span class="s1">&#39;val&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">val_metric_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_eval_result</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">val_predictions</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">target_split</span><span class="o">=</span><span class="s1">&#39;val&#39;</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                    
+                    <span class="c1"># handle procedure for printing training logs. BeGin provides reduced stats obtained from the train and validation dataset</span>
+                    <span class="k">if</span> <span class="n">exp_name</span> <span class="o">==</span> <span class="s1">&#39;exp&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">processTrainingLogs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">,</span> <span class="n">epoch_cnt</span><span class="p">,</span> <span class="n">val_metric_result</span><span class="p">,</span> <span class="n">reduced_train_stats</span><span class="p">,</span> <span class="n">reduced_val_stats</span><span class="p">)</span>
+                    
+                    <span class="n">curr_iter_results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;val_metric&#39;</span><span class="p">:</span> <span class="n">val_metric_result</span><span class="p">,</span> <span class="s1">&#39;train_stats&#39;</span><span class="p">:</span> <span class="n">reduced_train_stats</span><span class="p">,</span> <span class="s1">&#39;val_stats&#39;</span><span class="p">:</span> <span class="n">reduced_val_stats</span><span class="p">}</span>
+                    
+                    <span class="c1"># handle procedure for after each itearation and determine whether to continue training or not</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">processAfterEachIteration</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">optims</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">curr_iter_results</span><span class="p">):</span>
+                        <span class="n">stop_training</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            
+            <span class="c1"># handle procedure for right after the training ends</span>
+            <span class="k">for</span> <span class="n">exp_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">,</span> <span class="s1">&#39;exp&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">]:</span>
+                <span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">optims</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="n">exp_name</span><span class="p">])</span>
+                    
+            <span class="c1"># measure the performance on (accumulated) validation/test dataset</span>
+            <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">exp_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">,</span> <span class="s1">&#39;accum&#39;</span><span class="p">,</span> <span class="s1">&#39;exp&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">]:</span>
+                    <span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">]</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+                    <span class="n">test_predictions</span><span class="p">,</span> <span class="n">test_stats</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">{}</span>
+                    <span class="k">for</span> <span class="n">curr_batch</span> <span class="ow">in</span> <span class="n">dataloaders</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">][</span><span class="n">split</span><span class="p">]:</span>
+                        <span class="c1"># handle each minibatch</span>
+                        <span class="n">test_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_evalWrapper</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="n">exp_name</span><span class="p">],</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">test_stats</span><span class="p">))</span>
+                        
+                    <span class="c1"># measure the performance using the collected prediction results</span>
+                    <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">test_predictions</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">exp_name</span> <span class="o">==</span> <span class="s1">&#39;exp&#39;</span> <span class="ow">and</span> <span class="n">split</span> <span class="o">==</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span>
+                        <span class="n">eval_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">next_task</span><span class="p">(</span><span class="n">test_predictions</span><span class="p">)</span>
+                    <span class="k">elif</span> <span class="n">split</span> <span class="o">==</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span>
+                        <span class="n">base_eval_results</span><span class="p">[</span><span class="n">exp_name</span><span class="p">][</span><span class="n">split</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_accum_eval_result</span><span class="p">(</span><span class="n">test_predictions</span><span class="p">,</span> <span class="n">target_split</span><span class="o">=</span><span class="n">split</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># test dataset is already accumulated</span>
+                        <span class="n">base_eval_results</span><span class="p">[</span><span class="n">exp_name</span><span class="p">][</span><span class="n">split</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__scenario</span><span class="o">.</span><span class="n">get_eval_result</span><span class="p">(</span><span class="n">test_predictions</span><span class="p">,</span> <span class="n">target_split</span><span class="o">=</span><span class="n">split</span><span class="p">))</span>
+        
+        <span class="c1"># return the final evaluation results</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_mode</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;init_val&#39;</span><span class="p">:</span> <span class="n">initial_results</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;init_test&#39;</span><span class="p">:</span> <span class="n">initial_results</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_val&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">base_eval_results</span><span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">][</span><span class="s1">&#39;val&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                    <span class="s1">&#39;exp_test&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;exp_results&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_AP&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;AP&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_AF&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;AF&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_FWT&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;FWT&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;base_val&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">base_eval_results</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">][</span><span class="s1">&#39;val&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                    <span class="s1">&#39;base_test&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">base_eval_results</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">][</span><span class="s1">&#39;test&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                    <span class="s1">&#39;accum_val&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">base_eval_results</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">][</span><span class="s1">&#39;val&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                    <span class="s1">&#39;accum_test&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">base_eval_results</span><span class="p">[</span><span class="s1">&#39;accum&#39;</span><span class="p">][</span><span class="s1">&#39;test&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                   <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;init_val&#39;</span><span class="p">:</span> <span class="n">initial_results</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;init_test&#39;</span><span class="p">:</span> <span class="n">initial_results</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_val&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">base_eval_results</span><span class="p">[</span><span class="s1">&#39;exp&#39;</span><span class="p">][</span><span class="s1">&#39;val&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                    <span class="s1">&#39;exp_test&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;exp_results&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_AP&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;AP&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_AF&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;AF&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;exp_FWT&#39;</span><span class="p">:</span> <span class="n">eval_results</span><span class="p">[</span><span class="s1">&#39;FWT&#39;</span><span class="p">],</span>
+                   <span class="p">}</span></div>
+    
+    <span class="c1"># event functions and their helper/wrapper functions</span>
+<div class="viewcode-block" id="BaseTrainer.initTrainingStates"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                scenario (begin.scenarios.common.BaseScenarioLoader): the given ScenarioLoader to the trainer</span>
+<span class="sd">                model (torch.nn.Module): the given model to the trainer</span>
+<span class="sd">                optmizer (torch.optim.Optimizer): the optimizer generated from the given `optimizer_fn` </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                Initialized training state (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{}</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.prepareLoader"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.prepareLoader">[docs]</a>    <span class="k">def</span> <span class="nf">prepareLoader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to generate dataloaders from the given dataset for the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A tuple containing three dataloaders.</span>
+<span class="sd">                The trainer considers the first dataloader, second dataloader, and third dataloader</span>
+<span class="sd">                as dataloaders for training, validation, and test, respectively.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        
+<div class="viewcode-block" id="BaseTrainer.processBeforeTraining"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.processBeforeTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processBeforeTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes before training.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.predictionFormat"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.predictionFormat">[docs]</a>    <span class="k">def</span> <span class="nf">predictionFormat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The helper function for formatting the prediction results before feeding the results to evaluator.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the dictionary containing the prediction results.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+        
+<div class="viewcode-block" id="BaseTrainer.beforeInference"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.beforeInference">[docs]</a>    <span class="k">def</span> <span class="nf">beforeInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right before inference (for training).</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.inference"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute inference step.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the inference results, such as prediction result and loss.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.afterInference"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.processTrainIteration"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.processTrainIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processTrainIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to handle every training iteration.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the outcomes (stats) during the training iteration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer._trainWrapper"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer._trainWrapper">[docs]</a>    <span class="k">def</span> <span class="nf">_trainWrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">,</span> <span class="n">curr_stats</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The wrapper function for training iteration.</span>
+<span class="sd">            The main role of the function is to collect the returned dictionary of</span>
+<span class="sd">            the processTrainItearation function to compute final training stats at every epoch.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                curr_stats (dict): the dictionary to store the returned dictionaries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">processTrainIteration</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_stats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">new_stats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="p">:</span>
+                    <span class="n">curr_stats</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">curr_stats</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span></div>
+                
+<div class="viewcode-block" id="BaseTrainer._reduceTrainingStats"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer._reduceTrainingStats">[docs]</a>    <span class="k">def</span> <span class="nf">_reduceTrainingStats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curr_stats</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The helper function to reduce the returned stats during training.</span>
+<span class="sd">            The default behavior of the function is to compute average for each key in the returned dictionaries.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_stats (dict): the dictionary containing the training stats.</span>
+<span class="sd">            </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A reduced dictionary containing the final training outcomes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;_num_items&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="p">:</span>
+            <span class="n">reduced_stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">curr_stats</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_num_items&#39;</span><span class="p">))</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">reduced_stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">total</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">reduced_stats</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.processEvalIteration"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.processEvalIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processEvalIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to handle every evaluation iteration.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the outcomes (stats) during the evaluation iteration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer._evalWrapper"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer._evalWrapper">[docs]</a>    <span class="k">def</span> <span class="nf">_evalWrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">,</span> <span class="n">curr_stats</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The wrapper function for validation/test iteration.</span>
+<span class="sd">            The main role of the function is to collect the returned dictionary of</span>
+<span class="sd">            the processEvalItearation function to compute final stats for evalution at every epoch.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_stats (dict): the dictionary to store the returned dictionaries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">preds</span><span class="p">,</span> <span class="n">new_stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">processEvalIteration</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">curr_batch</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_stats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">new_stats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="p">:</span>
+                    <span class="n">curr_stats</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">curr_stats</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">preds</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer._reduceEvalStats"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer._reduceEvalStats">[docs]</a>    <span class="k">def</span> <span class="nf">_reduceEvalStats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curr_stats</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The helper function to reduce the returned stats during evaluation.</span>
+<span class="sd">            The default behavior of the function is to compute average for each key in the returned dictionaries.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_stats (dict): the dictionary containing the evaluation stats.</span>
+<span class="sd">            </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A reduced dictionary containing the final evaluation outcomes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;_num_items&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="p">:</span>
+            <span class="n">reduced_stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">curr_stats</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_num_items&#39;</span><span class="p">))</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">reduced_stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">total</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">curr_stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">reduced_stats</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.processTrainingLogs"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.processTrainingLogs">[docs]</a>    <span class="k">def</span> <span class="nf">processTrainingLogs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">epoch_cnt</span><span class="p">,</span> <span class="n">val_metric_result</span><span class="p">,</span> <span class="n">train_stats</span><span class="p">,</span> <span class="n">val_stats</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            (Optional) The event function to output the training logs.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task</span>
+<span class="sd">                epoch_cnt (int): the index of the current epoch</span>
+<span class="sd">                val_metric_result (object): the validation performance computed by the evaluator</span>
+<span class="sd">                train_stats (dict): the reduced dictionary containg the final training outcomes.</span>
+<span class="sd">                val_stats (dict): the reduced dictionary containg the final validation outcomes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.processAfterEachIteration"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.processAfterEachIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterEachIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">,</span> <span class="n">curr_iter_results</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes for every end of each epoch.</span>
+<span class="sd">            Whether to continue training or not is determined by the return value of this function.</span>
+<span class="sd">            If the returned value is False, the trainer stops training the current model in the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            Note:</span>
+<span class="sd">                This function is called for every end of each epoch,</span>
+<span class="sd">                and the event function ``processAfterTraining`` is called only when the learning on the current task has ended. </span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                curr_iter_results (dict): the dictionary containing the training/validation results of the current epoch.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A boolean value. If the returned value is False, the trainer stops training the current model in the current task.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+    
+<div class="viewcode-block" id="BaseTrainer.processAfterTraining"><a class="viewcode-back" href="../../../040/common.html#begin.trainers.common.BaseTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+
+<span class="sd">            Note:</span>
+<span class="sd">                The event function ``processAfterEachIteration`` is called for every end of each epoch,</span>
+<span class="sd">                and this function is called only when the learning on the current task has ended.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

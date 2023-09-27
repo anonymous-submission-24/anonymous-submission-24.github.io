@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.scenarios.graphs &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.scenarios.graphs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.scenarios.graphs</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">dgl</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">dgl.data.utils</span> <span class="kn">import</span> <span class="n">download</span><span class="p">,</span> <span class="n">Subset</span>
+
+<span class="kn">from</span> <span class="nn">.common</span> <span class="kn">import</span> <span class="n">BaseScenarioLoader</span>
+<span class="kn">from</span> <span class="nn">.datasets</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">evaluator_map</span>
+
+<span class="k">def</span> <span class="nf">load_graph_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">dataset_load_func</span><span class="p">,</span> <span class="n">incr_type</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+    <span class="n">domain_info</span><span class="p">,</span> <span class="n">time_info</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">dataset_load_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">custom_dataset</span> <span class="o">=</span> <span class="n">dataset_load_func</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">custom_dataset</span><span class="p">[</span><span class="s1">&#39;graphs&#39;</span><span class="p">]</span>
+        <span class="n">num_feats</span> <span class="o">=</span> <span class="n">custom_dataset</span><span class="p">[</span><span class="s1">&#39;num_feats&#39;</span><span class="p">]</span>
+        <span class="n">num_classes</span> <span class="o">=</span> <span class="n">custom_dataset</span><span class="p">[</span><span class="s1">&#39;num_classes&#39;</span><span class="p">]</span>
+        <span class="n">domain_info</span> <span class="o">=</span> <span class="n">custom_dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;domain_info&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">time_info</span> <span class="o">=</span> <span class="n">custom_dataset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;time_info&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;mnist&#39;</span><span class="p">,</span> <span class="s1">&#39;cifar10&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">]:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">DGLGNNBenchmarkDataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">num_feats</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">num_classes</span>
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;aromaticity&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">]:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">AromaticityDataset</span><span class="p">(</span><span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">30</span>
+        <span class="c1"># load train/val/test split (6:2:2 random split)</span>
+        <span class="n">pkl_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s1">_metadata_allIL.pkl&#39;</span><span class="p">)</span>
+        <span class="n">download</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://github.com/anonymous-submission-24/BeGin-iclr24/raw/main/metadata/</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s1">_metadata_allIL.pkl&#39;</span><span class="p">,</span> <span class="n">pkl_path</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">pkl_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="n">inner_tvt_splits</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;inner_tvt_splits&#39;</span><span class="p">]</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_train_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">6</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_val_masks</span> <span class="o">=</span> <span class="p">((</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> 
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_test_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span>
+        
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ogbg-molhiv&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;domain&#39;</span><span class="p">]:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">DglGraphPropPredDataset</span><span class="p">(</span><span class="s1">&#39;ogbg-molhiv&#39;</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span>
+        
+        <span class="sd">&quot;&quot;&quot; (For Task/Class-IL)</span>
+<span class="sd">        # load train/val/test split</span>
+<span class="sd">        split_idx = dataset.get_idx_split()</span>
+<span class="sd">        for _split, _split_name in [(&#39;train&#39;, &#39;_train&#39;), (&#39;valid&#39;, &#39;_val&#39;), (&#39;test&#39;, &#39;_test&#39;)]:</span>
+<span class="sd">            _indices = torch.zeros(len(dataset), dtype=torch.bool)</span>
+<span class="sd">            _indices[split_idx[_split]] = True</span>
+<span class="sd">            setattr(dataset, _split_name + &#39;_mask&#39;, _indices)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># load train/val/test split and domain_info</span>
+        <span class="n">pkl_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;molhivx_metadata_domainIL.pkl&#39;</span><span class="p">)</span>
+        <span class="n">download</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://github.com/anonymous-submission-24/BeGin-iclr24/raw/main/metadata/molhivx_metadata_domainIL.pkl&#39;</span><span class="p">,</span> <span class="n">pkl_path</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">pkl_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="n">inner_tvt_splits</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;inner_tvt_splits&#39;</span><span class="p">]</span>
+        <span class="c1"># set train/val/test split (random split, 8:1:1)</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_train_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_val_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_test_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8</span>
+        <span class="n">domain_info</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;domain_splits&#39;</span><span class="p">]</span>
+        
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;nyctaxi&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">NYCTaxiDataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span>
+        
+        <span class="c1"># load time split information and train/val/test splits (random split, 6:2:2)</span>
+        <span class="n">pkl_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;nyctaxi_metadata_timeIL.pkl&#39;</span><span class="p">)</span>
+        <span class="n">download</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://github.com/anonymous-submission-24/BeGin-iclr24/raw/main/metadata/nyctaxi_metadata_timeIL.pkl&#39;</span><span class="p">,</span> <span class="n">pkl_path</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">pkl_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="n">inner_tvt_splits</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;inner_tvt_splits&#39;</span><span class="p">]</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_train_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">6</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_val_masks</span> <span class="o">=</span> <span class="p">((</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> 
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_test_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span>    
+        <span class="n">time_info</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;time_splits&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ogbg-ppa&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;domain&#39;</span><span class="p">]:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">OgbgPpaSampledDataset</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">37</span>
+        <span class="n">pkl_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;ogbg-ppa_metadata_domainIL.pkl&#39;</span><span class="p">)</span>
+        <span class="n">download</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://github.com/anonymous-submission-24/BeGin-iclr24/raw/main/metadata/ogbg-ppa_metadata_domainIL.pkl&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">pkl_path</span><span class="p">)</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">pkl_path</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">))</span>
+        <span class="n">inner_tvt_splits</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;inner_tvt_split&#39;</span><span class="p">]</span>
+        <span class="c1"># set train/val/test split (random split, 8:1:1)</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_train_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_val_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">8</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_test_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inner_tvt_splits</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8</span>
+        <span class="n">domain_info</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;domain_info&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]:</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">SentimentGraphDataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;sentiment&#39;</span><span class="p">,</span> <span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">)</span>
+        <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_num_feats</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_num_classes</span>
+        <span class="n">time_info</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_time_info</span>
+        <span class="nb">delattr</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">&quot;_time_info&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Tried to load unsupported scenario.&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=====CHECK=====&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;num_classes:&quot;</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="s2">&quot;, num_feats:&quot;</span><span class="p">,</span> <span class="n">num_feats</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dataset._train_mask:&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_train_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dataset._val_mask:&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_val_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dataset._test_mask:&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dataset.labels:&quot;</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time_info:&quot;</span><span class="p">,</span> <span class="n">time_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;domain_info:&quot;</span><span class="p">,</span> <span class="n">domain_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;===============&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">num_feats</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">domain_info</span><span class="p">,</span> <span class="n">time_info</span>
+
+<div class="viewcode-block" id="GCScenarioLoader"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader">[docs]</a><span class="k">class</span> <span class="nc">GCScenarioLoader</span><span class="p">(</span><span class="n">BaseScenarioLoader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The sceanario loader for graph classification problems.</span>
+
+<span class="sd">        **Usage example:**</span>
+
+<span class="sd">            &gt;&gt;&gt; scenario = GCScenarioLoader(dataset_name=&quot;ogbg-molhiv&quot;, num_tasks=10, metric=&quot;rocauc&quot;, </span>
+<span class="sd">            ...                             save_path=&quot;./data&quot;, incr_type=&quot;domain&quot;, task_shuffle=True)</span>
+
+<span class="sd">        </span>
+<span class="sd">        Bases: ``BaseScenarioLoader``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GCScenarioLoader._init_continual_scenario"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader._init_continual_scenario">[docs]</a>    <span class="k">def</span> <span class="nf">_init_continual_scenario</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_feats</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__domain_info</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_splits</span> <span class="o">=</span> <span class="n">load_graph_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_load_func</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_path</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">]:</span>
+            <span class="c1"># determine task configuration</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;task_orders&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__splits</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">class_ids</span><span class="p">)</span> <span class="k">for</span> <span class="n">class_ids</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;task_orders&#39;</span><span class="p">]])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;task_shuffle&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;task_shuffle&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__splits</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__splits</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">)[:</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">]</span>
+            
+            <span class="c1"># compute task ids for each instance</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;class split information:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__splits</span><span class="p">)</span>
+            <span class="n">id_to_task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">):</span>
+                <span class="n">id_to_task</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__splits</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">=</span> <span class="n">id_to_task</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__original_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span>
+            <span class="c1"># compute task ids for each instance</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_splits</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__time_splits</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__original_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;domain&#39;</span><span class="p">:</span>
+            <span class="c1"># determine task configuration</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__domain_info</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;task_shuffle&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;task_shuffle&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__task_order</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;domain_order:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_order</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_order</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__domain_info</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__domain_info</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__original_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            
+        <span class="c1"># we need to provide task information (only for task-IL)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;task&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__task_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">)</span><span class="o">.</span><span class="n">bool</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__task_masks</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__splits</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_task_specific_masks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_masks</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span><span class="p">]</span>
+        
+        <span class="c1"># set evaluator for the target scenario</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__evaluator</span> <span class="o">=</span> <span class="n">evaluator_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__test_results</span> <span class="o">=</span> <span class="p">[]</span></div>
+        
+<div class="viewcode-block" id="GCScenarioLoader._update_target_dataset"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader._update_target_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">_update_target_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># create subset for training / validation / test of the current task</span>
+        <span class="n">target_train_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_train_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">target_val_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_val_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">target_test_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_target_dataset</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">Subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="n">target_train_indices</span><span class="p">),</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">Subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="n">target_val_indices</span><span class="p">),</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">Subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="n">target_test_indices</span><span class="p">)}</span></div>
+        
+<div class="viewcode-block" id="GCScenarioLoader._update_accumulated_dataset"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader._update_accumulated_dataset">[docs]</a>    <span class="k">def</span> <span class="nf">_update_accumulated_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># create accumulated subset for training / validation / test of the current task</span>
+        <span class="n">target_train_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_train_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">target_val_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_val_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">target_test_indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_accumulated_dataset</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">Subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="n">target_train_indices</span><span class="p">),</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="n">Subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="n">target_val_indices</span><span class="p">),</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">Subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">,</span> <span class="n">target_test_indices</span><span class="p">)}</span></div>
+        
+<div class="viewcode-block" id="GCScenarioLoader._get_eval_result_inner"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader._get_eval_result_inner">[docs]</a>    <span class="k">def</span> <span class="nf">_get_eval_result_inner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">target_split</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The inner function of get_eval_result.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                preds (torch.Tensor): predicted output of the current model</span>
+<span class="sd">                target_split (str): target split to measure the performance (spec., &#39;val&#39; or &#39;test&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__original_labels</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_target_dataset</span><span class="p">[</span><span class="n">target_split</span><span class="p">]</span><span class="o">.</span><span class="n">indices</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">preds</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">gt</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;shape mismatch&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__evaluator</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_dataset</span><span class="p">[</span><span class="n">target_split</span><span class="p">]</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span></div>
+    
+    <span class="k">def</span> <span class="nf">get_eval_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">target_split</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_eval_result_inner</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">target_split</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="GCScenarioLoader.get_accum_eval_result"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader.get_accum_eval_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_accum_eval_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">target_split</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Compute performance on the accumulated dataset for the given target split.</span>
+<span class="sd">            It can be used to compute train/val performance during training.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                preds (torch.Tensor): predicted output of the current model</span>
+<span class="sd">                target_split (str): target split to measure the performance (spec., &#39;val&#39; or &#39;test&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__original_labels</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_accumulated_dataset</span><span class="p">[</span><span class="n">target_split</span><span class="p">]</span><span class="o">.</span><span class="n">indices</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">preds</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">gt</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">&quot;shape mismatch&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__evaluator</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">gt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accumulated_dataset</span><span class="p">[</span><span class="n">target_split</span><span class="p">]</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GCScenarioLoader.get_simple_eval_result"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader.get_simple_eval_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_simple_eval_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curr_batch_preds</span><span class="p">,</span> <span class="n">curr_batch_gts</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">            Compute performance for the given batch when we ignore task configuration.</span>
+<span class="sd">            It can be used to compute train/val performance during training.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_batch_preds (torch.Tensor): predicted output of the current model</span>
+<span class="sd">                curr_batch_gts (torch.Tensor): ground-truth labels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__evaluator</span><span class="o">.</span><span class="n">simple_eval</span><span class="p">(</span><span class="n">curr_batch_preds</span><span class="p">,</span> <span class="n">curr_batch_gts</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="GCScenarioLoader.next_task"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader.next_task">[docs]</a>    <span class="k">def</span> <span class="nf">next_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_mode</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">next_task</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__test_results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_eval_result_inner</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">target_split</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">))</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">next_task</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">:</span>
+                <span class="n">scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__test_results</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">scores_np</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                <span class="n">ap</span> <span class="o">=</span> <span class="n">scores_np</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                <span class="n">af</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores_np</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">)]</span> <span class="o">-</span> <span class="n">scores_np</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_test_result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">fwt</span> <span class="o">=</span> <span class="p">(</span><span class="n">scores_np</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_test_result</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fwt</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;exp_results&#39;</span><span class="p">:</span> <span class="n">scores</span><span class="p">,</span> <span class="s1">&#39;AP&#39;</span><span class="p">:</span> <span class="n">ap</span><span class="p">,</span> <span class="s1">&#39;AF&#39;</span><span class="p">:</span> <span class="n">af</span><span class="p">,</span> <span class="s1">&#39;FWT&#39;</span><span class="p">:</span> <span class="n">fwt</span><span class="p">}</span></div>
+            
+<div class="viewcode-block" id="GCScenarioLoader.get_current_dataset_for_export"><a class="viewcode-back" href="../../../030/graph.html#begin.scenarios.graphs.GCScenarioLoader.get_current_dataset_for_export">[docs]</a>    <span class="k">def</span> <span class="nf">get_current_dataset_for_export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_global</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Returns:</span>
+<span class="sd">                The graph dataset the implemented model uses in the current task</span>
+<span class="sd">        &quot;&quot;&quot;</span>    
+        <span class="k">if</span> <span class="n">_global</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num_classes&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span><span class="p">}</span>
+            <span class="k">if</span> <span class="n">_global</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">==</span> <span class="s1">&#39;task&#39;</span><span class="p">:</span>  <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__task_masks</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span><span class="p">]</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;graphs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">trange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">incr_type</span> <span class="o">!=</span> <span class="s1">&#39;task&#39;</span><span class="p">:</span>
+                    <span class="n">g</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">g</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">g_data</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">g_data</span><span class="p">[</span><span class="s1">&#39;edges&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+                <span class="n">g_data</span><span class="p">[</span><span class="s1">&#39;ndata_feat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="s1">&#39;feat&#39;</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">edata</span><span class="p">:</span> <span class="n">g_data</span><span class="p">[</span><span class="s1">&#39;edata_feat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">edata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;graphs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">g_data</span><span class="p">)</span>
+                <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">])</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_train_masks</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;val_mask&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_val_masks</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;test_mask&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;test_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_test_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;train_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_train_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;val_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">__task_ids</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_curr_task</span><span class="p">)</span> <span class="o">&amp;</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataset</span><span class="o">.</span><span class="n">_val_masks</span><span class="p">,</span> <span class="n">as_tuple</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">metadata</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

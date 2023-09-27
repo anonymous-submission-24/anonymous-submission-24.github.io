@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datasets for Node-Level Problems &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Datasets for Link-Level Problems" href="link_dataset.html" />
+    <link rel="prev" title="Load Custom Scenarios" href="../000/load.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets for Node-Level Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cora">Cora</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citeseer">Citeseer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#corafull">CoraFull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbn-mag">ogbn-mag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbn-products">ogbn-products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbn-proteins">ogbn-proteins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbn-arxiv">ogbn-arxiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#twitch">twitch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Datasets for Node-Level Problems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/010/node_dataset.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="datasets-for-node-level-problems">
+<h1>Datasets for Node-Level Problems<a class="headerlink" href="#datasets-for-node-level-problems" title="Permalink to this heading"></a></h1>
+<section id="cora">
+<h2>Cora<a class="headerlink" href="#cora" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://docs.dgl.ai/generated/dgl.data.CoraGraphDataset.html">Cora</a> is a citation network. Each node is a scientific publication,
+and its class is the field of the publication. Each node feature is 0/1-valued word vector indicating the absence/presence of the corresponding word from the dictionary. Based on selected six classes (among seven classes) in each dataset, we formulate
+three binary classification tasks for Task-IL and three tasks with 2, 4, and 6 classes for Class-IL.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 2,708</p></li>
+<li><p>Edges: 10,556</p></li>
+<li><p>Number of Node Features: 1,433</p></li>
+<li><p>Number of Classes: 7</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 3 tasks</p></li>
+<li><p>Class-IL with 3 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">sen2008collective</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Collective</span> <span class="n">classification</span> <span class="ow">in</span> <span class="n">network</span> <span class="n">data</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Sen</span><span class="p">,</span> <span class="n">Prithviraj</span> <span class="ow">and</span> <span class="n">Namata</span><span class="p">,</span> <span class="n">Galileo</span> <span class="ow">and</span> <span class="n">Bilgic</span><span class="p">,</span> <span class="n">Mustafa</span> <span class="ow">and</span> <span class="n">Getoor</span><span class="p">,</span> <span class="n">Lise</span> <span class="ow">and</span> <span class="n">Galligher</span><span class="p">,</span> <span class="n">Brian</span> <span class="ow">and</span> <span class="n">Eliassi</span><span class="o">-</span><span class="n">Rad</span><span class="p">,</span> <span class="n">Tina</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">AI</span> <span class="n">magazine</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">29</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">93</span><span class="o">--</span><span class="mi">93</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2008</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="citeseer">
+<h2>Citeseer<a class="headerlink" href="#citeseer" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://docs.dgl.ai/generated/dgl.data.CiteseerGraphDataset.html">Citeseer</a> is a citation network. Each node is a scientific publication,
+and its class is the field of the publication. Each node feature is 0/1-valued word vector indicating the absence/presence of the corresponding word from the dictionary. Based on six classes in each dataset, we formulate
+three binary classification tasks for Task-IL and three tasks with 2, 4, and 6 classes for Class-IL.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 3,327</p></li>
+<li><p>Edges: 9,104</p></li>
+<li><p>Number of Node Features: 3,703</p></li>
+<li><p>Number of Classes: 6</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 3 tasks</p></li>
+<li><p>Class-IL with 3 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">sen2008collective</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Collective</span> <span class="n">classification</span> <span class="ow">in</span> <span class="n">network</span> <span class="n">data</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Sen</span><span class="p">,</span> <span class="n">Prithviraj</span> <span class="ow">and</span> <span class="n">Namata</span><span class="p">,</span> <span class="n">Galileo</span> <span class="ow">and</span> <span class="n">Bilgic</span><span class="p">,</span> <span class="n">Mustafa</span> <span class="ow">and</span> <span class="n">Getoor</span><span class="p">,</span> <span class="n">Lise</span> <span class="ow">and</span> <span class="n">Galligher</span><span class="p">,</span> <span class="n">Brian</span> <span class="ow">and</span> <span class="n">Eliassi</span><span class="o">-</span><span class="n">Rad</span><span class="p">,</span> <span class="n">Tina</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">AI</span> <span class="n">magazine</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">29</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">93</span><span class="o">--</span><span class="mi">93</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2008</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="corafull">
+<h2>CoraFull<a class="headerlink" href="#corafull" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://docs.dgl.ai/generated/dgl.data.CoraFullDataset.html">CoraFull</a> is a citation network. Each node is a scientific publication,
+and its class is the field of the publication. Each node feature is 0/1-valued word vector indicating the absence/presence of the corresponding word from the dictionary.
+For CoraFull, we formulate 35 binary classification tasks for Task-IL.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 19,793</p></li>
+<li><p>Edges: 126,842</p></li>
+<li><p>Number of Node Features: 8,710</p></li>
+<li><p>Number of Classes: 70</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 35 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">bojchevski2018deep</span><span class="p">,</span>
+   <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Deep</span> <span class="n">Gaussian</span> <span class="n">Embedding</span> <span class="n">of</span> <span class="n">Graphs</span><span class="p">:</span> <span class="n">Unsupervised</span> <span class="n">Inductive</span> <span class="n">Learning</span> <span class="n">via</span> <span class="n">Ranking</span><span class="p">},</span>
+   <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Aleksandar</span> <span class="n">Bojchevski</span> <span class="ow">and</span> <span class="n">Stephan</span> <span class="n">Günnemann</span><span class="p">},</span>
+   <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">ICLR</span><span class="p">},</span>
+   <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2018</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ogbn-mag">
+<h2>ogbn-mag<a class="headerlink" href="#ogbn-mag" title="Permalink to this heading"></a></h2>
+<p>We extract, from <a class="reference external" href="https://ogb.stanford.edu/docs/nodeprop/#ogbn-products">ogbn-mag</a> , the citation network between research papers from 2010 to 2019. Each node has 128-dimensional word2vec feature vector. For Task-IL and Class-IL, While the original dataset has 349 node classes indicating fields of studies, we use the 257 classes with 10 or more nodes in validation and test splits. They are divided into 128 groups for Task-IL. Similarly, the number of classes increases by 2 in each task in Class-IL. For Time-IL, we formulate $10$ tasks by constructing tasks with the papers published in the same year. Specifically, the nodes newly revealed in <cite>i</cite>-th task, are the papers published in <cite>2009 + i</cite>.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 736,389</p></li>
+<li><p>Edges: 10,832,542</p></li>
+<li><p>Number of Node Features: 128</p></li>
+<li><p>Number of Classes: 257 (For Task-IL and Class-IL), 349 (For Time-IL)</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 128 tasks</p></li>
+<li><p>Class-IL with 128 tasks</p></li>
+<li><p>Time-IL with 10 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">hu2020open</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Open</span> <span class="n">graph</span> <span class="n">benchmark</span><span class="p">:</span> <span class="n">datasets</span> <span class="k">for</span> <span class="n">machine</span> <span class="n">learning</span> <span class="n">on</span> <span class="n">graphs</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Hu</span><span class="p">,</span> <span class="n">Weihua</span> <span class="ow">and</span> <span class="n">Fey</span><span class="p">,</span> <span class="n">Matthias</span> <span class="ow">and</span> <span class="n">Zitnik</span><span class="p">,</span> <span class="n">Marinka</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Ren</span><span class="p">,</span> <span class="n">Hongyu</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Bowen</span> <span class="ow">and</span> <span class="n">Catasta</span><span class="p">,</span> <span class="n">Michele</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">NeurIPS</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">wang2020microsoft</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Microsoft</span> <span class="n">academic</span> <span class="n">graph</span><span class="p">:</span> <span class="n">When</span> <span class="n">experts</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">enough</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Wang</span><span class="p">,</span> <span class="n">Kuansan</span> <span class="ow">and</span> <span class="n">Shen</span><span class="p">,</span> <span class="n">Zhihong</span> <span class="ow">and</span> <span class="n">Huang</span><span class="p">,</span> <span class="n">Chiyuan</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Chieh</span><span class="o">-</span><span class="n">Han</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Kanakia</span><span class="p">,</span> <span class="n">Anshul</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Quantitative</span> <span class="n">Science</span> <span class="n">Studies</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">396</span><span class="o">--</span><span class="mi">413</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ogbn-products">
+<h2>ogbn-products<a class="headerlink" href="#ogbn-products" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://ogb.stanford.edu/docs/nodeprop/#ogbn-products">ogbn-products</a> is a co-purchase network, where each node
+is a product, and its class belongs to 47 categories, which are divided into 9 groups for Class-IL.
+The number of classes increase by 5 in each task, and two categories are not used. The node features are extracted from the product descriptions.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 2,449,029</p></li>
+<li><p>Edges: 61,859,140</p></li>
+<li><p>Number of Node Features: 100</p></li>
+<li><p>Number of Classes: 47</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Class-IL with 9 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">hu2020open</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Open</span> <span class="n">graph</span> <span class="n">benchmark</span><span class="p">:</span> <span class="n">datasets</span> <span class="k">for</span> <span class="n">machine</span> <span class="n">learning</span> <span class="n">on</span> <span class="n">graphs</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Hu</span><span class="p">,</span> <span class="n">Weihua</span> <span class="ow">and</span> <span class="n">Fey</span><span class="p">,</span> <span class="n">Matthias</span> <span class="ow">and</span> <span class="n">Zitnik</span><span class="p">,</span> <span class="n">Marinka</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Ren</span><span class="p">,</span> <span class="n">Hongyu</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Bowen</span> <span class="ow">and</span> <span class="n">Catasta</span><span class="p">,</span> <span class="n">Michele</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">NeurIPS</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@inproceedings</span><span class="p">{</span><span class="n">chiang2019cluster</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Cluster</span><span class="o">-</span><span class="n">gcn</span><span class="p">:</span> <span class="n">An</span> <span class="n">efficient</span> <span class="n">algorithm</span> <span class="k">for</span> <span class="n">training</span> <span class="n">deep</span> <span class="ow">and</span> <span class="n">large</span> <span class="n">graph</span> <span class="n">convolutional</span> <span class="n">networks</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Chiang</span><span class="p">,</span> <span class="n">Wei</span><span class="o">-</span><span class="n">Lin</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Xuanqing</span> <span class="ow">and</span> <span class="n">Si</span><span class="p">,</span> <span class="n">Si</span> <span class="ow">and</span> <span class="n">Li</span><span class="p">,</span> <span class="n">Yang</span> <span class="ow">and</span> <span class="n">Bengio</span><span class="p">,</span> <span class="n">Samy</span> <span class="ow">and</span> <span class="n">Hsieh</span><span class="p">,</span> <span class="n">Cho</span><span class="o">-</span><span class="n">Jui</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">KDD</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2019</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ogbn-proteins">
+<h2>ogbn-proteins<a class="headerlink" href="#ogbn-proteins" title="Permalink to this heading"></a></h2>
+<p>Nodes in <a class="reference external" href="https://ogb.stanford.edu/docs/nodeprop/#ogbn-proteins">ogbn-proteins</a> are proteins, and edges indicate
+meaningful associations between proteins. For each protein, 112 binary classes, which indicate the
+presence of 112 functions, are available. Each protein belongs to one among 8 species, which are
+used as domains in Domain-IL. Each of the 8 task consists of 112 binary-classification problems.
+In our framework, we converted the edge features to the node features by performing mean neighborhood aggregation, as in <a class="reference external" href="https://github.com/snap-stanford/ogb/tree/master/examples/nodeproppred/proteins">the example provided by OGB</a>.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 132,534</p></li>
+<li><p>Edges: 39,561,252</p></li>
+<li><p>Number of Node Features: 8</p></li>
+<li><p>Number of Classes: 2x112 (112 binary classes)</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Domain-IL with 8 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">hu2020open</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Open</span> <span class="n">graph</span> <span class="n">benchmark</span><span class="p">:</span> <span class="n">datasets</span> <span class="k">for</span> <span class="n">machine</span> <span class="n">learning</span> <span class="n">on</span> <span class="n">graphs</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Hu</span><span class="p">,</span> <span class="n">Weihua</span> <span class="ow">and</span> <span class="n">Fey</span><span class="p">,</span> <span class="n">Matthias</span> <span class="ow">and</span> <span class="n">Zitnik</span><span class="p">,</span> <span class="n">Marinka</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Ren</span><span class="p">,</span> <span class="n">Hongyu</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Bowen</span> <span class="ow">and</span> <span class="n">Catasta</span><span class="p">,</span> <span class="n">Michele</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">NeurIPS</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">szklarczyk2019string</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">STRING</span> <span class="n">v11</span><span class="p">:</span> <span class="n">protein</span><span class="o">--</span><span class="n">protein</span> <span class="n">association</span> <span class="n">networks</span> <span class="k">with</span> <span class="n">increased</span> <span class="n">coverage</span><span class="p">,</span> <span class="n">supporting</span> <span class="n">functional</span> <span class="n">discovery</span> <span class="ow">in</span> <span class="n">genome</span><span class="o">-</span><span class="n">wide</span> <span class="n">experimental</span> <span class="n">datasets</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Szklarczyk</span><span class="p">,</span> <span class="n">Damian</span> <span class="ow">and</span> <span class="n">Gable</span><span class="p">,</span> <span class="n">Annika</span> <span class="n">L</span> <span class="ow">and</span> <span class="n">Lyon</span><span class="p">,</span> <span class="n">David</span> <span class="ow">and</span> <span class="n">Junge</span><span class="p">,</span> <span class="n">Alexander</span> <span class="ow">and</span> <span class="n">Wyder</span><span class="p">,</span> <span class="n">Stefan</span> <span class="ow">and</span> <span class="n">Huerta</span><span class="o">-</span><span class="n">Cepas</span><span class="p">,</span> <span class="n">Jaime</span> <span class="ow">and</span> <span class="n">Simonovic</span><span class="p">,</span> <span class="n">Milan</span> <span class="ow">and</span> <span class="n">Doncheva</span><span class="p">,</span> <span class="n">Nadezhda</span> <span class="n">T</span> <span class="ow">and</span> <span class="n">Morris</span><span class="p">,</span> <span class="n">John</span> <span class="n">H</span> <span class="ow">and</span> <span class="n">Bork</span><span class="p">,</span> <span class="n">Peer</span> <span class="ow">and</span> <span class="n">others</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Nucleic</span> <span class="n">Acids</span> <span class="n">Research</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">47</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="n">D1</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="n">D607</span><span class="o">--</span><span class="n">D613</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2019</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ogbn-arxiv">
+<h2>ogbn-arxiv<a class="headerlink" href="#ogbn-arxiv" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://ogb.stanford.edu/docs/nodeprop/#ogbn-arxiv">ogbn-arxiv</a> is a citation network, where each node is a
+research paper, and its class belongs to 40 subject areas, which are divided into 8 groups for Task-
+IL. Similarly, the number of classes increase by 5 in each task in Class-IL. Publication years are
+used to form 24 groups for the Time-IL setting.
+Specifically, we constructed the first task with the paper published before the year $1998$. For each subsequent <cite>i</cite>-th task, we used the papers published in the year <cite>(1996 + i)</cite>.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 169,343</p></li>
+<li><p>Edges: 2,232,486</p></li>
+<li><p>Number of Node Features: 128</p></li>
+<li><p>Number of Classes: 40</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 8 tasks</p></li>
+<li><p>Class-IL with 8 tasks</p></li>
+<li><p>Time-IL with 24 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">hu2020open</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Open</span> <span class="n">graph</span> <span class="n">benchmark</span><span class="p">:</span> <span class="n">datasets</span> <span class="k">for</span> <span class="n">machine</span> <span class="n">learning</span> <span class="n">on</span> <span class="n">graphs</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Hu</span><span class="p">,</span> <span class="n">Weihua</span> <span class="ow">and</span> <span class="n">Fey</span><span class="p">,</span> <span class="n">Matthias</span> <span class="ow">and</span> <span class="n">Zitnik</span><span class="p">,</span> <span class="n">Marinka</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Ren</span><span class="p">,</span> <span class="n">Hongyu</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Bowen</span> <span class="ow">and</span> <span class="n">Catasta</span><span class="p">,</span> <span class="n">Michele</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">NeurIPS</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">wang2020microsoft</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Microsoft</span> <span class="n">academic</span> <span class="n">graph</span><span class="p">:</span> <span class="n">When</span> <span class="n">experts</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">enough</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Wang</span><span class="p">,</span> <span class="n">Kuansan</span> <span class="ow">and</span> <span class="n">Shen</span><span class="p">,</span> <span class="n">Zhihong</span> <span class="ow">and</span> <span class="n">Huang</span><span class="p">,</span> <span class="n">Chiyuan</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Chieh</span><span class="o">-</span><span class="n">Han</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Kanakia</span><span class="p">,</span> <span class="n">Anshul</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Quantitative</span> <span class="n">Science</span> <span class="n">Studies</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">396</span><span class="o">--</span><span class="mi">413</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="twitch">
+<h2>twitch<a class="headerlink" href="#twitch" title="Permalink to this heading"></a></h2>
+<p>Nodes in  <a class="reference external" href="https://ogb.stanford.edu/docs/nodeprop/#ogbn-arxiv">twitch</a> are users, and edges indicate mutual follower relationship between users. For
+each user, there is a label whether the user is joining the affiliate program or not. Each user belongs
+to one among 21 broadcasting language groups, which are used as domains in Domain-IL. Using
+the binary labels, we formulate 21 binary classification tasks.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 168,114</p></li>
+<li><p>Edges: 6,797,557</p></li>
+<li><p>Number of Node Features: 4</p></li>
+<li><p>Number of Classes: 40</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 8 tasks</p></li>
+<li><p>Class-IL with 8 tasks</p></li>
+<li><p>Time-IL with 24 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@misc</span><span class="p">{</span><span class="n">rozemberczki2021twitch</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Twitch</span> <span class="n">Gamers</span><span class="p">:</span> <span class="n">a</span> <span class="n">Dataset</span> <span class="k">for</span> <span class="n">Evaluating</span> <span class="n">Proximity</span> <span class="n">Preserving</span> <span class="ow">and</span> <span class="n">Structural</span> <span class="n">Role</span><span class="o">-</span><span class="n">based</span> <span class="n">Node</span> <span class="n">Embeddings</span><span class="p">},</span>
+    <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">Benedek</span> <span class="n">Rozemberczki</span> <span class="ow">and</span> <span class="n">Rik</span> <span class="n">Sarkar</span><span class="p">},</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2021</span><span class="p">},</span>
+    <span class="n">eprint</span> <span class="o">=</span> <span class="p">{</span><span class="mf">2101.03091</span><span class="p">},</span>
+    <span class="n">archivePrefix</span> <span class="o">=</span> <span class="p">{</span><span class="n">arXiv</span><span class="p">},</span>
+    <span class="n">primaryClass</span> <span class="o">=</span> <span class="p">{</span><span class="n">cs</span><span class="o">.</span><span class="n">SI</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../000/load.html" class="btn btn-neutral float-left" title="Load Custom Scenarios" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="link_dataset.html" class="btn btn-neutral float-right" title="Datasets for Link-Level Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

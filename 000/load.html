@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Load Custom Scenarios &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Datasets for Node-Level Problems" href="../010/node_dataset.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Load Custom Scenarios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-custom-dataset-and-its-loader">Create custom dataset and its loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-with-cora-dataset">Example with Cora dataset</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Load Custom Scenarios</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/000/load.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="load-custom-scenarios">
+<h1>Load Custom Scenarios<a class="headerlink" href="#load-custom-scenarios" title="Permalink to this heading"></a></h1>
+<p>BeGin supports loading custom scenarios with user-defined dataset for users who want to create custom benchmark scenarios.</p>
+<p>In this material, we briefly describe how to load custom benchmark scenarios with examples.</p>
+<section id="create-custom-dataset-and-its-loader">
+<h2>Create custom dataset and its loader<a class="headerlink" href="#create-custom-dataset-and-its-loader" title="Permalink to this heading"></a></h2>
+<p>Since v0.3, ScenarioLoader inputs additional argument <cite>dataset_load_func</cite> for loading custom scenarios. Below, we provide an example for loading custom dataset with NCScenarioLoader.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">begin.scenarios.nodes</span> <span class="kn">import</span> <span class="n">NCScenarioLoader</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scenario</span> <span class="o">=</span> <span class="n">NCScenarioLoader</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;custom_dataset_name&#39;</span><span class="p">,</span> <span class="n">dataset_load_func</span><span class="o">=</span><span class="n">name_of_custom_function</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Currently, BeGin requires different outputs of the loader function, depending on the target problem:</p>
+<ul>
+<li><p>Node Classification (NC): The loader function should output a dictionary with keys <cite>graph</cite>, <cite>num_feats</cite>, and <cite>num_classes</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>graph</cite> (<cite>dgl.DGLGraph</cite>) : It should contain node features in <cite>graph.ndata[‘feat’]</cite> and ground-truth labels in <cite>graph.ndata[‘label’]. For Time-IL, time information for constructing tasks in `graph.ndata[‘time’]</cite> is additionally needed. For Domain-IL, domain information for constructing tasks in <cite>graph.ndata[‘domain’]</cite>. The nodes with values in <cite>graph.ndata[‘time’]</cite> or <cite>graph.ndata[‘domain’]</cite> greater than or equal to <cite>num_tasks</cite> will be ignored during the training and evaluation process.</p></li>
+<li><p><cite>num_feats</cite> (<cite>int</cite>) : Number of node features. <cite>graph.ndata[‘feat’]</cite> should be matched with this value.</p></li>
+<li><p><cite>num_tasks</cite> (<cite>int</cite>) : Number of tasks for constructing benchmark scenario.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Link Classification (LC): The loader function should output a dictionary with keys <cite>graph</cite>, <cite>num_feats</cite>, and <cite>num_classes</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>graph</cite> (<cite>dgl.DGLGraph</cite>) : It should contain node features in <cite>graph.ndata[‘feat’]</cite> and ground-truth labels in <cite>graph.edata[‘label’]. For Time-IL, time information for constructing tasks in `graph.edata[‘time’]</cite> is additionally needed. For Domain-IL, domain information for constructing tasks in <cite>graph.edata[‘domain’]</cite>. The nodes with values in <cite>graph.edata[‘time’]</cite> or <cite>graph.edata[‘domain’]</cite> greater than or equal to <cite>num_tasks</cite> will be ignored during the training and evaluation process.</p></li>
+<li><p><cite>num_feats</cite> (<cite>int</cite>) : Number of node features. <cite>graph.ndata[‘feat’]</cite> should be matched with this value.</p></li>
+<li><p><cite>num_tasks</cite> (<cite>int</cite>) : Number of tasks for constructing benchmark scenario.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Link Prediction (LP): The loader function should output a dictionary with keys <cite>graph</cite>, <cite>num_feats</cite>, <cite>tvt_splits</cite>, and <cite>neg_edges</cite>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>graph</cite> (<cite>dgl.DGLGraph</cite>) : It should contain node features in <cite>graph.ndata[‘feat’]</cite>. For Time-IL, time information for constructing tasks in <cite>graph.edata[‘time’]</cite> is additionally needed. For Domain-IL, domain information for constructing tasks in <cite>graph.edata[‘domain’]</cite>. The nodes with values in <cite>graph.edata[‘time’]</cite> or <cite>graph.edata[‘domain’]</cite> greater than or equal to <cite>num_tasks</cite> will be ignored during the training and evaluation process. Currently, BeGin only supports undirected graphs for this problem. Therefore, edges in <cite>graph</cite> should satisfy <code class="docutils literal notranslate"><span class="pre">graph.edges()[0][0::2]</span> <span class="pre">==</span> <span class="pre">graph.edges()[1][1::2]</span></code> and <code class="docutils literal notranslate"><span class="pre">graph.edges()[0][1::2]</span> <span class="pre">==</span> <span class="pre">graph.edges()[1][0::2]</span></code>.</p></li>
+<li><p><cite>num_feats</cite> (<cite>int</cite>) : Number of node features. <cite>graph.ndata[‘feat’]</cite> should be matched with this value.</p></li>
+<li><p><cite>tvt_splits</cite> (<cite>torch.LongTensor</cite>) : The information for train/val/test splits. In this tensor, the value <cite>0</cite>, <cite>1</cite>, and <cite>2</cite> indicates the corresponding edge should be used for train, validation, and test, respectively. Its shape should be <cite>(graph.num_edges,)</cite>.</p></li>
+<li><p><cite>neg_edges</cite> (<cite>dict</cite>) : The dictionary contains negative edges. It should contain keys <cite>val</cite> and <cite>test</cite>. the corresponding value of the key <cite>val</cite> is used as negative edges for validation, and that of <cite>test</cite> is used as negative edges for test. The types of the values and shapes of the values should be <cite>torch.LongTensor</cite>, and <cite>(*, 2)</cite>, respectively.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Graph Classification (GC): The loader function should output a dictionary with keys <cite>graphs</cite>, <cite>num_feats</cite>, and <cite>num_classes</cite>, <cite>domain_info</cite> (optional, for Domain-IL) and <cite>time_info</cite> (optional, for Time-IL).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>graphs</cite> (<cite>Iterable[dgl.DGLGraph, int]</cite>) : It should be the iterable object, which outputs graph object with type <cite>dgl.DGLGraph</cite> and its corresponding label for each iteration. Each graph should contain node features in <cite>graph.ndata[‘feat’]</cite>.</p></li>
+<li><p><cite>num_feats</cite> (<cite>int</cite>) : Number of node features. <cite>graph.ndata[‘feat’]</cite> should be matched with this value.</p></li>
+<li><p><cite>num_tasks</cite> (<cite>int</cite>) : Number of tasks for constructing benchmark scenario.</p></li>
+<li><p><cite>domain_info</cite> (<cite>torch.LongTensor</cite>) : For domain-IL, it should contain domain information for constructing the tasks. Its shape should be <cite>(len(graphs),)</cite>. The graphs with values in <cite>domain_info</cite> greater than or equal to <cite>num_tasks</cite> will be ignored during the training and evaluation process.</p></li>
+<li><p><cite>time_info</cite> (<cite>torch.LongTensor</cite>) : For time-IL, it should contain time information for constructing the tasks. Its shape should be <cite>(len(graphs),)</cite>. The graphs with values in <cite>time_info</cite> greater than or equal to <cite>num_tasks</cite> will be ignored during the training and evaluation process.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="example-with-cora-dataset">
+<h2>Example with Cora dataset<a class="headerlink" href="#example-with-cora-dataset" title="Permalink to this heading"></a></h2>
+<p>For example, consider we need to load Cora dataset. One of the easiest way to write the function is to extract graphs and from <cite>dgl.data.CoraGraphDataset</cite>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dataset_load_func</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">CoraGraphDataset</span><span class="p">(</span><span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, we can extract <cite>graph</cite>, <cite>num_classes</cite>, and <cite>num_tasks</cite> in the <cite>dataset</cite> object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dataset_load_func</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">CoraGraphDataset</span><span class="p">(</span><span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_g</span>
+    <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">num_classes</span>
+</pre></div>
+</div>
+<p>Now, All you need is just adding one line to return the dictionary contains <cite>graph</cite>, <cite>num_feats</cite>, and <cite>num_classes</cite>!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dataset_load_func</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">CoraGraphDataset</span><span class="p">(</span><span class="n">raw_dir</span><span class="o">=</span><span class="n">save_path</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_g</span>
+    <span class="n">num_feats</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">num_classes</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;graph&#39;</span><span class="p">:</span> <span class="n">graph</span><span class="p">,</span> <span class="s1">&#39;num_classes&#39;</span><span class="p">:</span> <span class="n">num_classes</span><span class="p">,</span> <span class="s1">&#39;num_feats&#39;</span><span class="p">:</span> <span class="n">num_feats</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../010/node_dataset.html" class="btn btn-neutral float-right" title="Datasets for Node-Level Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.algorithms.bare.links &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.algorithms.bare.links</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.algorithms.bare.links</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">dgl</span>
+<span class="kn">from</span> <span class="nn">begin.trainers.links</span> <span class="kn">import</span> <span class="n">LCTrainer</span><span class="p">,</span> <span class="n">LPTrainer</span>
+
+<div class="viewcode-block" id="LCTaskILBareTrainer"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LCTaskILBareTrainer">[docs]</a><span class="k">class</span> <span class="nc">LCTaskILBareTrainer</span><span class="p">(</span><span class="n">LCTrainer</span><span class="p">):</span>
+<div class="viewcode-block" id="LCTaskILBareTrainer.prepareLoader"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LCTaskILBareTrainer.prepareLoader">[docs]</a>    <span class="k">def</span> <span class="nf">prepareLoader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to generate dataloaders from the given dataset for the current task.</span>
+<span class="sd">            For task-IL, we need to additionally consider task information.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A tuple containing three dataloaders.</span>
+<span class="sd">                The trainer considers the first dataloader, second dataloader, and third dataloader</span>
+<span class="sd">                as dataloaders for training, validation, and test, respectively.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">curr_dataset</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">_curr_dataset</span><span class="p">)</span>
+        <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+        <span class="n">train_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;train_mask&#39;</span><span class="p">)</span>
+        <span class="n">val_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;val_mask&#39;</span><span class="p">)</span>
+        <span class="n">test_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;test_mask&#39;</span><span class="p">)</span>
+        <span class="n">task_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">)</span>
+        <span class="n">curr_dataset</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">add_self_loop</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">srcs</span><span class="p">[</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">dsts</span><span class="p">[</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">task_mask</span><span class="p">[</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">train_mask</span><span class="p">])],</span> <span class="p">[(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">srcs</span><span class="p">[</span><span class="n">val_mask</span><span class="p">],</span> <span class="n">dsts</span><span class="p">[</span><span class="n">val_mask</span><span class="p">],</span> <span class="n">task_mask</span><span class="p">[</span><span class="n">val_mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">val_mask</span><span class="p">])],</span> <span class="p">[(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">srcs</span><span class="p">[</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dsts</span><span class="p">[</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">task_mask</span><span class="p">[</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">test_mask</span><span class="p">])]</span></div>
+    
+<div class="viewcode-block" id="LCTaskILBareTrainer.inference"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LCTaskILBareTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute inference step.</span>
+<span class="sd">            For task-IL, we need to additionally consider task information for the inference step.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the inference results, such as prediction result and loss.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># use task_masks as additional input</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span><span class="p">,</span> <span class="n">task_masks</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span><span class="p">,</span> <span class="n">task_masks</span><span class="o">=</span><span class="n">task_masks</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;preds&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div></div>
+    
+<div class="viewcode-block" id="LCClassILBareTrainer"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LCClassILBareTrainer">[docs]</a><span class="k">class</span> <span class="nc">LCClassILBareTrainer</span><span class="p">(</span><span class="n">LCTrainer</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="LCTimeILBareTrainer"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LCTimeILBareTrainer">[docs]</a><span class="k">class</span> <span class="nc">LCTimeILBareTrainer</span><span class="p">(</span><span class="n">LCTrainer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This trainer has the same behavior as `LCTrainer`.</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="LPTimeILBareTrainer"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LPTimeILBareTrainer">[docs]</a><span class="k">class</span> <span class="nc">LPTimeILBareTrainer</span><span class="p">(</span><span class="n">LPTrainer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This trainer has the same behavior as `LPTrainer`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="LPDomainILBareTrainer"><a class="viewcode-back" href="../../../../050/bare.html#begin.algorithms.bare.links.LPDomainILBareTrainer">[docs]</a><span class="k">class</span> <span class="nc">LPDomainILBareTrainer</span><span class="p">(</span><span class="n">LPTrainer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This trainer has the same behavior as `LPTrainer`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

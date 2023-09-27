@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph-level problems &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Common framework" href="../040/common.html" />
+    <link rel="prev" title="Link-level problems" href="link.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link.html">Link-level problems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Graph-level problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader._get_eval_result_inner"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader._get_eval_result_inner()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader._init_continual_scenario"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader._init_continual_scenario()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader._update_accumulated_dataset"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader._update_accumulated_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader._update_target_dataset"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader._update_target_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader.get_accum_eval_result"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader.get_accum_eval_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader.get_current_dataset_for_export"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader.get_current_dataset_for_export()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader.get_simple_eval_result"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader.get_simple_eval_result()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.scenarios.graphs.GCScenarioLoader.next_task"><code class="docutils literal notranslate"><span class="pre">GCScenarioLoader.next_task()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Graph-level problems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/030/graph.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-begin.scenarios.graphs">
+<span id="graph-level-problems"></span><h1>Graph-level problems<a class="headerlink" href="#module-begin.scenarios.graphs" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCScenarioLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incr_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader" title="Permalink to this definition"></a></dt>
+<dd><p>The sceanario loader for graph classification problems.</p>
+<p><strong>Usage example:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scenario</span> <span class="o">=</span> <span class="n">GCScenarioLoader</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;ogbg-molhiv&quot;</span><span class="p">,</span> <span class="n">num_tasks</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;rocauc&quot;</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;./data&quot;</span><span class="p">,</span> <span class="n">incr_type</span><span class="o">=</span><span class="s2">&quot;domain&quot;</span><span class="p">,</span> <span class="n">task_shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Bases: <code class="docutils literal notranslate"><span class="pre">BaseScenarioLoader</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader._get_eval_result_inner">
+<span class="sig-name descname"><span class="pre">_get_eval_result_inner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_split</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader._get_eval_result_inner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader._get_eval_result_inner" title="Permalink to this definition"></a></dt>
+<dd><p>The inner function of get_eval_result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>target_split</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – target split to measure the performance (spec., ‘val’ or ‘test’)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader._init_continual_scenario">
+<span class="sig-name descname"><span class="pre">_init_continual_scenario</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader._init_continual_scenario"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader._init_continual_scenario" title="Permalink to this definition"></a></dt>
+<dd><p>Load the entire dataset and initialize the setting of graph continual learning according the incremental setting.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader._update_accumulated_dataset">
+<span class="sig-name descname"><span class="pre">_update_accumulated_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader._update_accumulated_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader._update_accumulated_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Update the graph dataset the joint model uses.
+According to the <code class="docutils literal notranslate"><span class="pre">incr_type</span></code>, the information updated is different.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The joint model can process all of training data in previous tasks including the current task.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader._update_target_dataset">
+<span class="sig-name descname"><span class="pre">_update_target_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader._update_target_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader._update_target_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Update the graph dataset the implemented model uses in the current task.
+According to the <code class="docutils literal notranslate"><span class="pre">incr_type</span></code>, the information updated is different.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The implemented model can only process the training data in the current task.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader.get_accum_eval_result">
+<span class="sig-name descname"><span class="pre">get_accum_eval_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'test'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader.get_accum_eval_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader.get_accum_eval_result" title="Permalink to this definition"></a></dt>
+<dd><p>Compute performance on the accumulated dataset for the given target split.
+It can be used to compute train/val performance during training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preds</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>target_split</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – target split to measure the performance (spec., ‘val’ or ‘test’)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader.get_current_dataset_for_export">
+<span class="sig-name descname"><span class="pre">get_current_dataset_for_export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_global</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader.get_current_dataset_for_export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader.get_current_dataset_for_export" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The graph dataset the implemented model uses in the current task</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader.get_simple_eval_result">
+<span class="sig-name descname"><span class="pre">get_simple_eval_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_batch_preds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_batch_gts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader.get_simple_eval_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader.get_simple_eval_result" title="Permalink to this definition"></a></dt>
+<dd><p>Compute performance for the given batch when we ignore task configuration.
+It can be used to compute train/val performance during training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_batch_preds</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>curr_batch_gts</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – ground-truth labels</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.scenarios.graphs.GCScenarioLoader.next_task">
+<span class="sig-name descname"><span class="pre">next_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">torch.empty</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/scenarios/graphs.html#GCScenarioLoader.next_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.scenarios.graphs.GCScenarioLoader.next_task" title="Permalink to this definition"></a></dt>
+<dd><p>Update graph datasets used in graph continual learning.
+Specifically, the <code class="docutils literal notranslate"><span class="pre">target</span></code> denotes a dataset the implemented model uses and the <code class="docutils literal notranslate"><span class="pre">accumulated</span></code> denotes a dataset the joint model uses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>preds</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – Predicted output of the models</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="link.html" class="btn btn-neutral float-left" title="Link-level problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../040/common.html" class="btn btn-neutral float-right" title="Common framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

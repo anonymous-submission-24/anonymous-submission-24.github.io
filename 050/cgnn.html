@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ContinualGNN &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PackNet" href="packnet.html" />
+    <link rel="prev" title="ER-GNN" href="ergnn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ContinualGNN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.cgnn.nodes">Node-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.prepareLoader"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer.prepareLoader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processAfterEachIteration"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer.processAfterEachIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer.processBeforeTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processTrainIteration"><code class="docutils literal notranslate"><span class="pre">NCClassILCGNNTrainer.processTrainIteration()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCDomainILCGNNTrainer"><code class="docutils literal notranslate"><span class="pre">NCDomainILCGNNTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.prepareLoader"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.prepareLoader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processAfterEachIteration"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.processAfterEachIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.processBeforeTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processEvalIteration"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.processEvalIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processTrainIteration"><code class="docutils literal notranslate"><span class="pre">NCTaskILCGNNTrainer.processTrainIteration()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.cgnn.nodes.NCTimeILCGNNTrainer"><code class="docutils literal notranslate"><span class="pre">NCTimeILCGNNTrainer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ContinualGNN</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/050/cgnn.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="continualgnn">
+<h1>ContinualGNN<a class="headerlink" href="#continualgnn" title="Permalink to this heading"></a></h1>
+<p>ContinualGNN is a continual learning mehtod for graphs which combines replay- and regularization-based approaches.
+For the details, see the <a class="reference external" href="https://arxiv.org/pdf/2009.10951">original paper</a>.</p>
+<section id="module-begin.algorithms.cgnn.nodes">
+<span id="node-level-problems"></span><h2>Node-level Problems<a class="headerlink" href="#module-begin.algorithms.cgnn.nodes" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILCGNNTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.prepareLoader">
+<span class="sig-name descname"><span class="pre">prepareLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer.prepareLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.prepareLoader" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to generate dataloaders from the given dataset for the current task.</p>
+<p>ContinualGNN additionally puts saved nodes from the previous tasks to the training set of the current task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing three dataloaders.
+The trainer considers the first dataloader, second dataloader, and third dataloader
+as dataloaders for training, validation, and test, respectively.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processAfterEachIteration">
+<span class="sig-name descname"><span class="pre">processAfterEachIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_iter_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer.processAfterEachIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processAfterEachIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes for every end of each epoch.
+Whether to continue training or not is determined by the return value of this function.
+If the returned value is False, the trainer stops training the current model in the current task.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is called for every end of each epoch,
+and the event function <code class="docutils literal notranslate"><span class="pre">processAfterTraining</span></code> is called only when the learning on the current task has ended.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+<li><p><strong>curr_iter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the training/validation results of the current epoch.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value. If the returned value is False, the trainer stops training the current model in the current task.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>ContinualGNN updates the buffer using the memory handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>In this function, ContinualGNN chooses important nodes for regularization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processTrainIteration">
+<span class="sig-name descname"><span class="pre">processTrainIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCClassILCGNNTrainer.processTrainIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCClassILCGNNTrainer.processTrainIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every training iteration.</p>
+<p>ContinualGNN performs regularization process (based on EWC) in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the training iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCDomainILCGNNTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCDomainILCGNNTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCDomainILCGNNTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCDomainILCGNNTrainer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTaskILCGNNTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.prepareLoader">
+<span class="sig-name descname"><span class="pre">prepareLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.prepareLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.prepareLoader" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to generate dataloaders from the given dataset for the current task.</p>
+<p>ContinualGNN additionally puts saved nodes from the previous tasks to the training set of the current task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing three dataloaders.
+The trainer considers the first dataloader, second dataloader, and third dataloader
+as dataloaders for training, validation, and test, respectively.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processAfterEachIteration">
+<span class="sig-name descname"><span class="pre">processAfterEachIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_iter_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.processAfterEachIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processAfterEachIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes for every end of each epoch.
+Whether to continue training or not is determined by the return value of this function.
+If the returned value is False, the trainer stops training the current model in the current task.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is called for every end of each epoch,
+and the event function <code class="docutils literal notranslate"><span class="pre">processAfterTraining</span></code> is called only when the learning on the current task has ended.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+<li><p><strong>curr_iter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the training/validation results of the current epoch.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value. If the returned value is False, the trainer stops training the current model in the current task.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>ContinualGNN updates the buffer using the memory handler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>In this function, ContinualGNN chooses important nodes for regularization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processEvalIteration">
+<span class="sig-name descname"><span class="pre">processEvalIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.processEvalIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processEvalIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every evaluation iteration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the evaluation iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processTrainIteration">
+<span class="sig-name descname"><span class="pre">processTrainIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTaskILCGNNTrainer.processTrainIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTaskILCGNNTrainer.processTrainIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every training iteration.</p>
+<p>ContinualGNN performs regularization process (based on EWC) in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the training iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.cgnn.nodes.NCTimeILCGNNTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTimeILCGNNTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/cgnn/nodes.html#NCTimeILCGNNTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.cgnn.nodes.NCTimeILCGNNTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCClassILCGNNTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ergnn.html" class="btn btn-neutral float-left" title="ER-GNN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="packnet.html" class="btn btn-neutral float-right" title="PackNet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

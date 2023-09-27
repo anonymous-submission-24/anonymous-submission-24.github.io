@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TWP &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ER-GNN" href="ergnn.html" />
+    <link rel="prev" title="GEM" href="gem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gem.html">GEM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TWP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.twp.nodes">Node-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPMinibatchTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPMinibatchTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.inference"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPMinibatchTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPMinibatchTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPMinibatchTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCClassILTWPTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCDomainILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">NCDomainILTWPTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">NCTaskILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCTaskILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">NCTaskILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCTaskILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCTaskILTWPTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.nodes.NCTimeILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">NCTimeILTWPTrainer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.twp.links">Link-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.links.LCClassILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">LCClassILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">LCClassILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">LCClassILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LCClassILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LCClassILTWPTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">LCTaskILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">LCTaskILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">LCTaskILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LCTaskILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.prepareLoader"><code class="docutils literal notranslate"><span class="pre">LCTaskILTWPTrainer.prepareLoader()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LCTaskILTWPTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer.processBeforeTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.processEvalIteration"><code class="docutils literal notranslate"><span class="pre">LCTimeILTWPTrainer.processEvalIteration()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.links.LPDomainILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">LPDomainILTWPTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">LPTimeILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">LPTimeILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">LPTimeILTWPTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer.processTrainIteration"><code class="docutils literal notranslate"><span class="pre">LPTimeILTWPTrainer.processTrainIteration()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.twp.graphs">Graph-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">GCClassILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">GCClassILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">GCClassILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">GCClassILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">GCClassILTWPTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCDomainILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">GCDomainILTWPTrainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">GCTaskILTWPTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">GCTaskILTWPTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.inference"><code class="docutils literal notranslate"><span class="pre">GCTaskILTWPTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">GCTaskILTWPTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">GCTaskILTWPTrainer.processAfterTraining()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.twp.graphs.GCTimeILTWPTrainer"><code class="docutils literal notranslate"><span class="pre">GCTimeILTWPTrainer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">TWP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/050/twp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="twp">
+<h1>TWP<a class="headerlink" href="#twp" title="Permalink to this heading"></a></h1>
+<p>TWP is a continual learning method for graphs, which stabilizes parameters important in topological aggregation by graph neural networks through regularization.
+For the details, see the <a class="reference external" href="https://arxiv.org/pdf/1706.08840.pdf">original paper</a>.</p>
+<section id="module-begin.algorithms.twp.nodes">
+<span id="node-level-problems"></span><h2>Node-level Problems<a class="headerlink" href="#module-begin.algorithms.twp.nodes" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILTWPMinibatchTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPMinibatchTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPMinibatchTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPMinibatchTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPMinibatchTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPMinibatchTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPMinibatchTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCClassILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCClassILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCClassILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCClassILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCDomainILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCDomainILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCDomainILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCDomainILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCClassILTWPTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCTaskILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTaskILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCTaskILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCTaskILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCTaskILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCTaskILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCTaskILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.
+TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCTaskILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCTaskILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCTaskILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCTaskILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCTaskILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.nodes.NCTimeILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTimeILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/nodes.html#NCTimeILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.nodes.NCTimeILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>NCClassILTWPTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="module-begin.algorithms.twp.links">
+<span id="link-level-problems"></span><h2>Link-level Problems<a class="headerlink" href="#module-begin.algorithms.twp.links" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCClassILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCClassILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCClassILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCClassILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCClassILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCClassILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCClassILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCClassILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCClassILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCClassILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCClassILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCClassILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCClassILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTaskILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCTaskILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTaskILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTaskILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTaskILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTaskILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTaskILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.
+TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTaskILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTaskILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTaskILTWPTrainer.prepareLoader">
+<span class="sig-name descname"><span class="pre">prepareLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTaskILTWPTrainer.prepareLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.prepareLoader" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to generate dataloaders from the given dataset for the current task.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing three dataloaders.
+The trainer considers the first dataloader, second dataloader, and third dataloader
+as dataloaders for training, validation, and test, respectively.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTaskILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTaskILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTaskILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LCTimeILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.</p>
+<p>We need to extend the function since the output format is slightly different from the base trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LCTimeILTWPTrainer.processEvalIteration">
+<span class="sig-name descname"><span class="pre">processEvalIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LCTimeILTWPTrainer.processEvalIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LCTimeILTWPTrainer.processEvalIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every evaluation iteration.</p>
+<p>We need to extend the function since the output format is slightly different from the base trainer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the evaluation iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LPDomainILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LPDomainILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LPDomainILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LPDomainILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>LPTimeILTWPTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LPTimeILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LPTimeILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LPTimeILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LPTimeILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LPTimeILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LPTimeILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LPTimeILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.links.LPTimeILTWPTrainer.processTrainIteration">
+<span class="sig-name descname"><span class="pre">processTrainIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/links.html#LPTimeILTWPTrainer.processTrainIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.links.LPTimeILTWPTrainer.processTrainIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every training iteration.</p>
+<p>TWP performs inference and regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the training iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-begin.algorithms.twp.graphs">
+<span id="graph-level-problems"></span><h2>Graph-level Problems<a class="headerlink" href="#module-begin.algorithms.twp.graphs" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCClassILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCClassILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCClassILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCClassILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCClassILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCClassILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCClassILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCClassILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCClassILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCClassILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCClassILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCClassILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCDomainILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCDomainILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCDomainILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCDomainILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>GCClassILTWPTrainer</cite>.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCTaskILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCTaskILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCTaskILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCTaskILTWPTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCTaskILTWPTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.</p>
+<p>TWP performs regularization process in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCTaskILTWPTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCTaskILTWPTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.</p>
+<p>For task-IL, we need to additionally consider task information for the inference step.
+TWP requires edge weights computed by attention mechanism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCTaskILTWPTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCTaskILTWPTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCTaskILTWPTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCTaskILTWPTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCTaskILTWPTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>TWP computes weights for regularization process and stores the learned weights in this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.twp.graphs.GCTimeILTWPTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCTimeILTWPTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/twp/graphs.html#GCTimeILTWPTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.twp.graphs.GCTimeILTWPTrainer" title="Permalink to this definition"></a></dt>
+<dd><p>This trainer has the same behavior as <cite>GCClassILTWPTrainer</cite>.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gem.html" class="btn btn-neutral float-left" title="GEM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ergnn.html" class="btn btn-neutral float-right" title="ER-GNN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

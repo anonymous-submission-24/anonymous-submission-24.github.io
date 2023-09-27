@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piggyback &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HAT" href="hat.html" />
+    <link rel="prev" title="PackNet" href="packnet.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packnet.html">PackNet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Piggyback</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-begin.algorithms.piggyback.nodes">Node-level Problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.afterInference"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.afterInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.beforeInference"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.beforeInference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.inference"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.inference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.initTrainingStates"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.initTrainingStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processAfterEachIteration"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.processAfterEachIteration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processAfterTraining"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.processAfterTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processBeforeTraining"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.processBeforeTraining()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processEvalIteration"><code class="docutils literal notranslate"><span class="pre">NCTaskILPiggybackTrainer.processEvalIteration()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Piggyback</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/050/piggyback.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="piggyback">
+<h1>Piggyback<a class="headerlink" href="#piggyback" title="Permalink to this heading"></a></h1>
+<p>Piggyback is a parameter-isolation-based continual learning method which prevents forgetting by learning binary masks of network parameters for each task.
+For the details, see the <a class="reference external" href="https://arxiv.org/pdf/1801.06519">original paper</a>.</p>
+<section id="module-begin.algorithms.piggyback.nodes">
+<span id="node-level-problems"></span><h2>Node-level Problems<a class="headerlink" href="#module-begin.algorithms.piggyback.nodes" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">NCTaskILPiggybackTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.afterInference">
+<span class="sig-name descname"><span class="pre">afterInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.afterInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.afterInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right after the inference step (for training).
+We recommend performing backpropagation in this event function.
+In our implementation, we compute the gradient for the real-valued masks and restore the masked parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the returned dictionary from the event function <cite>inference</cite>.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the information from the <cite>results</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.beforeInference">
+<span class="sig-name descname"><span class="pre">beforeInference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.beforeInference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.beforeInference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes right before inference (for training).</p>
+<p>Before training, Piggyback gets binarized/ternarized mask from real-valued mask and weights the masks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.inference" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute inference step.
+For task-IL, we need to additionally consider task information for the inference step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the inference results, such as prediction result and loss.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.initTrainingStates">
+<span class="sig-name descname"><span class="pre">initTrainingStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.initTrainingStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.initTrainingStates" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to initialize the dictionary for storing training states (i.e., intermedeiate results).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scenario</strong> (<a class="reference internal" href="../030/common.html#begin.scenarios.common.BaseScenarioLoader" title="begin.scenarios.common.BaseScenarioLoader"><em>begin.scenarios.common.BaseScenarioLoader</em></a>) – the given ScenarioLoader to the trainer</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the given model to the trainer</p></li>
+<li><p><strong>optmizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the optimizer generated from the given <cite>optimizer_fn</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initialized training state (dict).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processAfterEachIteration">
+<span class="sig-name descname"><span class="pre">processAfterEachIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_iter_results</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.processAfterEachIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processAfterEachIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes for every end of each epoch.
+Whether to continue training or not is determined by the return value of this function.
+If the returned value is False, the trainer stops training the current model in the current task.</p>
+<p>In this event function, our implementation synchronize the learning rates of the main optimizer and the optimizer for masks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is called for every end of each epoch,
+and the event function <code class="docutils literal notranslate"><span class="pre">processAfterTraining</span></code> is called only when the learning on the current task has ended.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+<li><p><strong>curr_iter_results</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the training/validation results of the current epoch.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value. If the returned value is False, the trainer stops training the current model in the current task.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processAfterTraining">
+<span class="sig-name descname"><span class="pre">processAfterTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.processAfterTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processAfterTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes after training the current task.</p>
+<p>In this event function, our implementation stores the learned masks for each task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task.</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processBeforeTraining">
+<span class="sig-name descname"><span class="pre">processBeforeTraining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_training_states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.processBeforeTraining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processBeforeTraining" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to execute some processes before training.
+In this function, masks for network parameters are initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the index of the current task</p></li>
+<li><p><strong>curr_dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – The dataset for the current task.</p></li>
+<li><p><strong>curr_model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_optimizer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/optim.html#torch.optim.Optimizer" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.optim.Optimizer</em></a>) – the current optimizer function.</p></li>
+<li><p><strong>curr_training_states</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – the dictionary containing the current training states.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processEvalIteration">
+<span class="sig-name descname"><span class="pre">processEvalIteration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_curr_batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/algorithms/piggyback/nodes.html#NCTaskILPiggybackTrainer.processEvalIteration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.algorithms.piggyback.nodes.NCTaskILPiggybackTrainer.processEvalIteration" title="Permalink to this definition"></a></dt>
+<dd><p>The event function to handle every evaluation iteration.</p>
+<p>Piggyback has to use different masks to evaluate the performance for each task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<a class="reference external" href="https://pytorch.org/docs/master/generated/torch.nn.Module.html#torch.nn.Module" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.nn.Module</em></a>) – the current trained model.</p></li>
+<li><p><strong>curr_batch</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><em>object</em></a>) – the data (or minibatch) for the current iteration.</p></li>
+<li><p><strong>task_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – the id of a task</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the outcomes (stats) during the evaluation iteration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="packnet.html" class="btn btn-neutral float-left" title="PackNet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hat.html" class="btn btn-neutral float-right" title="HAT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

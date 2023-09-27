@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.algorithms.ewc.links &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.algorithms.ewc.links</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.algorithms.ewc.links</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">copy</span><span class="o">,</span> <span class="nn">dgl</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">begin.trainers.links</span> <span class="kn">import</span> <span class="n">LCTrainer</span><span class="p">,</span> <span class="n">LPTrainer</span>
+
+<div class="viewcode-block" id="LCTaskILEWCTrainer"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTaskILEWCTrainer">[docs]</a><span class="k">class</span> <span class="nc">LCTaskILEWCTrainer</span><span class="p">(</span><span class="n">LCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            EWC needs `lamb`, the additional hyperparamter for the regularization term used in :func:`afterInference`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lamb&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;lamb&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">10000.</span>
+        
+<div class="viewcode-block" id="LCTaskILEWCTrainer.prepareLoader"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTaskILEWCTrainer.prepareLoader">[docs]</a>    <span class="k">def</span> <span class="nf">prepareLoader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to generate dataloaders from the given dataset for the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            For task-IL, we need to additionally consider task information for the inference step.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task. Its type is dgl.graph for node-level and link-level problem, and dgl.data.DGLDataset for graph-level problem.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A tuple containing three dataloaders.</span>
+<span class="sd">                The trainer considers the first dataloader, second dataloader, and third dataloader</span>
+<span class="sd">                as dataloaders for training, validation, and test, respectively.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">curr_dataset</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">_curr_dataset</span><span class="p">)</span>
+        <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edges</span><span class="p">()</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+        <span class="n">train_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;train_mask&#39;</span><span class="p">)</span>
+        <span class="n">val_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;val_mask&#39;</span><span class="p">)</span>
+        <span class="n">test_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;test_mask&#39;</span><span class="p">)</span>
+        <span class="n">task_mask</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">edata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">)</span>
+        <span class="n">curr_dataset</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">add_self_loop</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">srcs</span><span class="p">[</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">dsts</span><span class="p">[</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">task_mask</span><span class="p">[</span><span class="n">train_mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">train_mask</span><span class="p">])],</span> <span class="p">[(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">srcs</span><span class="p">[</span><span class="n">val_mask</span><span class="p">],</span> <span class="n">dsts</span><span class="p">[</span><span class="n">val_mask</span><span class="p">],</span> <span class="n">task_mask</span><span class="p">[</span><span class="n">val_mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">val_mask</span><span class="p">])],</span> <span class="p">[(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">srcs</span><span class="p">[</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">dsts</span><span class="p">[</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">task_mask</span><span class="p">[</span><span class="n">test_mask</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">test_mask</span><span class="p">])]</span></div>
+    
+<div class="viewcode-block" id="LCTaskILEWCTrainer.inference"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTaskILEWCTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute inference step.</span>
+<span class="sd">        </span>
+<span class="sd">            For task-IL, we need to additionally consider task information for the inference step.</span>
+<span class="sd">        </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the inference results, such as prediction result and loss.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span><span class="p">,</span> <span class="n">task_masks</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span><span class="p">,</span> <span class="n">task_masks</span><span class="o">=</span><span class="n">task_masks</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;preds&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div>
+    
+<div class="viewcode-block" id="LCTaskILEWCTrainer.afterInference"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTaskILEWCTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC performs regularization process in this function.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss_reg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_param</span><span class="p">,</span> <span class="n">_fisher</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">*</span> <span class="n">_fisher</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">_param</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">loss_reg</span> <span class="o">=</span> <span class="n">loss_reg</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">loss_reg</span>
+        <span class="n">total_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">total_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="LCTaskILEWCTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTaskILEWCTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span></div>
+    
+<div class="viewcode-block" id="LCTaskILEWCTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTaskILEWCTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC computes fisher information matrix and stores the learned weights to compute the penalty term in :func:`afterInference`</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">fishers</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">total_num_items</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_curr_batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">curr_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+            <span class="n">curr_results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">curr_num_items</span> <span class="o">=</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">total_num_items</span> <span class="o">+=</span> <span class="n">curr_num_items</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">curr_num_items</span>
+                    
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_num_items</span>
+                
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fishers</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div></div>
+    
+<div class="viewcode-block" id="LCClassILEWCTrainer"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCClassILEWCTrainer">[docs]</a><span class="k">class</span> <span class="nc">LCClassILEWCTrainer</span><span class="p">(</span><span class="n">LCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            EWC needs `lamb`, the additional hyperparamter for the regularization term used in :func:`afterInference`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lamb&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;lamb&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">10000.</span>
+        
+<div class="viewcode-block" id="LCClassILEWCTrainer.afterInference"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCClassILEWCTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC performs regularization process in this function.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss_reg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_param</span><span class="p">,</span> <span class="n">_fisher</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">*</span> <span class="n">_fisher</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">_param</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">loss_reg</span> <span class="o">=</span> <span class="n">loss_reg</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">loss_reg</span>
+        <span class="n">total_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">total_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="LCClassILEWCTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCClassILEWCTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span></div>
+    
+<div class="viewcode-block" id="LCClassILEWCTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCClassILEWCTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC computes fisher information matrix and stores the learned weights to compute the penalty term in :func:`afterInference`</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">fishers</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">total_num_items</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_curr_batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">curr_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+            <span class="n">curr_results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">curr_num_items</span> <span class="o">=</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">total_num_items</span> <span class="o">+=</span> <span class="n">curr_num_items</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">curr_num_items</span>
+                    
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_num_items</span>
+                
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fishers</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="LCTimeILEWCTrainer"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTimeILEWCTrainer">[docs]</a><span class="k">class</span> <span class="nc">LCTimeILEWCTrainer</span><span class="p">(</span><span class="n">LCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            EWC needs `lamb`, the additional hyperparamter for the regularization term used in :func:`afterInference`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lamb&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;lamb&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">10000.</span>
+        
+<div class="viewcode-block" id="LCTimeILEWCTrainer.processBeforeTraining"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTimeILEWCTrainer.processBeforeTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processBeforeTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes before training.</span>
+<span class="sd">            </span>
+<span class="sd">            We need to extend the base function since the output format is slightly different from the base trainer.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;scheduler&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheduler_fn</span><span class="p">(</span><span class="n">curr_optimizer</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;best_val_acc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;best_val_loss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e10</span>
+        <span class="n">curr_model</span><span class="o">.</span><span class="n">observe_labels</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">([</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_optimizer</span><span class="p">(</span><span class="n">curr_optimizer</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="LCTimeILEWCTrainer.processEvalIteration"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTimeILEWCTrainer.processEvalIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processEvalIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes before training.</span>
+<span class="sd">            </span>
+<span class="sd">            We need to extend the base function since the output format is slightly different from the base trainer.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()}</span></div>
+    
+<div class="viewcode-block" id="LCTimeILEWCTrainer.afterInference"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTimeILEWCTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC performs regularization process in this function.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss_reg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_param</span><span class="p">,</span> <span class="n">_fisher</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">*</span> <span class="n">_fisher</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">_param</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">loss_reg</span> <span class="o">=</span> <span class="n">loss_reg</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">loss_reg</span>
+        <span class="n">total_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">total_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">],</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="LCTimeILEWCTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTimeILEWCTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span></div>
+    
+<div class="viewcode-block" id="LCTimeILEWCTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LCTimeILEWCTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC computes fisher information matrix and stores the learned weights to compute the penalty term in :func:`afterInference`.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">fishers</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">total_num_items</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_curr_batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">curr_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+            <span class="n">curr_results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">curr_num_items</span> <span class="o">=</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">total_num_items</span> <span class="o">+=</span> <span class="n">curr_num_items</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">curr_num_items</span>
+                    
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_num_items</span>
+                
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fishers</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div></div>
+        
+<div class="viewcode-block" id="LPTimeILEWCTrainer"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LPTimeILEWCTrainer">[docs]</a><span class="k">class</span> <span class="nc">LPTimeILEWCTrainer</span><span class="p">(</span><span class="n">LPTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            EWC needs `lamb`, the additional hyperparamter for the regularization term used in :func:`processTrainIteration.`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lamb&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;lamb&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">1.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;T&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">2.</span>
+        
+<div class="viewcode-block" id="LPTimeILEWCTrainer.processTrainIteration"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LPTimeILEWCTrainer.processTrainIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processTrainIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to handle every training iteration.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC performs inference and regularization process in this function.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the outcomes (stats) during the training iteration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">graph</span><span class="p">,</span> <span class="n">feats</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">])</span>
+        <span class="n">edges</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span> <span class="o">=</span> <span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">edges</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">neg_dsts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">graph</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">srcs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">feats</span><span class="p">,</span> <span class="n">srcs</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">neg_dsts</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">labels</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">labels</span><span class="p">)),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        
+        <span class="n">loss_reg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_param</span><span class="p">,</span> <span class="n">_fisher</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">*</span> <span class="n">_fisher</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">_param</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">loss_reg</span> <span class="o">=</span> <span class="n">loss_reg</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">loss_reg</span>
+        
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;_num_items&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()}</span></div>
+    
+<div class="viewcode-block" id="LPTimeILEWCTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LPTimeILEWCTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span></div>
+    
+<div class="viewcode-block" id="LPTimeILEWCTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LPTimeILEWCTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            EWC computes fisher information matrix and stores the learned weights to compute the penalty term in :func:`processTrainIteration`.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">fishers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">total_num_items</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_curr_batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">graph</span><span class="p">,</span> <span class="n">feats</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;graph&#39;</span><span class="p">])</span>
+            <span class="n">edges</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">)</span>
+            <span class="n">srcs</span><span class="p">,</span> <span class="n">dsts</span> <span class="o">=</span> <span class="n">edges</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">edges</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">neg_dsts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">graph</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">srcs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">preds</span> <span class="o">=</span> <span class="n">curr_model</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">feats</span><span class="p">,</span> <span class="n">srcs</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">edges</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">neg_dsts</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">labels</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">labels</span><span class="p">)),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">total_num_items</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                    <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                    <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                    <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">((</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_num_items</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fishers</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="LPDomainILEWCTrainer"><a class="viewcode-back" href="../../../../050/ewc.html#begin.algorithms.ewc.links.LPDomainILEWCTrainer">[docs]</a><span class="k">class</span> <span class="nc">LPDomainILEWCTrainer</span><span class="p">(</span><span class="n">LPTimeILEWCTrainer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This trainer has the same behavior as `LPTimeILEWCTrainer`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

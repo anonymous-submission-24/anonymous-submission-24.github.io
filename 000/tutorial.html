@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Load Custom Scenarios" href="load.html" />
+    <link rel="prev" title="Install and Setup" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install and Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scenarioloader-and-evaluation-metric">ScenarioLoader and Evaluation Metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trainer">Trainer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-extending-the-base">Step 1. Extending the base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-setting-initial-states-for-the-algorithm-inittrainingstates">Step 2. Setting initial states for the algorithm (<code class="xref py py-func docutils literal notranslate"><span class="pre">initTrainingStates()</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-storing-previous-weights-and-fisher-matrix-processaftertraining">Step 3. Storing previous weights and Fisher matrix (<code class="xref py py-func docutils literal notranslate"><span class="pre">processAfterTraining()</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-computing-penalty-term-and-performing-regularization-processtrainiteration-and-afterinference">Step 4. Computing penalty term and Performing regularization (<code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">afterInference()</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-scenarioloader-evaluator-trainer">Combining ScenarioLoader, Evaluator, Trainer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/000/tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h1>
+<p>BeGin is a framework containing the following core components:</p>
+<ul class="simple">
+<li><p>ScenarioLoader: This module provides built-in continual learning scenarios to evaluate the performances of graph continual learning methods.</p></li>
+<li><p>Evaluator: This module provides the evaluator, which computes basic metrics based on the ground-truth and predicted answers.</p></li>
+<li><p>Trainer: This module manages the overall training procedure of user-defined continual learning algorithms, including preparing the dataloader, training, and validation, so that users only have to implement novel parts of their methods.</p></li>
+</ul>
+<p>In this material, we briefly describe how to perform graph continual learning with those components using some examples.</p>
+<section id="scenarioloader-and-evaluation-metric">
+<h2>ScenarioLoader and Evaluation Metric<a class="headerlink" href="#scenarioloader-and-evaluation-metric" title="Permalink to this heading"></a></h2>
+<p>In order to evaluate graph CL methods, we need to prepare (1) graph datasets with multi-class, domain, or timestamps, (2) incremental settings, and (3) proper evaluation metric for the settings. To reduce such efforts, BeGin provides various benchmark scenarios based on graph-related problems and incremental settings for continual learning, and built-in evaluation metrics. For example, using BeGin, users can load the class-incremental node classification scenario on ogbn-arxiv dataset in just one line of code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">begin.scenarios.nodes</span> <span class="kn">import</span> <span class="n">NCScenarioLoader</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NCScenarioLoader</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;ogbn-arxiv&#39;</span><span class="p">,</span> <span class="n">num_tasks</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;/data&#39;</span><span class="p">,</span> <span class="n">incr_type</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Currently, BeGin supports 19 Node Classification (NC), Link Classification (LC), Link Prediction (LP), Graph Classification (GC) scenarios with the following incremental settings for continual learning with graph data.</p>
+<ul class="simple">
+<li><p>Task-incremental (Task-IL): In this incremental setting, the set of classes consisting each task varies with tasks, and they are often disjoint. In addition, for each query at evaluation, the corresponding task information is provided, and thus its answer is predicted among the classes considered in the task. This setting is applied to NC and GC tasks, where the sets of classes can vary with tasks, and for NC and LC tasks, the input graph is fixed.</p></li>
+<li><p>Class-incremental (Class-IL): In this incremental setting, the set of classes grows over tasks. In addition, for each query at evaluation, the corresponding task is NOT provided, and thus its answer is predicted among all classes seen so far. This setting is applied to NC and GC tasks, where the sets of classes can vary with tasks, and for NC and LC tasks, the input graph is fixed.</p></li>
+<li><p>Domain-incremental (Domain-IL): In this incremental setting, we divided entities (i.e., nodes, edges, and graphs) over tasks according to their domains, which are additionally given. For NC, the nodes of the input graph are divided into NC tasks according to their domains. For LC and LP, the links of the input graph and the input queries are divided according to their domains, respectively. For GC, the links of the input graph are divided into LC tasks according to their domains. For NC, LC, and LP tasks, the input graph is fixed.</p></li>
+<li><p>Time-incremental (Time-IL): In this incremental setting except for GC, we consider a dynamic graph evolving over time, and the set of classes may or may not vary across tasks. For NC, LC, and LP, the input graph of i-th task is the i-th snapshot of the dynamic graph. For GC, the snapshots of the dynamic graph are grouped and assigned to tasks in chronological order.</p></li>
+</ul>
+</section>
+<section id="trainer">
+<h2>Trainer<a class="headerlink" href="#trainer" title="Permalink to this heading"></a></h2>
+<p>For usability, BeGin provides the trainer, which users can extend when implementing and benchmarking new methods. It manages the overall training procedure, including preparing the dataloader, training, and validation, so that users only have to implement novel parts of their methods. As in Avalanche, the trainer divides the training procedure of continual learning as a series of events. For example, the subprocesses in the training procedure where the trainer (a) receives the input for the current task, (b) trains the model for one iteration for the current task, and (c) handles the necessary tasks before and after the training. as events. Each event is modularized as a function, which users can fill out, and the trainer proceeds the training procedure with the event functions.</p>
+<p>Currently, BeGin supports the following event functions. Note that implementing each event function is optional. If a user-defined event function is not provided, the trainer performs training and evaluation with the corresponding basic pre-implemented operations. Thus, users do not need to implement the whole training and evaluation procedure, but only the necessary parts. See <a class="reference external" href="../040/common.html">here</a> for the detailed arguments and roles of the event functions. Currently, users can override the following built-in event functions:</p>
+<ul class="simple">
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">initTrainingStates()</span></code>: This function is called only once, when the training procedure begins.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">prepareLoader()</span></code>: This function is called once for each task when generating dataloaders for training, validation, and test. Given the dataset for each task, it should return dataloaders for training, validation, and test.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">processBeforeTraining()</span></code>: This function is called once for each task, right after the <code class="xref py py-func docutils literal notranslate"><span class="pre">prepareLoader()</span></code> event function terminates.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code>: This function is called for every training iteration. When the current batched inputs, model, and optimizer are given, it should perform a single training iteration and return the information or outcome during the iteration.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">processEvalIteration()</span></code>: This function is called for every evaluation iteration. When the current batched inputs and trained model are given, it should perform a single evaluation iteration and return the information or outcome during the iteration.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">inference()</span></code>: This function is called for every inference step in the training procedure.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">beforeInference()</span></code>: This function is called right before the <code class="xref py py-func docutils literal notranslate"><span class="pre">inference()</span></code> begins.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">afterInference()</span></code>: This function is called right after the <code class="xref py py-func docutils literal notranslate"><span class="pre">inference()</span></code> terminates.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">_reduceTrainingStats()</span></code>: This function is called at the end of every training step. Given the returned values of the <code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code> event function, it should return overall and reduced statistics of the current training step.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">_reduceEvalStats()</span></code>: This function is called at the end of every evaluation step. Given the returned values of the <code class="xref py py-func docutils literal notranslate"><span class="pre">processEvalIteration()</span></code> event function, it should return overall and reduced statistics of the current evaluation step.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainingLogs()</span></code>: This function is called right after the <code class="xref py py-func docutils literal notranslate"><span class="pre">reduceTrainingStats()</span></code> event function terminates. It should generate training logs for the current training iteration.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">procssAfterEachIteration()</span></code>: This function is called at the end of the training iteration. When the outcome from <code class="xref py py-func docutils literal notranslate"><span class="pre">reduceTrainingStats()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">reduceEvalStats()</span></code> are given, it should determine whether the trainer should stop training for the current task or not.</p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">processAfterTraining()</span></code>: This function is called once for each task when the trainer completes training for the current task.</p></li>
+</ul>
+<p>Suppose we implement Elastic Weight Consolidation (EWC) algorithm for class-IL node classification using BeGin. EWC algorithm is a regularization-based CL algorithm for generic data. Specifically, it uses weighted L2 penalty term which is determined by the learned weights from the previous tasks as in the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}(\theta) = \mathcal{L}_i(\theta) + \sum_{j=1}^{i-1} \frac{\lambda}{2} F_j (\theta - \theta^*_j)^2,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is current weights of the model, <span class="math notranslate nohighlight">\(\theta^*_j\)</span> is learned weights until the <span class="math notranslate nohighlight">\(j\)</span>-th task, <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span> is a hyperparameter, and <span class="math notranslate nohighlight">\(F_j\)</span> is the diagonal part of the Fisher information matrix until the <span class="math notranslate nohighlight">\(j\)</span>-th task computed as square of the first derivatives.</p>
+<section id="step-1-extending-the-base">
+<h3>Step 1. Extending the base<a class="headerlink" href="#step-1-extending-the-base" title="Permalink to this heading"></a></h3>
+<p>BeGin provides base trainer class that makes the training behavior exactly the same as the Bare model. Based on the base class, users can implement their CL algorithm by extending the class and substituting some default event functions with user-defined ones.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">begin.trainers.nodes</span> <span class="kn">import</span> <span class="n">NCTrainer</span>
+<span class="k">class</span> <span class="nc">NCClassILEWCTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-setting-initial-states-for-the-algorithm-inittrainingstates">
+<h3>Step 2. Setting initial states for the algorithm (<code class="xref py py-func docutils literal notranslate"><span class="pre">initTrainingStates()</span></code>)<a class="headerlink" href="#step-2-setting-initial-states-for-the-algorithm-inittrainingstates" title="Permalink to this heading"></a></h3>
+<p>As stated in the aformentioned equation, EWC requires storing the learned weights and Fisher information matrices from the previous tasks to compute the regularization term. However, they cannot be obtained on the current task. In order to resolve this issue, the trainer provides a dictionary called <cite>training_states</cite>. The dictionary can be used to store intermediate results and can be shared by events in the form of an argument (i.e., input parameter) of the event functions. To set the initial states, the user can extend the base trainer with their modified <code class="xref py py-func docutils literal notranslate"><span class="pre">initTrainingStates()</span></code> event function, which initializes the states for running EWC.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">begin.trainers.nodes</span> <span class="kn">import</span> <span class="n">NCTrainer</span>
+<span class="k">class</span> <span class="nc">NCClassILEWCTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-storing-previous-weights-and-fisher-matrix-processaftertraining">
+<h3>Step 3. Storing previous weights and Fisher matrix (<code class="xref py py-func docutils literal notranslate"><span class="pre">processAfterTraining()</span></code>)<a class="headerlink" href="#step-3-storing-previous-weights-and-fisher-matrix-processaftertraining" title="Permalink to this heading"></a></h3>
+<p>In order to compute the penalty term at task <span class="math notranslate nohighlight">\(i\)</span>, we need the learned weights <span class="math notranslate nohighlight">\(\theta^*_j\)</span> and Fisher information matrix <span class="math notranslate nohighlight">\(F_j\)</span> for every task <span class="math notranslate nohighlight">\(j &lt; i\)</span>. Hence, we need to store them at the end of each task, and this can naturally be implemented in the event function <code class="xref py py-func docutils literal notranslate"><span class="pre">processAfterTraining()</span></code>, which is called at the end of each task. In the example below, <cite>curr_training_states[‘params’][j-1]</cite> and <cite>curr_training_states[‘fishers’][j-1]</cite> store the learned weights and the Fisher information matrix of task <span class="math notranslate nohighlight">\(j\)</span>, respectively.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">begin.trainers.nodes</span> <span class="kn">import</span> <span class="n">NCTrainer</span>
+<span class="k">class</span> <span class="nc">NCClassILEWCTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">fishers</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">total_num_items</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_curr_batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">curr_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+            <span class="n">curr_results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">curr_num_items</span> <span class="o">=</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">total_num_items</span> <span class="o">+=</span> <span class="n">curr_num_items</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">curr_num_items</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_num_items</span>
+
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fishers</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-computing-penalty-term-and-performing-regularization-processtrainiteration-and-afterinference">
+<h3>Step 4. Computing penalty term and Performing regularization (<code class="xref py py-func docutils literal notranslate"><span class="pre">processTrainIteration()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">afterInference()</span></code>)<a class="headerlink" href="#step-4-computing-penalty-term-and-performing-regularization-processtrainiteration-and-afterinference" title="Permalink to this heading"></a></h3>
+<p>The penalty term in the above equation is used for regularization during a backpropagation process. The computation of the term should be performed at the end of training for every task, and thus it is implemented in <code class="xref py py-func docutils literal notranslate"><span class="pre">afterInference()</span></code>.
+In the event function, the argument (i.e., input parameter) <cite>curr_training_states</cite> contains the Fisher information matrices and the previously learned weights based on which the penalty term <cite>loss_reg</cite> is computed.
+The event function also has the argument <cite>results</cite>, which contains the prediction result and loss of the current model computed in the <code class="xref py py-func docutils literal notranslate"><span class="pre">inference()</span></code> function.
+Thus, the overall loss including the penalty term can be obtained by summing up <cite>results[‘loss’]</cite> and <cite>loss_reg</cite>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">begin.trainers.nodes</span> <span class="kn">import</span> <span class="n">NCTrainer</span>
+<span class="k">class</span> <span class="nc">NCClassILEWCTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fishers&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">fishers</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">()}</span>
+        <span class="n">train_loader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">total_num_items</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_curr_batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">curr_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+            <span class="n">curr_results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">curr_num_items</span> <span class="o">=</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">total_num_items</span> <span class="o">+=</span> <span class="n">curr_num_items</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">params</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+                <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">curr_num_items</span>
+
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="n">fishers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">/=</span> <span class="n">total_num_items</span>
+
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fishers</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="n">loss_reg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_param</span><span class="p">,</span> <span class="n">_fisher</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;fishers&#39;</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lamb</span> <span class="o">*</span> <span class="n">_fisher</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">*</span> <span class="p">((</span><span class="n">p</span> <span class="o">-</span> <span class="n">_param</span><span class="p">[</span><span class="n">name</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">loss_reg</span> <span class="o">=</span> <span class="n">loss_reg</span> <span class="o">+</span> <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">loss_reg</span>
+        <span class="n">total_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">total_loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span>
+</pre></div>
+</div>
+<p>The above code presents the complete implementation of EWC for node classification under Class-IL. Similarly, various CL algorithms can be developed by modifying specific event functions, without the need to manage the overall training and evaluation procedures. Refer to <a class="reference external" href="../040/common.html">here</a> for the detailed explanation of the event functions and their parameters.</p>
+</section>
+</section>
+<section id="combining-scenarioloader-evaluator-trainer">
+<h2>Combining ScenarioLoader, Evaluator, Trainer<a class="headerlink" href="#combining-scenarioloader-evaluator-trainer" title="Permalink to this heading"></a></h2>
+<p>So far we have learned how to load each component of BeGin. The last step is to combine the components to perform the experiments under the prepared scenario and trainer, and this process also takes just a few lines of code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">begin.scenarios.nodes</span> <span class="kn">import</span> <span class="n">NCScenarioLoader</span>
+
+<span class="n">scenario</span> <span class="o">=</span> <span class="n">NCScenarioLoader</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;ogbn-arxiv&#39;</span><span class="p">,</span> <span class="n">num_tasks</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">incr_type</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">)</span>
+<span class="n">benchmark</span> <span class="o">=</span> <span class="n">NCClassILEWCTrainer</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="n">GCN</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">num_feats</span><span class="p">,</span> <span class="n">scenario</span><span class="o">.</span><span class="n">num_classes</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.25</span><span class="p">),</span>
+                                <span class="n">scenario</span> <span class="o">=</span> <span class="n">scenario</span><span class="p">,</span>
+                                <span class="n">optimizer_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">),</span>
+                                <span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">(</span><span class="n">ignore_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+                                <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span><span class="p">),</span>
+                                <span class="n">scheduler_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lr</span> <span class="o">*</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="mf">2.</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">epoch_per_task</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To run the experiment, trainer object in BeGin requires a learnable model, a CL scenraio, a proper loss function to train the model, a function to generate optimizer and scheduler, and the other auxilary arguments to customize the trainer. After creating the object, users can start the experiment by calling the member function <cite>results</cite> of the trainer object.</p>
+<p>In BeGin, at the end of each task, the trainer measures the performance of all tasks. When the procedure is completed, the trainer returns the evaluation results, which is in the form of a matrix. In the matrix, the (i,j)-th entry contains the performance evaluated using the test data of task j when the training of task i has just ended. In addition, BeGin supports the following final evaluation metrics designed for continual learning:</p>
+<ul class="simple">
+<li><p>Average Performance (AP): Average performance on all tasks after learning all tasks.</p></li>
+<li><p>Average Forgetting (AF): Average forgetting on all tasks. We measure the forgetting on task i by the difference between the performance on task i after learning all  tasks and the performance on task i right after learning task i</p></li>
+<li><p>Forward Transfer (FWT) : Average forward transfer on tasks. We measure the forward transfer on task i by the difference between the performance on task i after learning task (i-1) and the performance of initialized model on task i.</p></li>
+<li><p>Intransigence (INT): Average intransigence on all tasks. We measure the intransigence on task i by the difference between the performances of the Joint model and the the target mode on task i after learning task i. BeGin provides this metric if and only if <cite>full_mode = True</cite>, which simultaneously runs the bare model and the joint model, is enabled.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Install and Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="load.html" class="btn btn-neutral float-right" title="Load Custom Scenarios" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

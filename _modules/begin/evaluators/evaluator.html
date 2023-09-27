@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.evaluators.evaluator &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.evaluators.evaluator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.evaluators.evaluator</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">torch_scatter</span> <span class="kn">import</span> <span class="n">scatter</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">average_precision_score</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<div class="viewcode-block" id="BaseEvaluator"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.BaseEvaluator">[docs]</a><span class="k">class</span> <span class="nc">BaseEvaluator</span><span class="p">:</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base class for evaluating the performance.</span>
+<span class="sd">        Users can create their own evaluator by extending this class.</span>
+<span class="sd">        </span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            num_tasks (int): The number of tasks in the target scenario.</span>
+<span class="sd">            task_ids (torch.Tensor): task ids of each instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_tasks</span><span class="p">,</span> <span class="n">task_ids</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">=</span> <span class="n">num_tasks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task_ids</span> <span class="o">=</span> <span class="n">task_ids</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Measure the performance on each task.</span>
+<span class="sd">        </span>
+<span class="sd">            Args:</span>
+<span class="sd">                prediction (torch.Tensor): predicted output of the current model</span>
+<span class="sd">                answer (torch.Tensor): ground-truth answer</span>
+<span class="sd">                indices (torch.Tensor): indexes of the chosen instances for evaluation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        
+<div class="viewcode-block" id="BaseEvaluator.simple_eval"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.BaseEvaluator.simple_eval">[docs]</a>    <span class="k">def</span> <span class="nf">simple_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Compute performance for the given batch when we ignore task configuration.</span>
+<span class="sd">            During the training procedure, this function is called by the function get_simple_eval_result implemented in ScenarioLoaders.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                prediction (torch.Tensor): predicted output of the current model</span>
+<span class="sd">                answer (torch.Tensor): ground-truth answer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+        
+<div class="viewcode-block" id="AccuracyEvaluator"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.AccuracyEvaluator">[docs]</a><span class="k">class</span> <span class="nc">AccuracyEvaluator</span><span class="p">(</span><span class="n">BaseEvaluator</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The evaluator for computing accuracy.</span>
+<span class="sd">        </span>
+<span class="sd">        Bases: ``BaseEvaluator``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_prediction</span><span class="p">,</span> <span class="n">_answer</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">_prediction</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">_answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">_answer</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">scope</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_ids</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span>
+        <span class="n">accuracy_per_task</span> <span class="o">=</span> <span class="n">scatter</span><span class="p">((</span><span class="n">prediction</span> <span class="o">==</span> <span class="n">answer</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_ids</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">reduce</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">dim_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">accuracy_per_task</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simple_eval</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="n">scope</span><span class="p">],</span> <span class="n">answer</span><span class="p">[</span><span class="n">scope</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">accuracy_per_task</span>
+    
+<div class="viewcode-block" id="AccuracyEvaluator.simple_eval"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.AccuracyEvaluator.simple_eval">[docs]</a>    <span class="k">def</span> <span class="nf">simple_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">prediction</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">==</span> <span class="n">answer</span><span class="o">.</span><span class="n">squeeze</span><span class="p">())</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">answer</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">item</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="ROCAUCEvaluator"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.ROCAUCEvaluator">[docs]</a><span class="k">class</span> <span class="nc">ROCAUCEvaluator</span><span class="p">(</span><span class="n">BaseEvaluator</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The evaluator for computing ROCAUC score.</span>
+<span class="sd">        </span>
+<span class="sd">        Bases: ``BaseEvaluator``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">_prediction</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">target_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task_ids</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+        <span class="n">retval</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">):</span>
+            <span class="n">is_target</span> <span class="o">=</span> <span class="p">(</span><span class="n">target_ids</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">is_target</span><span class="o">.</span><span class="n">any</span><span class="p">():</span> <span class="n">retval</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simple_eval</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="n">is_target</span><span class="p">],</span> <span class="n">answer</span><span class="p">[</span><span class="n">is_target</span><span class="p">])</span>
+        <span class="n">retval</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">simple_eval</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">retval</span>
+    
+<div class="viewcode-block" id="ROCAUCEvaluator.simple_eval"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.ROCAUCEvaluator.simple_eval">[docs]</a>    <span class="k">def</span> <span class="nf">simple_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+        <span class="n">num_items</span><span class="p">,</span> <span class="n">num_qs</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">valid_cols</span> <span class="o">=</span> <span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_items</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">prediction</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">valid_cols</span><span class="p">],</span> <span class="n">answer</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">valid_cols</span><span class="p">]</span>
+        <span class="n">num_valid_qs</span> <span class="o">=</span> <span class="n">valid_cols</span><span class="o">.</span><span class="n">long</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">idx_order</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_valid_qs</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_valid_qs</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">num_items</span><span class="p">)</span>
+        <span class="n">ordered_answer</span> <span class="o">=</span> <span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="n">idx_order</span><span class="p">])</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">num_items</span><span class="p">,</span> <span class="n">num_valid_qs</span><span class="p">)</span>
+        <span class="n">num_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">ordered_answer</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">num_neg</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_items</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_pos</span>
+        <span class="n">rocauc_scores</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="p">((</span><span class="n">num_pos</span> <span class="o">*</span> <span class="p">(</span><span class="n">ordered_answer</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">num_pos</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_neg</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">rocauc_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="HitsEvaluator"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.HitsEvaluator">[docs]</a><span class="k">class</span> <span class="nc">HitsEvaluator</span><span class="p">(</span><span class="n">BaseEvaluator</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The evaluator for computing Hits@K. This module inputs K, instead of task_ids as the second parameter.</span>
+<span class="sd">        </span>
+<span class="sd">        Bases: ``BaseEvaluator``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_tasks</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">num_tasks</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
+    
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_prediction</span><span class="p">,</span> <span class="n">_answer</span><span class="p">,</span> <span class="n">task_ids</span><span class="p">):</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">_prediction</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">_answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">_answer</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        
+        <span class="n">neg_samples</span> <span class="o">=</span> <span class="n">prediction</span><span class="p">[</span><span class="n">answer</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">neg_samples</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">:</span> <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">neg_threshold</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">neg_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">num_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">task_ids</span><span class="p">[</span><span class="n">answer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">num_hits</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">task_ids</span><span class="p">[(</span><span class="n">answer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">&gt;</span> <span class="n">neg_threshold</span><span class="p">)],</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        
+        <span class="n">hits_per_task</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">hits_per_task</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_hits</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">num_pos</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+        <span class="n">hits_per_task</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_hits</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">num_pos</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">hits_per_task</span>
+        
+<div class="viewcode-block" id="HitsEvaluator.simple_eval"><a class="viewcode-back" href="../../../060/performance.html#begin.evaluators.HitsEvaluator.simple_eval">[docs]</a>    <span class="k">def</span> <span class="nf">simple_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">_prediction</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">_answer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">_answer</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        
+        <span class="n">neg_samples</span> <span class="o">=</span> <span class="n">prediction</span><span class="p">[</span><span class="n">answer</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">neg_samples</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">:</span> <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">neg_threshold</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">neg_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">num_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">answer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">num_hits</span> <span class="o">=</span> <span class="p">((</span><span class="n">answer</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">prediction</span> <span class="o">&gt;</span> <span class="n">neg_threshold</span><span class="p">))</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="p">(</span><span class="n">num_hits</span> <span class="o">/</span> <span class="n">num_pos</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datasets for Link-Level Problems &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Datasets for Graph-Level Problems" href="graph_dataset.html" />
+    <link rel="prev" title="Datasets for Node-Level Problems" href="node_dataset.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets for Link-Level Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bitcoin-otc-link-classification">Bitcoin-OTC (Link Classification)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wiki-cs-link-prediction">Wiki-CS (Link Prediction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbl-collab-link-prediction">ogbl-collab (Link Prediction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facebook-link-prediction">facebook (Link Prediction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#askubuntu-link-prediction">askubuntu (Link Prediction)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Datasets for Link-Level Problems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/010/link_dataset.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="datasets-for-link-level-problems">
+<h1>Datasets for Link-Level Problems<a class="headerlink" href="#datasets-for-link-level-problems" title="Permalink to this heading"></a></h1>
+<section id="bitcoin-otc-link-classification">
+<h2>Bitcoin-OTC (Link Classification)<a class="headerlink" href="#bitcoin-otc-link-classification" title="Permalink to this heading"></a></h2>
+<p>The dataset <a class="reference external" href="https://snap.stanford.edu/data/soc-sign-bitcoin-otc.html">Bitcoin-OTC</a> is a who-trust-whom network, where nodes are users
+of a bitcoin-trading platform. Each directed edge has an integer rating between −10 to 10 and a
+timestamp. The ratings are divided into 6 groups. Two of them are used separately for Task-IL
+and accumulated for Class-IL. For Time-IL, we formulate 7 tasks using the timestamps, where the
+signs of the ratings are used as binary classes. Since there is no external node feature, we use in-degrees
+and out-degrees as node features.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 5,881</p></li>
+<li><p>Edges: 35,592</p></li>
+<li><p>Number of Classes: 21</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 3 tasks</p></li>
+<li><p>Class-IL with 3 tasks</p></li>
+<li><p>Time-IL with 7 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">kumar2016edge</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Edge</span> <span class="n">weight</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">weighted</span> <span class="n">signed</span> <span class="n">networks</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Kumar</span><span class="p">,</span> <span class="n">Srijan</span> <span class="ow">and</span> <span class="n">Spezzano</span><span class="p">,</span> <span class="n">Francesca</span> <span class="ow">and</span> <span class="n">Subrahmanian</span><span class="p">,</span> <span class="n">VS</span> <span class="ow">and</span> <span class="n">Faloutsos</span><span class="p">,</span> <span class="n">Christos</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">ICDM</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2016</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="nd">@inproceedings</span><span class="p">{</span><span class="n">kumar2018rev2</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Rev2</span><span class="p">:</span> <span class="n">Fraudulent</span> <span class="n">user</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">rating</span> <span class="n">platforms</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Kumar</span><span class="p">,</span> <span class="n">Srijan</span> <span class="ow">and</span> <span class="n">Hooi</span><span class="p">,</span> <span class="n">Bryan</span> <span class="ow">and</span> <span class="n">Makhija</span><span class="p">,</span> <span class="n">Disha</span> <span class="ow">and</span> <span class="n">Kumar</span><span class="p">,</span> <span class="n">Mohit</span> <span class="ow">and</span> <span class="n">Faloutsos</span><span class="p">,</span> <span class="n">Christos</span> <span class="ow">and</span> <span class="n">Subrahmanian</span><span class="p">,</span> <span class="n">VS</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">WSDM</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2018</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="wiki-cs-link-prediction">
+<h2>Wiki-CS (Link Prediction)<a class="headerlink" href="#wiki-cs-link-prediction" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/pmernyei/wiki-cs-dataset">Wiki-CS</a> is a hyperlink network between computer science articles.
+Each article has a label indicating one of the 10 subfields that it belongs to. For Domain-IL, the
+node labels are used as domains, and specifically, the edges are divide into 54 groups, according
+to the labels of their endpoints. According to the original paper, the node features are computed as the average of pretrained GloVe embeddings.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 11,701</p></li>
+<li><p>Edges: 431,726</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Number of Node Features: 300</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Domain-IL with 54 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">mernyei2020wiki</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Wiki</span><span class="o">-</span><span class="n">CS</span><span class="p">:</span> <span class="n">A</span> <span class="n">Wikipedia</span><span class="o">-</span><span class="n">Based</span> <span class="n">Benchmark</span> <span class="k">for</span> <span class="n">Graph</span> <span class="n">Neural</span> <span class="n">Networks</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Mernyei</span><span class="p">,</span> <span class="n">P</span><span class="p">{</span>\<span class="s1">&#39;e}ter and Cangea, C{\u</span><span class="si">{a}</span><span class="s1">}t{\u</span><span class="si">{a}</span><span class="s1">}lina},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">2007.02901</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ogbl-collab-link-prediction">
+<h2>ogbl-collab (Link Prediction)<a class="headerlink" href="#ogbl-collab-link-prediction" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://ogb.stanford.edu/docs/linkprop/#ogbl-collab">ogbl-collab</a> s a co-authorship network, where nodes are
+authors. We use publication years to form 50 groups for the Time-IL setting. Due to the imbalance in the publication years of the considered papers, we constructed the first task using the paper published before the year <cite>1971</cite>. For each subsequent <cite>i</cite>-th task, we used the papers published in the year <cite>(1969 + i)</cite>.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 235,868</p></li>
+<li><p>Edges: 1,285,465</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Number of Node Features: 128</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Time-IL with 50 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">hu2020open</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Open</span> <span class="n">graph</span> <span class="n">benchmark</span><span class="p">:</span> <span class="n">datasets</span> <span class="k">for</span> <span class="n">machine</span> <span class="n">learning</span> <span class="n">on</span> <span class="n">graphs</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Hu</span><span class="p">,</span> <span class="n">Weihua</span> <span class="ow">and</span> <span class="n">Fey</span><span class="p">,</span> <span class="n">Matthias</span> <span class="ow">and</span> <span class="n">Zitnik</span><span class="p">,</span> <span class="n">Marinka</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Ren</span><span class="p">,</span> <span class="n">Hongyu</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Bowen</span> <span class="ow">and</span> <span class="n">Catasta</span><span class="p">,</span> <span class="n">Michele</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">NeurIPS</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">wang2020microsoft</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Microsoft</span> <span class="n">academic</span> <span class="n">graph</span><span class="p">:</span> <span class="n">When</span> <span class="n">experts</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">enough</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Wang</span><span class="p">,</span> <span class="n">Kuansan</span> <span class="ow">and</span> <span class="n">Shen</span><span class="p">,</span> <span class="n">Zhihong</span> <span class="ow">and</span> <span class="n">Huang</span><span class="p">,</span> <span class="n">Chiyuan</span> <span class="ow">and</span> <span class="n">Wu</span><span class="p">,</span> <span class="n">Chieh</span><span class="o">-</span><span class="n">Han</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Kanakia</span><span class="p">,</span> <span class="n">Anshul</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Quantitative</span> <span class="n">Science</span> <span class="n">Studies</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">396</span><span class="o">--</span><span class="mi">413</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="facebook-link-prediction">
+<h2>facebook (Link Prediction)<a class="headerlink" href="#facebook-link-prediction" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/benedekrozemberczki/datasets#facebook-page-page-networks">facebook</a> is a social network, where nodes are pages of Facebook, and its class belongs to one
+among 8 categories. Edges indicate mutual likes among the pages, and they exist only between
+pages within the same category. We divide the edges into 8 groups, according to the labels of their
+endpoints. We make the graph to be undirected, and since there is no external node feature, we use degrees as node features.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 134,833</p></li>
+<li><p>Edges: 1,380,293</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Number of Node Features: 1</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Domain-IL with 8 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">rozemberczki2019gemsec</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">GEMSEC</span><span class="p">:</span> <span class="n">Graph</span> <span class="n">Embedding</span> <span class="k">with</span> <span class="n">Self</span> <span class="n">Clustering</span><span class="p">},</span>
+                <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Rozemberczki</span><span class="p">,</span> <span class="n">Benedek</span> <span class="ow">and</span> <span class="n">Davies</span><span class="p">,</span> <span class="n">Ryan</span> <span class="ow">and</span> <span class="n">Sarkar</span><span class="p">,</span> <span class="n">Rik</span> <span class="ow">and</span> <span class="n">Sutton</span><span class="p">,</span> <span class="n">Charles</span><span class="p">},</span>
+                <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">ASONAM</span><span class="p">},</span>
+                <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2019</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="askubuntu-link-prediction">
+<h2>askubuntu (Link Prediction)<a class="headerlink" href="#askubuntu-link-prediction" title="Permalink to this heading"></a></h2>
+<p>Nodes in <a class="reference external" href="http://snap.stanford.edu/data/sx-askubuntu.html">askubuntu</a> are users of askubuntu, and edges indicate there is interaction between the
+users. The edges are divided into 69 groups according to the timestamps for Time-IL. Specifically, we used the interactions occurring within the same month to form each task. We make the graph to be undirected, and since there is no external node feature, we use degrees as node features.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Nodes: 159,313</p></li>
+<li><p>Edges: 507,988</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Number of Node Features: 1</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Time-IL with 69 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">paranjape2017motifs</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Motifs</span> <span class="ow">in</span> <span class="n">temporal</span> <span class="n">networks</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Paranjape</span><span class="p">,</span> <span class="n">Ashwin</span> <span class="ow">and</span> <span class="n">Benson</span><span class="p">,</span> <span class="n">Austin</span> <span class="n">R</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">Proceedings</span> <span class="n">of</span> <span class="n">the</span> <span class="n">tenth</span> <span class="n">ACM</span> <span class="n">international</span> <span class="n">conference</span> <span class="n">on</span> <span class="n">web</span> <span class="n">search</span> <span class="ow">and</span> <span class="n">data</span> <span class="n">mining</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">601</span><span class="o">--</span><span class="mi">610</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2017</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="node_dataset.html" class="btn btn-neutral float-left" title="Datasets for Node-Level Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="graph_dataset.html" class="btn btn-neutral float-right" title="Datasets for Graph-Level Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

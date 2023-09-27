@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datasets for Graph-Level Problems &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Common framework" href="../030/common.html" />
+    <link rel="prev" title="Datasets for Link-Level Problems" href="link_dataset.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets for Graph-Level Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mnist">MNIST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cifar10">CIFAR10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aromaticity">Aromaticity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbg-molhiv">ogbg-molhiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nyc-taxi">NYC-Taxi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ogbg-ppa">ogbg-ppa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sentiment">sentiment</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Datasets for Graph-Level Problems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/010/graph_dataset.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="datasets-for-graph-level-problems">
+<h1>Datasets for Graph-Level Problems<a class="headerlink" href="#datasets-for-graph-level-problems" title="Permalink to this heading"></a></h1>
+<section id="mnist">
+<h2>MNIST<a class="headerlink" href="#mnist" title="Permalink to this heading"></a></h2>
+<p>Images in <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.GNNBenchmarkDataset">MNIST</a> are converted to
+graphs of super-pixels. There are 10 classes of graphs, and they are partitioned into 5 groups,
+which are used separately for Task-IL and accumulated for Class-IL. According to the original paper, they used SLIC super-pixels as nodes and build a k-nearest neighbor adjacency matrix to generate edges.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 55,000</p></li>
+<li><p>Average Number of Nodes: 70.6</p></li>
+<li><p>Average Number of Edges: 564.5</p></li>
+<li><p>Number of Node Features: 3</p></li>
+<li><p>Number of Classes: 10</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 5 tasks</p></li>
+<li><p>Class-IL with 5 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">dwivedi2020benchmarking</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Benchmarking</span> <span class="n">graph</span> <span class="n">neural</span> <span class="n">networks</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Dwivedi</span><span class="p">,</span> <span class="n">Vijay</span> <span class="n">Prakash</span> <span class="ow">and</span> <span class="n">Joshi</span><span class="p">,</span> <span class="n">Chaitanya</span> <span class="n">K</span> <span class="ow">and</span> <span class="n">Laurent</span><span class="p">,</span> <span class="n">Thomas</span> <span class="ow">and</span> <span class="n">Bengio</span><span class="p">,</span> <span class="n">Yoshua</span> <span class="ow">and</span> <span class="n">Bresson</span><span class="p">,</span> <span class="n">Xavier</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">2003.00982</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">achanta2012slic</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">SLIC</span> <span class="n">superpixels</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">state</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">art</span> <span class="n">superpixel</span> <span class="n">methods</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Achanta</span><span class="p">,</span> <span class="n">Radhakrishna</span> <span class="ow">and</span> <span class="n">Shaji</span><span class="p">,</span> <span class="n">Appu</span> <span class="ow">and</span> <span class="n">Smith</span><span class="p">,</span> <span class="n">Kevin</span> <span class="ow">and</span> <span class="n">Lucchi</span><span class="p">,</span> <span class="n">Aurelien</span> <span class="ow">and</span> <span class="n">Fua</span><span class="p">,</span> <span class="n">Pascal</span> <span class="ow">and</span> <span class="n">S</span><span class="p">{</span>\<span class="s2">&quot;u}sstrunk, Sabine},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">IEEE</span> <span class="n">Transactions</span> <span class="n">on</span> <span class="n">Pattern</span> <span class="n">Analysis</span> <span class="ow">and</span> <span class="n">Machine</span> <span class="n">Intelligence</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">34</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">11</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">2274</span><span class="o">--</span><span class="mi">2282</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2012</span><span class="p">},</span>
+  <span class="n">publisher</span><span class="o">=</span><span class="p">{</span><span class="n">IEEE</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="cifar10">
+<h2>CIFAR10<a class="headerlink" href="#cifar10" title="Permalink to this heading"></a></h2>
+<p>Images in <a class="reference external" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/datasets.html#torch_geometric.datasets.GNNBenchmarkDataset">CIFAR10</a> are converted to
+graphs of super-pixels. There are 10 classes of graphs, and they are partitioned into 5 groups,
+which are used separately for Task-IL and accumulated for Class-IL. According to the original paper, they used SLIC super-pixels as nodes and build a k-nearest neighbor adjacency matrix to generate edges.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 45,000</p></li>
+<li><p>Average Number of Nodes: 117.6</p></li>
+<li><p>Average Number of Edges: 941.2</p></li>
+<li><p>Number of Node Features: 5</p></li>
+<li><p>Number of Classes: 10</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 5 tasks</p></li>
+<li><p>Class-IL with 5 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">dwivedi2020benchmarking</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Benchmarking</span> <span class="n">graph</span> <span class="n">neural</span> <span class="n">networks</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Dwivedi</span><span class="p">,</span> <span class="n">Vijay</span> <span class="n">Prakash</span> <span class="ow">and</span> <span class="n">Joshi</span><span class="p">,</span> <span class="n">Chaitanya</span> <span class="n">K</span> <span class="ow">and</span> <span class="n">Laurent</span><span class="p">,</span> <span class="n">Thomas</span> <span class="ow">and</span> <span class="n">Bengio</span><span class="p">,</span> <span class="n">Yoshua</span> <span class="ow">and</span> <span class="n">Bresson</span><span class="p">,</span> <span class="n">Xavier</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">arXiv</span> <span class="n">preprint</span> <span class="n">arXiv</span><span class="p">:</span><span class="mf">2003.00982</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">achanta2012slic</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">SLIC</span> <span class="n">superpixels</span> <span class="n">compared</span> <span class="n">to</span> <span class="n">state</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">art</span> <span class="n">superpixel</span> <span class="n">methods</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Achanta</span><span class="p">,</span> <span class="n">Radhakrishna</span> <span class="ow">and</span> <span class="n">Shaji</span><span class="p">,</span> <span class="n">Appu</span> <span class="ow">and</span> <span class="n">Smith</span><span class="p">,</span> <span class="n">Kevin</span> <span class="ow">and</span> <span class="n">Lucchi</span><span class="p">,</span> <span class="n">Aurelien</span> <span class="ow">and</span> <span class="n">Fua</span><span class="p">,</span> <span class="n">Pascal</span> <span class="ow">and</span> <span class="n">S</span><span class="p">{</span>\<span class="s2">&quot;u}sstrunk, Sabine},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">IEEE</span> <span class="n">Transactions</span> <span class="n">on</span> <span class="n">Pattern</span> <span class="n">Analysis</span> <span class="ow">and</span> <span class="n">Machine</span> <span class="n">Intelligence</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">34</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">11</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">2274</span><span class="o">--</span><span class="mi">2282</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2012</span><span class="p">},</span>
+  <span class="n">publisher</span><span class="o">=</span><span class="p">{</span><span class="n">IEEE</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="aromaticity">
+<h2>Aromaticity<a class="headerlink" href="#aromaticity" title="Permalink to this heading"></a></h2>
+<p>Graphs in <a class="reference external" href="https://lifesci.dgl.ai/api/data.html#pubmed-aromaticity">Aromaticity</a> are molecules consisting of atoms and their chemical bonds.
+The original dataset contains labels representing the number of aromatic atoms in each molecule.
+We divide molecules into 30 groups based on the labels and formulate Task-IL and Class-IL settings with 10 tasks. Since there is no external node feature, we use in-degrees and out-degrees as node features.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 3,868</p></li>
+<li><p>Average Number of Nodes: 29.7</p></li>
+<li><p>Average Number of Edges: 65.4</p></li>
+<li><p>Number of Node Features: 0</p></li>
+<li><p>Number of Classes: 30</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Task-IL with 10 tasks</p></li>
+<li><p>Class-IL with 10 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">wu2018moleculenet</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">MoleculeNet</span><span class="p">:</span> <span class="n">a</span> <span class="n">benchmark</span> <span class="k">for</span> <span class="n">molecular</span> <span class="n">machine</span> <span class="n">learning</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Wu</span><span class="p">,</span> <span class="n">Zhenqin</span> <span class="ow">and</span> <span class="n">Ramsundar</span><span class="p">,</span> <span class="n">Bharath</span> <span class="ow">and</span> <span class="n">Feinberg</span><span class="p">,</span> <span class="n">Evan</span> <span class="n">N</span> <span class="ow">and</span> <span class="n">Gomes</span><span class="p">,</span> <span class="n">Joseph</span> <span class="ow">and</span> <span class="n">Geniesse</span><span class="p">,</span> <span class="n">Caleb</span> <span class="ow">and</span> <span class="n">Pappu</span><span class="p">,</span> <span class="n">Aneesh</span> <span class="n">S</span> <span class="ow">and</span> <span class="n">Leswing</span><span class="p">,</span> <span class="n">Karl</span> <span class="ow">and</span> <span class="n">Pande</span><span class="p">,</span> <span class="n">Vijay</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Chemical</span> <span class="n">science</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">9</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">513</span><span class="o">--</span><span class="mi">530</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2018</span><span class="p">},</span>
+  <span class="n">publisher</span><span class="o">=</span><span class="p">{</span><span class="n">Royal</span> <span class="n">Society</span> <span class="n">of</span> <span class="n">Chemistry</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@article</span><span class="p">{</span><span class="n">xiong2019pushing</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Pushing</span> <span class="n">the</span> <span class="n">boundaries</span> <span class="n">of</span> <span class="n">molecular</span> <span class="n">representation</span> <span class="k">for</span> <span class="n">drug</span> <span class="n">discovery</span> <span class="k">with</span> <span class="n">the</span> <span class="n">graph</span> <span class="n">attention</span> <span class="n">mechanism</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Xiong</span><span class="p">,</span> <span class="n">Zhaoping</span> <span class="ow">and</span> <span class="n">Wang</span><span class="p">,</span> <span class="n">Dingyan</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Xiaohong</span> <span class="ow">and</span> <span class="n">Zhong</span><span class="p">,</span> <span class="n">Feisheng</span> <span class="ow">and</span> <span class="n">Wan</span><span class="p">,</span> <span class="n">Xiaozhe</span> <span class="ow">and</span> <span class="n">Li</span><span class="p">,</span> <span class="n">Xutong</span> <span class="ow">and</span> <span class="n">Li</span><span class="p">,</span> <span class="n">Zhaojun</span> <span class="ow">and</span> <span class="n">Luo</span><span class="p">,</span> <span class="n">Xiaomin</span> <span class="ow">and</span> <span class="n">Chen</span><span class="p">,</span> <span class="n">Kaixian</span> <span class="ow">and</span> <span class="n">Jiang</span><span class="p">,</span> <span class="n">Hualiang</span> <span class="ow">and</span> <span class="n">others</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Journal</span> <span class="n">of</span> <span class="n">Medicinal</span> <span class="n">Chemistry</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">63</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">16</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">8749</span><span class="o">--</span><span class="mi">8760</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2019</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ogbg-molhiv">
+<h2>ogbg-molhiv<a class="headerlink" href="#ogbg-molhiv" title="Permalink to this heading"></a></h2>
+<p>Graphs in  <a class="reference external" href="https://ogb.stanford.edu/docs/graphprop/#ogbg-mol">ogbg-molhiv</a> are molecules
+consisting of atoms and their chemical bonds. The binary class of each graph indicates whether
+the molecule inhibits HIV virus replication or not. For Domain-IL, we divide molecules into 20
+groups based on structural similarity by the scaffold splitting procedure.
+Input node features are 9-dimensional, containing atomic number and chirality, and edge features are 3-dimensional indicating the types of bonds.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 41,127</p></li>
+<li><p>Average Number of Nodes: 25.5</p></li>
+<li><p>Average Number of Edges: 27.5</p></li>
+<li><p>Number of Node Features: 9</p></li>
+<li><p>Number of Edge Features: 3</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Domain-IL with 20 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">wu2018moleculenet</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">MoleculeNet</span><span class="p">:</span> <span class="n">a</span> <span class="n">benchmark</span> <span class="k">for</span> <span class="n">molecular</span> <span class="n">machine</span> <span class="n">learning</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Wu</span><span class="p">,</span> <span class="n">Zhenqin</span> <span class="ow">and</span> <span class="n">Ramsundar</span><span class="p">,</span> <span class="n">Bharath</span> <span class="ow">and</span> <span class="n">Feinberg</span><span class="p">,</span> <span class="n">Evan</span> <span class="n">N</span> <span class="ow">and</span> <span class="n">Gomes</span><span class="p">,</span> <span class="n">Joseph</span> <span class="ow">and</span> <span class="n">Geniesse</span><span class="p">,</span> <span class="n">Caleb</span> <span class="ow">and</span> <span class="n">Pappu</span><span class="p">,</span> <span class="n">Aneesh</span> <span class="n">S</span> <span class="ow">and</span> <span class="n">Leswing</span><span class="p">,</span> <span class="n">Karl</span> <span class="ow">and</span> <span class="n">Pande</span><span class="p">,</span> <span class="n">Vijay</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">Chemical</span> <span class="n">science</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">9</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">513</span><span class="o">--</span><span class="mi">530</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2018</span><span class="p">},</span>
+  <span class="n">publisher</span><span class="o">=</span><span class="p">{</span><span class="n">Royal</span> <span class="n">Society</span> <span class="n">of</span> <span class="n">Chemistry</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@misc</span><span class="p">{</span><span class="n">landrum2006rdkit</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">RDKit</span><span class="p">:</span> <span class="n">Open</span><span class="o">-</span><span class="n">source</span> <span class="n">cheminformatics</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Landrum</span><span class="p">,</span> <span class="n">Greg</span> <span class="ow">and</span> <span class="n">others</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2006</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">@inproceedings</span><span class="p">{</span><span class="n">hu2020open</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Open</span> <span class="n">graph</span> <span class="n">benchmark</span><span class="p">:</span> <span class="n">datasets</span> <span class="k">for</span> <span class="n">machine</span> <span class="n">learning</span> <span class="n">on</span> <span class="n">graphs</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Hu</span><span class="p">,</span> <span class="n">Weihua</span> <span class="ow">and</span> <span class="n">Fey</span><span class="p">,</span> <span class="n">Matthias</span> <span class="ow">and</span> <span class="n">Zitnik</span><span class="p">,</span> <span class="n">Marinka</span> <span class="ow">and</span> <span class="n">Dong</span><span class="p">,</span> <span class="n">Yuxiao</span> <span class="ow">and</span> <span class="n">Ren</span><span class="p">,</span> <span class="n">Hongyu</span> <span class="ow">and</span> <span class="n">Liu</span><span class="p">,</span> <span class="n">Bowen</span> <span class="ow">and</span> <span class="n">Catasta</span><span class="p">,</span> <span class="n">Michele</span> <span class="ow">and</span> <span class="n">Leskovec</span><span class="p">,</span> <span class="n">Jure</span><span class="p">},</span>
+  <span class="n">booktitle</span><span class="o">=</span><span class="p">{</span><span class="n">NeurIPS</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2020</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="nyc-taxi">
+<h2>NYC-Taxi<a class="headerlink" href="#nyc-taxi" title="Permalink to this heading"></a></h2>
+<p>Each graph in <a class="reference external" href="https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page">NYC-Taxi</a> shows the amount of taxi traffic between locations in New York City
+during an hour in 2021. Specifically, nodes are locations, and there exist a directed edge between
+two nodes if there existed a taxi customer between them during an hour. The number of such
+customers is used as the edge weight. The date and time of the corresponding taxi traffic are
+used to partition the graphs into 12 groups for Time-IL. The binary class of each graph indicates
+whether it indicates taxi traffic on weekdays (Mon.-Fri.) or weekends (Sat.-Sun.).
+The node features indicate the position of the locations, among “Bronx”, “Brooklyn”, “EWR”, “Manhattan”, “Queens”, “Staten Island”, and “Unknown”.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 8,760</p></li>
+<li><p>Average Number of Nodes: 265.0</p></li>
+<li><p>Average Number of Edges: 1597.8</p></li>
+<li><p>Number of Node Features: 7</p></li>
+<li><p>Number of Edge Features: 1</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Time-IL with 12 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@misc</span><span class="p">{</span><span class="n">nyctaxi</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">TLC</span> <span class="n">Trip</span> <span class="n">Record</span> <span class="n">Data</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{{</span><span class="n">NYC</span> <span class="n">Taxi</span> \<span class="o">&amp;</span> <span class="n">Limousine</span> <span class="n">Commission</span><span class="p">}},</span>
+  <span class="n">howpublished</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">nyc</span><span class="o">.</span><span class="n">gov</span><span class="o">/</span><span class="n">site</span><span class="o">/</span><span class="n">tlc</span><span class="o">/</span><span class="n">about</span><span class="o">/</span><span class="n">tlc</span><span class="o">-</span><span class="n">trip</span><span class="o">-</span><span class="n">record</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">page</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="ogbg-ppa">
+<h2>ogbg-ppa<a class="headerlink" href="#ogbg-ppa" title="Permalink to this heading"></a></h2>
+<p>Graphs in <a class="reference external" href="https://ogb.stanford.edu/docs/graphprop/#ogbg-ppa">ogbg-ppa</a> are protein-protein interactions. For Domain-IL, we formulate multi-class classification problem with $37$ classes to predict what taxonomic groups of species the graph comes from. The dataset is sampled so that there are $11$ species for each taxonomic group and $100$ graphs for each species. We formulate $11$ tasks, and each task was formulated to contain graphs of exactly one species per group so that there is no duplicated graph among the tasks. Since there is no external node feature, we use in-degrees
+and out-degrees as node features. According to OGB, the edges are associated with 7-dimensional features, where each element takes a value between 0 and 1 and represents the approximate confidence of a particular type of protein protein association such as gene co-occurrence, gene fusion events, and co-expression.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 40,700</p></li>
+<li><p>Average Number of Nodes: 243.4</p></li>
+<li><p>Average Number of Edges: 2266.1</p></li>
+<li><p>Number of Node Features: 2</p></li>
+<li><p>Number of Edge Features: 7</p></li>
+<li><p>Number of Classes: 37</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Domain-IL with 11 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>@inproceedings{hu2020open,
+  title={Open graph benchmark: datasets for machine learning on graphs},
+  author={Hu, Weihua and Fey, Matthias and Zitnik, Marinka and Dong, Yuxiao and Ren, Hongyu and Liu, Bowen and Catasta, Michele and Leskovec, Jure},
+  booktitle={NeurIPS},
+  year={2020}
+}
+
+@article{szklarczyk2019string,
+  title={STRING v11: protein--protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets},
+  author={Szklarczyk, Damian and Gable, Annika L and Lyon, David and Junge, Alexander and Wyder, Stefan and Huerta-Cepas, Jaime and Simonovic, Milan and Doncheva, Nadezhda T and Morris, John H and Bork, Peer and others},
+  journal={Nucleic Acids Research},
+  volume={47},
+  number={D1},
+  pages={D607--D613},
+  year={2019}
+}
+
+@techreport{hug2016new,
+  title={A new view of the tree of life. Nature Microbiology, 1 (5), 16048},
+  author={Hug, LA and Baker, BJ and Anantharaman, K and Brown, CT and Probst, AJ and Castelle, CJ and Banfield, JF},
+  year={2016},
+  institution={Retrieved 2021-11-04, from http://www. nature. com/articles/nmicrobiol201648~…}
+}
+
+@article{zitnik2019evolution,
+  title={Evolution of resilience in protein interactomes across the tree of life},
+  author={Zitnik, Marinka and Sosi{\v{c}}, Rok and Feldman, Marcus W and Leskovec, Jure},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={116},
+  number={10},
+  pages={4426--4433},
+  year={2019},
+  publisher={National Acad Sciences}
+}
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sentiment">
+<h2>sentiment<a class="headerlink" href="#sentiment" title="Permalink to this heading"></a></h2>
+<p>Graphs in <a class="reference external" href="http://help.sentiment140.com/for-students">sentiment</a> are parsed dependency tree from tweets. Specifically, we used SpaCy
+library to parse the dependency trees of tokens and obtain the node embeddings of the trees. The
+binary class of each graph indicates whether the sentiment in tweet is positive or negative. For
+Time-IL, we formulate 11 tasks according to the timestamps of the tweets. Specifically, we constructed the tasks with the tweets posted in the same day.</p>
+<p>Statistics:</p>
+<ul>
+<li><p>Number of Graphs: 5,500</p></li>
+<li><p>Average Number of Nodes: 13.43</p></li>
+<li><p>Average Number of Edges: 23.71</p></li>
+<li><p>Number of Node Features: 300</p></li>
+<li><p>Number of Edge Features: 0</p></li>
+<li><p>Number of Classes: 2</p></li>
+<li><p>Supported Incremental Settings:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Time-IL with 11 tasks</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Citing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@article</span><span class="p">{</span><span class="n">go2009twitter</span><span class="p">,</span>
+  <span class="n">title</span><span class="o">=</span><span class="p">{</span><span class="n">Twitter</span> <span class="n">sentiment</span> <span class="n">classification</span> <span class="n">using</span> <span class="n">distant</span> <span class="n">supervision</span><span class="p">},</span>
+  <span class="n">author</span><span class="o">=</span><span class="p">{</span><span class="n">Go</span><span class="p">,</span> <span class="n">Alec</span> <span class="ow">and</span> <span class="n">Bhayani</span><span class="p">,</span> <span class="n">Richa</span> <span class="ow">and</span> <span class="n">Huang</span><span class="p">,</span> <span class="n">Lei</span><span class="p">},</span>
+  <span class="n">journal</span><span class="o">=</span><span class="p">{</span><span class="n">CS224N</span> <span class="n">project</span> <span class="n">report</span><span class="p">,</span> <span class="n">Stanford</span><span class="p">},</span>
+  <span class="n">volume</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span>
+  <span class="n">number</span><span class="o">=</span><span class="p">{</span><span class="mi">12</span><span class="p">},</span>
+  <span class="n">pages</span><span class="o">=</span><span class="p">{</span><span class="mi">2009</span><span class="p">},</span>
+  <span class="n">year</span><span class="o">=</span><span class="p">{</span><span class="mi">2009</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="link_dataset.html" class="btn btn-neutral float-left" title="Datasets for Link-Level Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../030/common.html" class="btn btn-neutral float-right" title="Common framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

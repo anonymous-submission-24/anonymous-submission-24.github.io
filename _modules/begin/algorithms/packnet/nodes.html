@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.algorithms.packnet.nodes &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.algorithms.packnet.nodes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.algorithms.packnet.nodes</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">begin.trainers.nodes</span> <span class="kn">import</span> <span class="n">NCTrainer</span>
+
+<div class="viewcode-block" id="NCTaskILPackNetTrainer"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer">[docs]</a><span class="k">class</span> <span class="nc">NCTaskILPackNetTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+<div class="viewcode-block" id="NCTaskILPackNetTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="n">model_masks</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">pr</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;convs&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">model_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;pr&#39;</span><span class="p">:</span> <span class="n">pr</span><span class="p">,</span> <span class="s1">&#39;packnet_masks&#39;</span><span class="p">:</span> <span class="n">model_masks</span><span class="p">,</span> <span class="s1">&#39;class_to_task&#39;</span><span class="p">:</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">classifier</span><span class="o">.</span><span class="n">num_outputs</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)}</span></div>
+    
+<div class="viewcode-block" id="NCTaskILPackNetTrainer.inference"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute inference step.</span>
+<span class="sd">        </span>
+<span class="sd">            For task-IL, we need to additionally consider task information for the inference step.</span>
+<span class="sd">        </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the inference results, such as prediction result and loss.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">task_masks</span><span class="o">=</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;preds&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div>
+    
+<div class="viewcode-block" id="NCTaskILPackNetTrainer.processBeforeTraining"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer.processBeforeTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processBeforeTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes before training.</span>
+<span class="sd">            </span>
+<span class="sd">            PackNet masks the parameters of the model depending on the current magnitude of parameters in this function.</span>
+<span class="sd">                   </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># fix batchnorm parameters</span>
+        <span class="k">def</span> <span class="nf">set_bn_eval</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">):</span>
+                <span class="n">m</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processBeforeTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># initialize masks</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">packnet_masks</span> <span class="o">=</span> <span class="n">curr_training_states</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;packnet_masks&#39;</span><span class="p">)</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">class_to_task</span> <span class="o">=</span> <span class="n">curr_training_states</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;class_to_task&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># fix batchnorm parameters</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;norms&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+                    
+        <span class="c1"># detect new classes    </span>
+        <span class="n">new_classes</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">][</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">curr_model</span><span class="o">.</span><span class="n">class_to_task</span><span class="p">[</span><span class="n">new_classes</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span>
+        
+        <span class="c1"># pre-training (10% of number of training epochs)</span>
+        <span class="n">trainset</span><span class="p">,</span> <span class="n">valset</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepareLoader</span><span class="p">(</span><span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">pre_scheduler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheduler_fn</span><span class="p">(</span><span class="n">curr_optimizer</span><span class="p">)</span>
+        <span class="n">best_val_loss</span> <span class="o">=</span> <span class="mf">1e10</span>
+        <span class="n">pre_checkpoint</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">curr_model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">epoch_cnt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_num_epochs</span> <span class="o">//</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">curr_model</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">set_bn_eval</span><span class="p">)</span>
+            <span class="n">train_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">processTrainIteration</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">trainset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">curr_training_states</span><span class="p">,</span> <span class="n">use_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">val_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">processEvalIteration</span><span class="p">(</span><span class="n">curr_model</span><span class="p">,</span> <span class="n">valset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">use_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">val_loss</span> <span class="o">=</span> <span class="n">val_dict</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">val_loss</span> <span class="o">&lt;</span> <span class="n">best_val_loss</span><span class="p">:</span>
+                <span class="n">best_val_loss</span> <span class="o">=</span> <span class="n">val_loss</span>
+                <span class="n">pre_checkpoint</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">curr_model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">())</span>
+            <span class="n">pre_scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">val_loss</span><span class="p">)</span>
+            <span class="k">if</span> <span class="o">-</span><span class="mf">1e-9</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">curr_optimizer</span><span class="o">.</span><span class="n">param_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pre_scheduler</span><span class="o">.</span><span class="n">min_lrs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">:</span>
+                <span class="k">break</span>
+                
+        <span class="c1"># select parameters and perform masking</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="n">curr_model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">pre_checkpoint</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;convs&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">candidates</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="p">)[</span><span class="n">curr_model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span><span class="p">]</span>
+                        <span class="n">threshold</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">candidates</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">candidates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;pr&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+                        <span class="n">accept_criteria</span> <span class="o">=</span> <span class="p">(</span><span class="n">curr_model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_tasks</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="n">accept_criteria</span> <span class="o">&amp;=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span>
+                        <span class="n">curr_model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">accept_criteria</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span>
+                        <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">curr_model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                    
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s1">&#39;norms&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">p</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processBeforeTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="NCTaskILPackNetTrainer.afterInference"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">,</span> <span class="n">use_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            In this function, PackNet weights gradients of parametrs according to &#39;packnet_masks&#39;.</span>
+<span class="sd">            For this, Packnet additionally needs &#39;use_mask&#39; parameter.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                use_mask (bool): whether model masks weights of the model.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">use_mask</span><span class="p">:</span>
+            <span class="c1"># flow gradients only for masked ones</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;convs&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">*</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># flow gradients only for unmasked ones (pre-training)</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;convs&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">*</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">_curr_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="NCTaskILPackNetTrainer.processTrainIteration"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer.processTrainIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processTrainIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">,</span> <span class="n">use_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to handle every training iteration.</span>
+<span class="sd">        </span>
+<span class="sd">            PackNet additionally needs &#39;use_mask&#39; parameter.</span>
+<span class="sd">        </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                use_mask (bool): whether model masks weights of the model.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the outcomes (stats) during the training iteration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># freeze running variables of batchnorms</span>
+        <span class="k">if</span> <span class="n">use_mask</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">set_bn_eval</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">):</span>
+                    <span class="n">m</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">set_bn_eval</span><span class="p">)</span>
+        
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beforeInference</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">)</span>
+        <span class="n">inference_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">afterInference</span><span class="p">(</span><span class="n">inference_results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">,</span> <span class="n">use_mask</span><span class="o">=</span><span class="n">use_mask</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="NCTaskILPackNetTrainer.processEvalIteration"><a class="viewcode-back" href="../../../../050/packnet.html#begin.algorithms.packnet.nodes.NCTaskILPackNetTrainer.processEvalIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processEvalIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">use_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to handle every evaluation iteration.</span>
+<span class="sd">            </span>
+<span class="sd">            We need to extend the base function since the output format is slightly different from the base trainer.</span>
+<span class="sd">            </span>
+<span class="sd">            PackNet additionally needs &#39;use_mask&#39; parameter.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                use_mask (bool): whether model masks weights of the model.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the outcomes (stats) during the evaluation iteration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1"># classify each sample by its task-id</span>
+        <span class="n">eval_model</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">task_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">class_to_task</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">task_checks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">class_to_task</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">test_nodes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">task_ids</span><span class="p">[</span><span class="n">task_checks</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span>
+        <span class="n">num_samples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">task_ids</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+        <span class="n">total_results</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">test_nodes</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.</span>
+        
+        <span class="c1"># handle the samples with different tasks separately</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_task</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">num_samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">use_mask</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">eval_model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="s1">&#39;convs&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                        <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">packnet_masks</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+
+            <span class="n">eval_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">eval_mask</span><span class="p">[</span><span class="n">test_nodes</span><span class="p">[</span><span class="n">task_ids</span> <span class="o">==</span> <span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">eval_model</span><span class="p">,</span> <span class="p">(</span><span class="n">curr_batch</span><span class="p">,</span> <span class="n">eval_mask</span><span class="o">.</span><span class="n">bool</span><span class="p">()),</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">total_results</span><span class="p">[</span><span class="n">task_ids</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">num_samples</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">total_loss</span> <span class="o">/=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">num_samples</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">total_results</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">total_loss</span><span class="p">}</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

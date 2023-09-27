@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>begin.algorithms.ergnn.nodes &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/performance.html">Basic Performance Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../060/metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">begin.algorithms.ergnn.nodes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for begin.algorithms.ergnn.nodes</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">dgl</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">begin.trainers.nodes</span> <span class="kn">import</span> <span class="n">NCTrainer</span><span class="p">,</span> <span class="n">NCMinibatchTrainer</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="NCTaskILERGNNTrainer"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTaskILERGNNTrainer">[docs]</a><span class="k">class</span> <span class="nc">NCTaskILERGNNTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            `num_experience_nodes` is the hyperparameter for size of the memory.</span>
+<span class="sd">            `sampler_name` is the hyperparamter for selecting the sampler.</span>
+<span class="sd">            `distance_threshold` is the hyperparameter about distances of embeddings used in the sampler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;num_experience_nodes&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;num_experience_nodes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sampler_name&#39;</span><span class="p">]</span>  <span class="k">if</span> <span class="s1">&#39;sampler_name&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;CM&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;distance_threshold&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;distance_threshold&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">0.5</span>
+        
+<div class="viewcode-block" id="NCTaskILERGNNTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTaskILERGNNTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            ERGNN requires node sampler. We use CM sampler as the default sampler.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                scenario (begin.scenarios.common.BaseScenarioLoader): the given ScenarioLoader to the trainer</span>
+<span class="sd">                model (torch.nn.Module): the given model to the trainer</span>
+<span class="sd">                optmizer (torch.optim.Optimizer): the optimizer generated from the given `optimizer_fn` </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                Initialized training state (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sampler_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CM&#39;</span><span class="p">:</span> <span class="n">CM_sampler</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">:</span> <span class="n">MF_sampler</span><span class="p">,</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="n">random_sampler</span><span class="p">}</span>
+        <span class="n">_samp</span> <span class="o">=</span> <span class="n">sampler_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]](</span><span class="n">plus</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_plus&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span><span class="p">))</span> 
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;sampler&#39;</span><span class="p">:</span> <span class="n">_samp</span><span class="p">,</span> <span class="s1">&#39;buffered_nodes&#39;</span><span class="p">:[]}</span></div>
+    
+<div class="viewcode-block" id="NCTaskILERGNNTrainer.inference"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTaskILERGNNTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            ERGNN requires node sampler. We use CM sampler as the default sampler.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                scenario (begin.scenarios.common.BaseScenarioLoader): the given ScenarioLoader to the trainer</span>
+<span class="sd">                model (torch.nn.Module): the given model to the trainer</span>
+<span class="sd">                optmizer (torch.optim.Optimizer): the optimizer generated from the given `optimizer_fn` </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                Initialized training state (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">task_masks</span><span class="o">=</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;task_specific_mask&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;preds&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;preds_full&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">}</span></div>
+    
+<div class="viewcode-block" id="NCTaskILERGNNTrainer.afterInference"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTaskILERGNNTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN additionally computes the loss from the buffered nodes and applies it to backpropagation.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">buffer_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="n">buffer_size</span><span class="o">/</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">+</span><span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            <span class="n">buffered_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">buffered_mask</span><span class="p">[</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.</span>
+            <span class="n">buffered_mask</span> <span class="o">=</span> <span class="n">buffered_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+            <span class="n">buffered_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds_full&#39;</span><span class="p">][</span><span class="n">buffered_mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">buffered_mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span> <span class="o">*</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">buffered_loss</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="NCTaskILERGNNTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTaskILERGNNTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN selects nodes using the sampler and stores them in the buffer.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">train_nodes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_classes</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_ids_per_class</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_idx</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_nodes</span><span class="p">[</span><span class="n">_idx</span><span class="p">])</span>
+        <span class="n">ids_per_cls_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train_ids_per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">sampled_ids</span> <span class="o">=</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;sampler&#39;</span><span class="p">](</span><span class="n">ids_per_cls_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">],</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">last_h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sampled_ids</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="NCClassILERGNNTrainer"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNTrainer">[docs]</a><span class="k">class</span> <span class="nc">NCClassILERGNNTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            `num_experience_nodes` is the hyperparameter for size of the memory.</span>
+<span class="sd">            `sampler_name` is the hyperparamter for selecting the sampler.</span>
+<span class="sd">            `distance_threshold` is the hyperparameter about distances of embeddings used in the sampler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;num_experience_nodes&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;num_experience_nodes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sampler_name&#39;</span><span class="p">]</span>  <span class="k">if</span> <span class="s1">&#39;sampler_name&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;CM&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;distance_threshold&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;distance_threshold&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">0.5</span>
+        
+<div class="viewcode-block" id="NCClassILERGNNTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            ERGNN requires node sampler. We use CM sampler as the default sampler.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                scenario (begin.scenarios.common.BaseScenarioLoader): the given ScenarioLoader to the trainer</span>
+<span class="sd">                model (torch.nn.Module): the given model to the trainer</span>
+<span class="sd">                optmizer (torch.optim.Optimizer): the optimizer generated from the given `optimizer_fn` </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                Initialized training state (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sampler_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CM&#39;</span><span class="p">:</span> <span class="n">CM_sampler</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">:</span> <span class="n">MF_sampler</span><span class="p">,</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="n">random_sampler</span><span class="p">}</span>
+        <span class="n">_samp</span> <span class="o">=</span> <span class="n">sampler_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]](</span><span class="n">plus</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_plus&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span><span class="p">))</span> 
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;sampler&#39;</span><span class="p">:</span> <span class="n">_samp</span><span class="p">,</span> <span class="s1">&#39;buffered_nodes&#39;</span><span class="p">:[]}</span></div>
+    
+<div class="viewcode-block" id="NCClassILERGNNTrainer.inference"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;preds&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span> <span class="s1">&#39;preds_full&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">}</span></div>
+    
+<div class="viewcode-block" id="NCClassILERGNNTrainer.afterInference"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN additionally computes the loss from the buffered nodes and applies it to backpropagation.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">buffer_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="n">buffer_size</span><span class="o">/</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">+</span><span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            <span class="n">buffered_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">buffered_mask</span><span class="p">[</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.</span>
+            <span class="n">buffered_mask</span> <span class="o">=</span> <span class="n">buffered_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+            <span class="n">buffered_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds_full&#39;</span><span class="p">][</span><span class="n">buffered_mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">buffered_mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span> <span class="o">*</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">buffered_loss</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="NCClassILERGNNTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN selects nodes using the sampler and stores them in the buffer.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">train_nodes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_classes</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_ids_per_class</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_idx</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_nodes</span><span class="p">[</span><span class="n">_idx</span><span class="p">])</span>
+        <span class="n">ids_per_cls_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train_ids_per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">sampled_ids</span> <span class="o">=</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;sampler&#39;</span><span class="p">](</span><span class="n">ids_per_cls_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">],</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">last_h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sampled_ids</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="NCClassILERGNNMinibatchTrainer"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNMinibatchTrainer">[docs]</a><span class="k">class</span> <span class="nc">NCClassILERGNNMinibatchTrainer</span><span class="p">(</span><span class="n">NCMinibatchTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            `num_experience_nodes` is the hyperparameter for size of the memory.</span>
+<span class="sd">            `sampler_name` is the hyperparamter for selecting the sampler.</span>
+<span class="sd">            `distance_threshold` is the hyperparameter about distances of embeddings used in the sampler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;num_experience_nodes&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;num_experience_nodes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sampler_name&#39;</span><span class="p">]</span>  <span class="k">if</span> <span class="s1">&#39;sampler_name&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;CM&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;distance_threshold&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;distance_threshold&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">0.5</span>
+        
+<div class="viewcode-block" id="NCClassILERGNNMinibatchTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNMinibatchTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            ERGNN requires node sampler. We use CM sampler as the default sampler.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                scenario (begin.scenarios.common.BaseScenarioLoader): the given ScenarioLoader to the trainer</span>
+<span class="sd">                model (torch.nn.Module): the given model to the trainer</span>
+<span class="sd">                optmizer (torch.optim.Optimizer): the optimizer generated from the given `optimizer_fn` </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                Initialized training state (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sampler_list</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CM&#39;</span><span class="p">:</span> <span class="n">CM_sampler</span><span class="p">,</span> <span class="s1">&#39;MF&#39;</span><span class="p">:</span> <span class="n">MF_sampler</span><span class="p">,</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="n">random_sampler</span><span class="p">}</span>
+        <span class="n">_samp</span> <span class="o">=</span> <span class="n">sampler_list</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]](</span><span class="n">plus</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_plus&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span><span class="p">))</span> 
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;sampler&#39;</span><span class="p">:</span> <span class="n">_samp</span><span class="p">,</span> <span class="s1">&#39;buffered_nodes&#39;</span><span class="p">:[]}</span></div>
+    
+<div class="viewcode-block" id="NCClassILERGNNMinibatchTrainer.inference"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNMinibatchTrainer.inference">[docs]</a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="n">input_nodes</span><span class="p">,</span> <span class="n">output_nodes</span><span class="p">,</span> <span class="n">blocks</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">blocks</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">]</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dstdata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">bforward</span><span class="p">(</span><span class="n">blocks</span><span class="p">,</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">srcdata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">training_states</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;saved_feats&#39;</span><span class="p">][</span><span class="n">output_nodes</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">last_h</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;preds&#39;</span><span class="p">:</span> <span class="n">preds</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span></div>
+    
+<div class="viewcode-block" id="NCClassILERGNNMinibatchTrainer.processBeforeTraining"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNMinibatchTrainer.processBeforeTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processBeforeTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processBeforeTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;saved_feats&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">num_nodes</span><span class="p">(),</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">n_hidden</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="NCClassILERGNNMinibatchTrainer.afterInference"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNMinibatchTrainer.afterInference">[docs]</a>    <span class="k">def</span> <span class="nf">afterInference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes right after the inference step (for training).</span>
+<span class="sd">            We recommend performing backpropagation in this event function.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN additionally computes the loss from the buffered nodes and applies it to backpropagation.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                results (dict): the returned dictionary from the event function `inference`.</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the information from the `results`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">buffer_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="n">buffer_size</span><span class="o">/</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">+</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">_buf_batch</span> <span class="ow">in</span> <span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_loader&#39;</span><span class="p">]:</span>
+                <span class="n">buf_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">_buf_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">)</span>
+            <span class="n">buffered_loss</span> <span class="o">=</span> <span class="n">buf_results</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span> <span class="o">*</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">buffered_loss</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span>
+                <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;preds&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">_curr_batch</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dstdata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="NCClassILERGNNMinibatchTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCClassILERGNNMinibatchTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN selects nodes using the sampler and stores them in the buffer.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">train_nodes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_classes</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_ids_per_class</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_idx</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_nodes</span><span class="p">[</span><span class="n">_idx</span><span class="p">])</span>
+        <span class="n">ids_per_cls_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train_ids_per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">sampled_ids</span> <span class="o">=</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;sampler&#39;</span><span class="p">](</span><span class="n">ids_per_cls_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">],</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;saved_feats&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sampled_ids</span><span class="p">)</span>
+        
+        <span class="n">g_buf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span>
+        <span class="n">g_buf</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">buf_sampler</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">dataloading</span><span class="o">.</span><span class="n">MultiLayerNeighborSampler</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+        <span class="n">buf_loader</span> <span class="o">=</span> <span class="n">dgl</span><span class="o">.</span><span class="n">dataloading</span><span class="o">.</span><span class="n">NodeDataLoader</span><span class="p">(</span>
+            <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">],</span> <span class="n">buf_sampler</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="mi">131072</span><span class="p">,</span>
+            <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">drop_last</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">num_workers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">worker_init_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataloader_seed_worker</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">g_buf</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;buffered_loader&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf_loader</span></div></div>
+        
+<div class="viewcode-block" id="NCDomainILERGNNTrainer"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCDomainILERGNNTrainer">[docs]</a><span class="k">class</span> <span class="nc">NCDomainILERGNNTrainer</span><span class="p">(</span><span class="n">NCTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            `num_experience_nodes` is the hyperparameter for size of the memory.</span>
+<span class="sd">            `sampler_name` is the hyperparamter for selecting the sampler.</span>
+<span class="sd">            `distance_threshold` is the hyperparameter about distances of embeddings used in the sampler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;num_experience_nodes&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;num_experience_nodes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sampler_name&#39;</span><span class="p">]</span>  <span class="k">if</span> <span class="s1">&#39;sampler_name&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;CM&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;distance_threshold&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;distance_threshold&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">0.5</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+        
+<div class="viewcode-block" id="NCTimeILERGNNTrainer"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTimeILERGNNTrainer">[docs]</a><span class="k">class</span> <span class="nc">NCTimeILERGNNTrainer</span><span class="p">(</span><span class="n">NCClassILERGNNTrainer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            `num_experience_nodes` is the hyperparameter for size of the memory.</span>
+<span class="sd">            `sampler_name` is the hyperparamter for selecting the sampler.</span>
+<span class="sd">            `distance_threshold` is the hyperparameter about distances of embeddings used in the sampler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">optimizer_fn</span><span class="p">,</span> <span class="n">loss_fn</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;num_experience_nodes&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;num_experience_nodes&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sampler_name&#39;</span><span class="p">]</span>  <span class="k">if</span> <span class="s1">&#39;sampler_name&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="s1">&#39;CM&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;distance_threshold&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;distance_threshold&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="mf">0.5</span>
+        
+<div class="viewcode-block" id="NCTimeILERGNNTrainer.processTrainIteration"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTimeILERGNNTrainer.processTrainIteration">[docs]</a>    <span class="k">def</span> <span class="nf">processTrainIteration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">_curr_batch</span><span class="p">,</span> <span class="n">training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to handle every training iteration.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN additionally computes the loss from the buffered nodes and applies it to backpropagation.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_batch (object): the data (or minibatch) for the current iteration.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                A dictionary containing the outcomes (stats) during the training iteration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">curr_batch</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_curr_batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">buffer_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">])</span>
+            <span class="n">beta</span> <span class="o">=</span> <span class="n">buffer_size</span><span class="o">/</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">+</span><span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            <span class="n">buffered_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">buffered_mask</span><span class="p">[</span><span class="n">training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.</span>
+            <span class="n">buffered_mask</span> <span class="o">=</span> <span class="n">buffered_mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+            <span class="n">buffered_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="n">buffered_mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">buffered_mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">beta</span><span class="p">)</span> <span class="o">*</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">buffered_loss</span>
+            
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>        
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">curr_batch</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">))}</span></div>
+    
+<div class="viewcode-block" id="NCTimeILERGNNTrainer.initTrainingStates"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTimeILERGNNTrainer.initTrainingStates">[docs]</a>    <span class="k">def</span> <span class="nf">initTrainingStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenario</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            ERGNN requires node sampler. We use CM sampler as the default sampler.</span>
+<span class="sd">            </span>
+<span class="sd">            Args:</span>
+<span class="sd">                scenario (begin.scenarios.common.BaseScenarioLoader): the given ScenarioLoader to the trainer</span>
+<span class="sd">                model (torch.nn.Module): the given model to the trainer</span>
+<span class="sd">                optmizer (torch.optim.Optimizer): the optimizer generated from the given `optimizer_fn` </span>
+<span class="sd">                </span>
+<span class="sd">            Returns:</span>
+<span class="sd">                Initialized training state (dict).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_samp</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">==</span> <span class="s1">&#39;CM&#39;</span><span class="p">:</span>
+            <span class="n">_samp</span> <span class="o">=</span> <span class="n">CM_sampler</span><span class="p">(</span><span class="n">plus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">==</span> <span class="s1">&#39;CM_plus&#39;</span><span class="p">:</span>
+            <span class="n">_samp</span> <span class="o">=</span> <span class="n">CM_sampler</span><span class="p">(</span><span class="n">plus</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">==</span> <span class="s1">&#39;MF&#39;</span><span class="p">:</span>
+            <span class="n">_samp</span> <span class="o">=</span> <span class="n">MF_sampler</span><span class="p">(</span><span class="n">plus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">==</span> <span class="s1">&#39;MF_plus&#39;</span><span class="p">:</span>
+            <span class="n">_samp</span> <span class="o">=</span> <span class="n">MF_sampler</span><span class="p">(</span><span class="n">plus</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampler_name</span> <span class="o">==</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+            <span class="n">_samp</span> <span class="o">=</span> <span class="n">random_sampler</span><span class="p">(</span><span class="n">plus</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;sampler&#39;</span><span class="p">:</span> <span class="n">_samp</span><span class="p">,</span> <span class="s1">&#39;buffered_nodes&#39;</span><span class="p">:[]}</span></div>
+    
+<div class="viewcode-block" id="NCTimeILERGNNTrainer.processAfterTraining"><a class="viewcode-back" href="../../../../050/ergnn.html#begin.algorithms.ergnn.nodes.NCTimeILERGNNTrainer.processAfterTraining">[docs]</a>    <span class="k">def</span> <span class="nf">processAfterTraining</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            The event function to execute some processes after training the current task.</span>
+<span class="sd">            </span>
+<span class="sd">            ERGNN selects nodes using the sampler and stores them in the buffer.</span>
+<span class="sd">                </span>
+<span class="sd">            Args:</span>
+<span class="sd">                task_id (int): the index of the current task.</span>
+<span class="sd">                curr_dataset (object): The dataset for the current task.</span>
+<span class="sd">                curr_model (torch.nn.Module): the current trained model.</span>
+<span class="sd">                curr_optimizer (torch.optim.Optimizer): the current optimizer function.</span>
+<span class="sd">                curr_training_states (dict): the dictionary containing the current training states.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">processAfterTraining</span><span class="p">(</span><span class="n">task_id</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="p">,</span> <span class="n">curr_model</span><span class="p">,</span> <span class="n">curr_optimizer</span><span class="p">,</span> <span class="n">curr_training_states</span><span class="p">)</span>
+        <span class="n">train_nodes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_classes</span> <span class="o">=</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;train_mask&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_ids_per_class</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">_idx</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_classes</span><span class="p">):</span>
+            <span class="n">train_ids_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_nodes</span><span class="p">[</span><span class="n">_idx</span><span class="p">])</span>
+        <span class="n">ids_per_cls_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train_ids_per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">sampled_ids</span> <span class="o">=</span> <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;sampler&#39;</span><span class="p">](</span><span class="n">ids_per_cls_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_experience_nodes</span><span class="p">,</span> <span class="n">curr_dataset</span><span class="o">.</span><span class="n">ndata</span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">],</span> <span class="n">curr_model</span><span class="o">.</span><span class="n">last_h</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance_threshold</span><span class="p">,</span> <span class="n">incr_type</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="n">curr_training_states</span><span class="p">[</span><span class="s1">&#39;buffered_nodes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sampled_ids</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

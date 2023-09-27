@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Performance Metrics &mdash; BeGin 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Metrics for CL" href="metric.html" />
+    <link rel="prev" title="HAT" href="../050/hat.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../000/install.html">Install and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../000/load.html">Load Custom Scenarios</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Datasets</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../010/node_dataset.html">Datasets for Node-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/link_dataset.html">Datasets for Link-Level Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../010/graph_dataset.html">Datasets for Graph-Level Problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Scenarios</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../030/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../030/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Trainer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../040/common.html">Common framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/node.html">Node-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/link.html">Link-level problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../040/graph.html">Graph-level problems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Continual Learning Methods</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../050/bare.html">Bare Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/lwf.html">LwF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ewc.html">EWC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/mas.html">MAS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/gem.html">GEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/twp.html">TWP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/ergnn.html">ER-GNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/cgnn.html">ContinualGNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/packnet.html">PackNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/piggyback.html">Piggyback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../050/hat.html">HAT</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Evaluator</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Performance Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#baseevaluator">BaseEvaluator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.evaluators.BaseEvaluator"><code class="docutils literal notranslate"><span class="pre">BaseEvaluator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.evaluators.BaseEvaluator.simple_eval"><code class="docutils literal notranslate"><span class="pre">BaseEvaluator.simple_eval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#accuracy">Accuracy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.evaluators.AccuracyEvaluator"><code class="docutils literal notranslate"><span class="pre">AccuracyEvaluator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.evaluators.AccuracyEvaluator.simple_eval"><code class="docutils literal notranslate"><span class="pre">AccuracyEvaluator.simple_eval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rocauc">ROCAUC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.evaluators.ROCAUCEvaluator"><code class="docutils literal notranslate"><span class="pre">ROCAUCEvaluator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.evaluators.ROCAUCEvaluator.simple_eval"><code class="docutils literal notranslate"><span class="pre">ROCAUCEvaluator.simple_eval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hits-k">HITS&#64;K</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#begin.evaluators.HitsEvaluator"><code class="docutils literal notranslate"><span class="pre">HitsEvaluator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#begin.evaluators.HitsEvaluator.simple_eval"><code class="docutils literal notranslate"><span class="pre">HitsEvaluator.simple_eval()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metric.html">Metrics for CL</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utils</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../070/linear.html">AdaptiveLinear</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BeGin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Performance Metrics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/060/performance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-performance-metrics">
+<h1>Basic Performance Metrics<a class="headerlink" href="#basic-performance-metrics" title="Permalink to this heading"></a></h1>
+<p>Our framework <code class="docutils literal notranslate"><span class="pre">BeGin</span></code> provides the evaluator, which computes basic metrics (specifically, accuracy, AUROC, and HITS&#64;K) based on the ground-truth and predicted answers for the queries in Q provided by the loader after each task is processed.
+The basic evaluator can easily be extended by users for additional basic metrics.</p>
+<section id="baseevaluator">
+<h2>BaseEvaluator<a class="headerlink" href="#baseevaluator" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.evaluators.BaseEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#BaseEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.BaseEvaluator" title="Permalink to this definition"></a></dt>
+<dd><p>Base class for evaluating the performance.
+Users can create their own evaluator by extending this class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_tasks</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The number of tasks in the target scenario.</p></li>
+<li><p><strong>task_ids</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – task ids of each instance.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.evaluators.BaseEvaluator.simple_eval">
+<span class="sig-name descname"><span class="pre">simple_eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#BaseEvaluator.simple_eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.BaseEvaluator.simple_eval" title="Permalink to this definition"></a></dt>
+<dd><p>Compute performance for the given batch when we ignore task configuration.
+During the training procedure, this function is called by the function get_simple_eval_result implemented in ScenarioLoaders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prediction</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>answer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – ground-truth answer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="accuracy">
+<h2>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.evaluators.AccuracyEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AccuracyEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#AccuracyEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.AccuracyEvaluator" title="Permalink to this definition"></a></dt>
+<dd><p>The evaluator for computing accuracy.</p>
+<p>Bases: <code class="docutils literal notranslate"><span class="pre">BaseEvaluator</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.evaluators.AccuracyEvaluator.simple_eval">
+<span class="sig-name descname"><span class="pre">simple_eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#AccuracyEvaluator.simple_eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.AccuracyEvaluator.simple_eval" title="Permalink to this definition"></a></dt>
+<dd><p>Compute performance for the given batch when we ignore task configuration.
+During the training procedure, this function is called by the function get_simple_eval_result implemented in ScenarioLoaders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prediction</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>answer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – ground-truth answer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="rocauc">
+<h2>ROCAUC<a class="headerlink" href="#rocauc" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.evaluators.ROCAUCEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ROCAUCEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#ROCAUCEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.ROCAUCEvaluator" title="Permalink to this definition"></a></dt>
+<dd><p>The evaluator for computing ROCAUC score.</p>
+<p>Bases: <code class="docutils literal notranslate"><span class="pre">BaseEvaluator</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.evaluators.ROCAUCEvaluator.simple_eval">
+<span class="sig-name descname"><span class="pre">simple_eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#ROCAUCEvaluator.simple_eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.ROCAUCEvaluator.simple_eval" title="Permalink to this definition"></a></dt>
+<dd><p>Compute performance for the given batch when we ignore task configuration.
+During the training procedure, this function is called by the function get_simple_eval_result implemented in ScenarioLoaders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prediction</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>answer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – ground-truth answer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<hr class="docutils" />
+<section id="hits-k">
+<h2>HITS&#64;K<a class="headerlink" href="#hits-k" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="begin.evaluators.HitsEvaluator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HitsEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#HitsEvaluator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.HitsEvaluator" title="Permalink to this definition"></a></dt>
+<dd><p>The evaluator for computing Hits&#64;K. This module inputs K, instead of task_ids as the second parameter.</p>
+<p>Bases: <code class="docutils literal notranslate"><span class="pre">BaseEvaluator</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="begin.evaluators.HitsEvaluator.simple_eval">
+<span class="sig-name descname"><span class="pre">simple_eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">answer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/begin/evaluators/evaluator.html#HitsEvaluator.simple_eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#begin.evaluators.HitsEvaluator.simple_eval" title="Permalink to this definition"></a></dt>
+<dd><p>Compute performance for the given batch when we ignore task configuration.
+During the training procedure, this function is called by the function get_simple_eval_result implemented in ScenarioLoaders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prediction</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – predicted output of the current model</p></li>
+<li><p><strong>answer</strong> (<a class="reference external" href="https://pytorch.org/docs/master/tensors.html#torch.Tensor" title="(in PyTorch vmaster (2.1.0a0+gitbe0b12e ))"><em>torch.Tensor</em></a>) – ground-truth answer</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../050/hat.html" class="btn btn-neutral float-left" title="HAT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="metric.html" class="btn btn-neutral float-right" title="Metrics for CL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anonymous.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
